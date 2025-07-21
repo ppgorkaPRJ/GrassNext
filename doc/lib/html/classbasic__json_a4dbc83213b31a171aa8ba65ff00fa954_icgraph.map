@@ -1,0 +1,11 @@
+<map id="basic_json::end" name="basic_json::end">
+<area shape="rect" id="Node000001" title="returns an iterator to one past the last element" alt="" coords="396,56,508,83"/>
+<area shape="rect" id="Node000002" href="$classbasic__json.html#a699ef418df577e75f28dfce6b04d6c2f" title="creates a diff as a JSON patch" alt="" coords="209,5,316,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="384,54,314,35,316,30,385,49"/>
+<area shape="rect" id="Node000003" href="$classbasic__json.html#a693812b31e106dec9166e93d8f6dd7d7" title="applies a JSON patch in&#45;place without copying the object" alt="" coords="177,56,348,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="380,72,349,72,349,67,380,67"/>
+<area shape="rect" id="Node000005" href="$classbasic__json.html#a3819f393e82396782ccc22785575b01d" title="updates a JSON object from another object, overwriting existing keys" alt="" coords="197,107,328,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="385,90,316,109,314,103,384,85"/>
+<area shape="rect" id="Node000004" href="$classbasic__json.html#a145a004c0a2fa5be84b260ecc98ab5d9" title="applies a JSON patch to a copy of the current object" alt="" coords="5,56,129,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="161,72,129,72,129,67,161,67"/>
+</map>

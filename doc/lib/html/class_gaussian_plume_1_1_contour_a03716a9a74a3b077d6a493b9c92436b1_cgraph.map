@@ -1,0 +1,5 @@
+<map id="GaussianPlume::Contour::toJson" name="GaussianPlume::Contour::toJson">
+<area shape="rect" id="Node000001" title="A method for converting threshold, color and contour points into a JSON format." alt="" coords="5,5,172,48"/>
+<area shape="rect" id="Node000002" href="$class_gaussian_plume_1_1_contour.html#a26ab9899249a58e1362f854ac17f24de" title="A method for converting contour point data into a JSON format." alt="" coords="220,5,386,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,24,204,24,204,29,172,29"/>
+</map>

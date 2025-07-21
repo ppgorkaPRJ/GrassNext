@@ -1,0 +1,11 @@
+<map id="detail::replace_substring" name="detail::replace_substring">
+<area shape="rect" id="Node000001" title="replace all occurrences of a substring by another string" alt="" coords="512,31,675,57"/>
+<area shape="rect" id="Node000002" href="$namespacedetail.html#af2a9ce4740e0b45d33129e2c8e53a0a8" title="string escaping as described in RFC 6901 (Sect. 4)" alt="" coords="362,31,464,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="497,47,465,47,465,41,497,41"/>
+<area shape="rect" id="Node000003" href="$classbasic__json.html#a699ef418df577e75f28dfce6b04d6c2f" title="creates a diff as a JSON patch" alt="" coords="193,5,301,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="346,37,301,29,301,24,347,31"/>
+<area shape="rect" id="Node000004" href="$classjson__pointer.html#a89528f614c6b3c387d71abfee814be50" title=" " alt="" coords="180,56,314,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="347,57,315,62,314,56,346,52"/>
+<area shape="rect" id="Node000005" href="$classbasic__json.html#a5cd6c211f030b109f7ef361250366bb0" title="return flattened JSON value" alt="" coords="5,56,132,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="164,72,132,72,132,67,164,67"/>
+</map>

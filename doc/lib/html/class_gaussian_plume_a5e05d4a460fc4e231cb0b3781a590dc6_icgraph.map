@@ -1,0 +1,10 @@
+<map id="GaussianPlume::azimuth" name="GaussianPlume::azimuth">
+<area shape="rect" id="Node000001" title="Function that determines the azimuth between two points." alt="" coords="779,29,947,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="904,17,890,10,863,8,838,10,824,15,821,20,827,27,823,31,816,21,821,11,837,5,863,3,892,5,906,12"/>
+<area shape="rect" id="Node000002" href="$class_gaussian_plume.html#a133659d868e81834728e67c2fc54d763" title="Main function responsible for calculating air pollution dispersion based on arguments from PlumeParam..." alt="" coords="521,21,731,64"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="764,45,732,45,732,40,764,40"/>
+<area shape="rect" id="Node000003" href="$class_gaussian_plume.html#a7102f04110c0ecf93bac244d36057fed" title="Function for creating Contour objects based on data provided." alt="" coords="264,29,473,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="506,45,473,45,473,40,506,40"/>
+<area shape="rect" id="Node000004" href="$class_gaussian_plume.html#a7280eb224c2b377cdd983cef46029beb" title="Function that prepares the output data in the form of JSON." alt="" coords="5,29,216,56"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="248,45,216,45,216,40,248,40"/>
+</map>

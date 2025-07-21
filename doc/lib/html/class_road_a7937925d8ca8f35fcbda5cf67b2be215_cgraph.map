@@ -1,0 +1,35 @@
+<map id="Road::GenerateDensities" name="Road::GenerateDensities">
+<area shape="rect" id="Node000001" title="The method thar packages individual calls of GenerateCycles method for each density point of the fund..." alt="" coords="5,173,172,200"/>
+<area shape="rect" id="Node000002" href="$class_road.html#ac1eefc1e96b2b00f26d55524c2e586f1" title="The constructor of the Road class." alt="" coords="220,173,309,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,184,204,184,204,189,172,189"/>
+<area shape="rect" id="Node000003" href="$class_configuration.html#a0eed82091f6f46856e00abacef051836" title="The getter of the calculateDensities field." alt="" coords="373,5,552,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="271,171,303,120,327,91,355,65,374,53,377,57,359,69,331,94,307,123,275,174"/>
+<area shape="rect" id="Node000004" href="$class_configuration.html#aabd72705d996304b8c3887f333072bdd" title="The getter of the currentDensity field." alt="" coords="645,5,813,48"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="276,171,310,139,356,108,458,83,630,45,631,50,459,88,358,113,313,143,280,175"/>
+<area shape="rect" id="Node000005" href="$class_configuration.html#a0cc3cefdde53c13b0796dbdefde231c6" title="The getter of the segmentsNum field." alt="" coords="357,275,568,301"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="280,198,313,230,358,260,373,267,370,271,356,265,310,234,276,202"/>
+<area shape="rect" id="Node000006" href="$class_road_segment.html#a83fc5b68a472ff8eba54cbf9125eee20" title="The setter of the carID field." alt="" coords="647,173,811,200"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="310,184,632,184,632,189,310,189"/>
+<area shape="rect" id="Node000007" href="$class_road.html#a8cd3e5493672e68dc4583e0e31a35b95" title="Method that sets up the initial car array." alt="" coords="400,123,526,149"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="309,173,392,151,394,156,310,178"/>
+<area shape="rect" id="Node000010" href="$class_road_segment.html#a59a59c58bb953b1592f485af11492491" title="The setter of the isTail field." alt="" coords="382,325,543,352"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="274,199,305,254,329,285,359,311,369,317,366,322,355,315,325,289,300,257,269,202"/>
+<area shape="rect" id="Node000011" href="$class_road.html#a8ee0c51b19a437b4eea175241f37ee38" title="Method that sets up the initial state of the road." alt="" coords="385,224,540,251"/>
+<area shape="poly" id="edge12_Node000002_Node000011" title=" " alt="" coords="310,195,394,217,392,222,309,201"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="522,120,567,102,591,83,615,64,641,52,643,57,618,69,594,88,570,106,524,124"/>
+<area shape="rect" id="Node000008" href="$class_road.html#aa1b08fc34c7916ef825501b8ad460b27" title="Method that randomly generates car lengths based on constraints from the configuration." alt="" coords="616,123,842,149"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="526,133,601,133,601,139,526,139"/>
+<area shape="rect" id="Node000009" href="$class_configuration.html#aa790f00031e09a557cbdc7a7a17c5e9b" title="The getter of the carProbability field of the specified length." alt="" coords="890,97,1096,124"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="526,121,616,108,750,102,874,103,874,108,750,107,617,113,527,126"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="842,122,874,119,875,125,842,128"/>
+<area shape="poly" id="edge17_Node000011_Node000006" title=" " alt="" coords="536,221,640,201,641,206,537,226"/>
+<area shape="poly" id="edge14_Node000011_Node000008" title=" " alt="" coords="486,221,544,190,615,159,640,151,641,156,617,164,546,195,489,226"/>
+<area shape="rect" id="Node000012" href="$class_road.html#a2c61bef04889834385fd6b40d5d6ef65" title="Method that randomly generates indices for driver types based on constraints from the configuration." alt="" coords="633,224,825,267"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="541,237,617,239,617,245,541,242"/>
+<area shape="rect" id="Node000013" href="$class_car.html#ae4a70399de6a3cf85fea3489de7c328b" title="The getter of the carID field." alt="" coords="678,291,780,317"/>
+<area shape="poly" id="edge15_Node000011_Node000013" title=" " alt="" coords="526,249,569,260,617,276,663,288,662,293,616,281,568,265,524,254"/>
+<area shape="rect" id="Node000014" href="$class_car.html#a1a6c3f6dd16d32d94e7096d34283e1c7" title="The getter of the tailSegmentsNum field." alt="" coords="641,341,817,368"/>
+<area shape="poly" id="edge16_Node000011_Node000014" title=" " alt="" coords="542,247,570,260,587,277,595,295,602,312,618,327,628,333,626,338,615,331,598,315,590,297,582,280,567,265,540,252"/>
+<area shape="rect" id="Node000015" href="$class_car.html#a7501279d4a43a1a908c5d81ec636f272" title="The setter of the driverType field." alt="" coords="664,392,794,419"/>
+<area shape="poly" id="edge18_Node000011_Node000015" title=" " alt="" coords="542,245,570,261,583,275,590,291,595,321,599,351,606,365,618,378,650,395,648,400,615,382,601,367,594,352,590,322,585,292,579,278,567,265,539,249"/>
+</map>

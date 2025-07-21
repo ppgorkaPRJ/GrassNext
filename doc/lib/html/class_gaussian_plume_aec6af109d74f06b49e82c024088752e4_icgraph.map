@@ -1,0 +1,11 @@
+<map id="GaussianPlume::gaussianFunction" name="GaussianPlume::gaussianFunction">
+<area shape="rect" id="Node000001" title="Function that calculates Gaussian function for a part of the matrix." alt="" coords="1001,13,1224,40"/>
+<area shape="rect" id="Node000002" href="$class_gaussian_plume.html#a5b4016002934ee6085b22883bfc61f43" title="Function that calculates emitters for a set section of the matrix." alt="" coords="779,5,953,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="985,29,953,29,953,24,985,24"/>
+<area shape="rect" id="Node000003" href="$class_gaussian_plume.html#a133659d868e81834728e67c2fc54d763" title="Main function responsible for calculating air pollution dispersion based on arguments from PlumeParam..." alt="" coords="521,5,731,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="763,29,732,29,732,24,763,24"/>
+<area shape="rect" id="Node000004" href="$class_gaussian_plume.html#a7102f04110c0ecf93bac244d36057fed" title="Function for creating Contour objects based on data provided." alt="" coords="264,13,473,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="506,29,473,29,473,24,506,24"/>
+<area shape="rect" id="Node000005" href="$class_gaussian_plume.html#a7280eb224c2b377cdd983cef46029beb" title="Function that prepares the output data in the form of JSON." alt="" coords="5,13,216,40"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="248,29,216,29,216,24,248,24"/>
+</map>

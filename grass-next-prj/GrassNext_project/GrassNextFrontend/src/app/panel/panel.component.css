@@ -1,0 +1,15 @@
+mat-sidenav-container {
+    height: calc(100% - 100px);
+}
+
+.sidenavFullScreen {
+    width: 30%;
+    background-color: #ededed;
+    border-right: 1px solid darkgray;
+}
+
+.sidenavMobile {
+    width: 95%;
+    background-color: #ededed;
+    border-right: 1px solid darkgray;
+}

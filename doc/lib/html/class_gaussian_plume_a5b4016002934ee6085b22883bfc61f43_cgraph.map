@@ -1,0 +1,7 @@
+<map id="GaussianPlume::calculateEmitters" name="GaussianPlume::calculateEmitters">
+<area shape="rect" id="Node000001" title="Function that calculates emitters for a set section of the matrix." alt="" coords="5,5,179,48"/>
+<area shape="rect" id="Node000002" href="$class_gaussian_plume.html#aec6af109d74f06b49e82c024088752e4" title="Function that calculates Gaussian function for a part of the matrix." alt="" coords="227,13,450,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,24,211,24,211,29,179,29"/>
+<area shape="rect" id="Node000003" href="$class_gaussian_plume.html#a1483f355ad48fc6a97fddcaa1f5e3bd9" title="Function that calculates y and z values of sigma as part of the Gaussian plume equation." alt="" coords="498,5,671,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,24,482,24,482,29,450,29"/>
+</map>

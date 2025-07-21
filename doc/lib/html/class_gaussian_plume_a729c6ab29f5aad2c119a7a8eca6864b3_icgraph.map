@@ -1,0 +1,16 @@
+<map id="GaussianPlume::toRadians" name="GaussianPlume::toRadians">
+<area shape="rect" id="Node000001" title="Function converting degrees to radians." alt="" coords="1003,80,1182,107"/>
+<area shape="rect" id="Node000002" href="$class_gaussian_plume.html#a5e05d4a460fc4e231cb0b3781a590dc6" title="Function that determines the azimuth between two points." alt="" coords="783,29,951,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1014,79,929,59,930,54,1016,73"/>
+<area shape="rect" id="Node000003" href="$class_gaussian_plume.html#a133659d868e81834728e67c2fc54d763" title="Main function responsible for calculating air pollution dispersion based on arguments from PlumeParam..." alt="" coords="521,72,731,115"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="987,96,732,96,732,91,987,91"/>
+<area shape="rect" id="Node000006" href="$class_gaussian_plume.html#a840a026c589a5e2764a284e5e42e298a" title="Function that determines the angular distance between two points on a sphere using Haversine formula." alt="" coords="779,131,955,173"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="1024,114,952,133,951,127,1023,108"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="906,17,892,10,867,8,843,10,830,15,827,20,833,27,829,30,822,21,827,11,842,5,867,3,894,5,908,12"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="786,62,731,74,730,69,784,57"/>
+<area shape="rect" id="Node000004" href="$class_gaussian_plume.html#a7102f04110c0ecf93bac244d36057fed" title="Function for creating Contour objects based on data provided." alt="" coords="264,80,473,107"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="506,96,473,96,473,91,506,91"/>
+<area shape="rect" id="Node000005" href="$class_gaussian_plume.html#a7280eb224c2b377cdd983cef46029beb" title="Function that prepares the output data in the form of JSON." alt="" coords="5,80,216,107"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="248,96,216,96,216,91,248,91"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="763,129,716,118,717,113,764,124"/>
+</map>

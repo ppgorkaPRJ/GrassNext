@@ -1,0 +1,13 @@
+<map id="Car::GetCarSpeed" name="Car::GetCarSpeed">
+<area shape="rect" id="Node000001" title="The getter of the speed field." alt="" coords="458,56,585,83"/>
+<area shape="rect" id="Node000002" href="$class_road.html#a2c2cea92f9c5980ec2be4e6ecf89f613" title="Method that moves every car according to their speed at the end of each iteration." alt="" coords="250,5,366,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="447,54,366,35,367,30,448,49"/>
+<area shape="rect" id="Node000004" href="$class_road.html#a66f15924436326a8096b34e22170c36d" title="Method that prepares the string with the road cycles for further analysis." alt="" coords="233,56,383,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="442,72,384,72,384,67,442,67"/>
+<area shape="rect" id="Node000005" href="$class_road.html#adfdd08e959cf3942869eae15b8d92114" title="Method that accelerates cars based on LAI model formula." alt="" coords="206,107,410,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="448,89,368,109,367,103,447,84"/>
+<area shape="rect" id="Node000003" href="$class_road.html#a58c1510d87a853400901912593aa1ed8" title="Main method that carries out the simulation." alt="" coords="5,56,158,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,38,145,58,144,53,234,32"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="217,72,158,72,158,67,217,67"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="229,105,144,86,145,81,231,100"/>
+</map>

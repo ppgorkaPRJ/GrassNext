@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="toggleSidenav()" *ngIf="_router.url === '/home'">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <div class="aboutSpacer" *ngIf="_router.url === '/about'"></div>
+    <a class="imageLink" href="home"><img class="grassNext" src="../assets/grass-next-logo.png" fxShow fxHide.sm fxHide.xs></a>
+        <button mat-icon-button fxHide fxShow.sm fxShow.xs>
+            <mat-icon>home</mat-icon>
+        </button>
+    <a class="imageLink" href="https://www.gov.pl/web/ncbr-en" target="_blank"><img class="ncbr" src="../assets/ncbr.svg" *ngIf="_router.url === '/home'" fxShow fxHide.sm fxHide.xs></a>
+    <a class="imageLink" href="https://eeagrants.org" target="_blank"><img class="norwayGrants" src="../assets/Norway-Grants-small-white.png" *ngIf="_router.url === '/home'" fxShow fxHide.sm fxHide.xs></a>
+
+    <div class="spacer"></div>
+
+    <div class="toolbarTitles" fxLayout="center center" fxShow fxHide.sm fxHide.xs>
+        <a class="menuButtons" mat-button routerLink="/home">Home</a>
+        <a class="menuButtons" mat-button routerLink="/about">About</a>
+    </div>
+
+    <button mat-icon-button (click)="openDialog()" *ngIf="_router.url === '/home'" fxShow fxHide.sm fxHide.xs>
+        <mat-icon>info</mat-icon>
+    </button>
+    <button mat-icon-button (click)="openDialogPhone()" *ngIf="_router.url === '/home'" fxHide fxShow.sm fxShow.xs>
+        <mat-icon>info</mat-icon>
+    </button>
+
+    <div fxHide fxShow.sm fxShow.xs [matMenuTriggerFor]="menu">
+        <button mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/home">Home</button>
+            <button mat-menu-item routerLink="/about">About</button>
+        </mat-menu>
+    </div>
+</mat-toolbar>

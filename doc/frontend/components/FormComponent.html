@@ -1,0 +1,4175 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>grass-next documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">grass-next documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/form/form.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>FormComponent is an Angular component designed to manage a form interface for selecting geographical,
+vehicle, detector, and environmental parameters. It leverages Leaflet for map-based interactions.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-form</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./form.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./form.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#areaPolygon" >areaPolygon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#backendDataService" >backendDataService</a>
+                            </li>
+                            <li>
+                                <a href="#blueIcon" >blueIcon</a>
+                            </li>
+                            <li>
+                                <a href="#cities" >cities</a>
+                            </li>
+                            <li>
+                                <a href="#contourPolygons" >contourPolygons</a>
+                            </li>
+                            <li>
+                                <a href="#contoursData" >contoursData</a>
+                            </li>
+                            <li>
+                                <a href="#countries" >countries</a>
+                            </li>
+                            <li>
+                                <a href="#dateClass" >dateClass</a>
+                            </li>
+                            <li>
+                                <a href="#dateList" >dateList</a>
+                            </li>
+                            <li>
+                                <a href="#detectorMarker" >detectorMarker</a>
+                            </li>
+                            <li>
+                                <a href="#detectorMarkerList" >detectorMarkerList</a>
+                            </li>
+                            <li>
+                                <a href="#detectors" >detectors</a>
+                            </li>
+                            <li>
+                                <a href="#EARTH_RADIUS" >EARTH_RADIUS</a>
+                            </li>
+                            <li>
+                                <a href="#errorBarDuration" >errorBarDuration</a>
+                            </li>
+                            <li>
+                                <a href="#i" >i</a>
+                            </li>
+                            <li>
+                                <a href="#isButtonDisabled" >isButtonDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#isCityDisabled" >isCityDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#isDateTimeDisabled" >isDateTimeDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#isDetectorsDisabled" >isDetectorsDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#isRequestSent" >isRequestSent</a>
+                            </li>
+                            <li>
+                                <a href="#isStateDisabled" >isStateDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#isVehiclesListDisabled" >isVehiclesListDisabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#localStorageService" >localStorageService</a>
+                            </li>
+                            <li>
+                                <a href="#plumeData" >plumeData</a>
+                            </li>
+                            <li>
+                                <a href="#pollutionTypes" >pollutionTypes</a>
+                            </li>
+                            <li>
+                                <a href="#redIcon" >redIcon</a>
+                            </li>
+                            <li>
+                                <a href="#resolutionValue" >resolutionValue</a>
+                            </li>
+                            <li>
+                                <a href="#roadEndMarker" >roadEndMarker</a>
+                            </li>
+                            <li>
+                                <a href="#roadPolyline" >roadPolyline</a>
+                            </li>
+                            <li>
+                                <a href="#roadStartMarker" >roadStartMarker</a>
+                            </li>
+                            <li>
+                                <a href="#selectedCity" >selectedCity</a>
+                            </li>
+                            <li>
+                                <a href="#selectedCountry" >selectedCountry</a>
+                            </li>
+                            <li>
+                                <a href="#selectedDate" >selectedDate</a>
+                            </li>
+                            <li>
+                                <a href="#selectedDetector" >selectedDetector</a>
+                            </li>
+                            <li>
+                                <a href="#selectedPollution" >selectedPollution</a>
+                            </li>
+                            <li>
+                                <a href="#selectedState" >selectedState</a>
+                            </li>
+                            <li>
+                                <a href="#selectedTime" >selectedTime</a>
+                            </li>
+                            <li>
+                                <a href="#selectedWeatherStab" >selectedWeatherStab</a>
+                            </li>
+                            <li>
+                                <a href="#startDate" >startDate</a>
+                            </li>
+                            <li>
+                                <a href="#states" >states</a>
+                            </li>
+                            <li>
+                                <a href="#times" >times</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleService" >toggleService</a>
+                            </li>
+                            <li>
+                                <a href="#vehicleGroups" >vehicleGroups</a>
+                            </li>
+                            <li>
+                                <a href="#vehicleTypes" >vehicleTypes</a>
+                            </li>
+                            <li>
+                                <a href="#weatherStabilities" >weatherStabilities</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addPopup" >addPopup</a>
+                            </li>
+                            <li>
+                                <a href="#calculateAirPollution" >calculateAirPollution</a>
+                            </li>
+                            <li>
+                                <a href="#calculateAreaBox" >calculateAreaBox</a>
+                            </li>
+                            <li>
+                                <a href="#centerToTopoDetector" >centerToTopoDetector</a>
+                            </li>
+                            <li>
+                                <a href="#changeCityShowValue" >changeCityShowValue</a>
+                            </li>
+                            <li>
+                                <a href="#changeDateTimeShowValue" >changeDateTimeShowValue</a>
+                            </li>
+                            <li>
+                                <a href="#changeDetectorShowValue" >changeDetectorShowValue</a>
+                            </li>
+                            <li>
+                                <a href="#changeStateShowValue" >changeStateShowValue</a>
+                            </li>
+                            <li>
+                                <a href="#changeVehiclesShowValue" >changeVehiclesShowValue</a>
+                            </li>
+                            <li>
+                                <a href="#clearAllOptions" >clearAllOptions</a>
+                            </li>
+                            <li>
+                                <a href="#clearContours" >clearContours</a>
+                            </li>
+                            <li>
+                                <a href="#enableButton" >enableButton</a>
+                            </li>
+                            <li>
+                                <a href="#getDatesFromBackend" >getDatesFromBackend</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openErrorSnackBar" >openErrorSnackBar</a>
+                            </li>
+                            <li>
+                                <a href="#placeContoursOnMap" >placeContoursOnMap</a>
+                            </li>
+                            <li>
+                                <a href="#removeContourPolygons" >removeContourPolygons</a>
+                            </li>
+                            <li>
+                                <a href="#runMeasureButton" >runMeasureButton</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(backendDataService: <a href="../injectables/BackendDataService.html" target="_self">BackendDataService</a>, toggleService: <a href="../injectables/ToggleService.html" target="_self">ToggleService</a>, localStorageService: <a href="../injectables/LocalStorageService.html" target="_self">LocalStorageService</a>, snackBar: MatSnackBar)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="315" class="link-to-prism">src/app/form/form.component.ts:315</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor for initializing the service dependencies.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>backendDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackendDataService.html" target="_self" >BackendDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The service responsible for handling backend data operations.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>toggleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToggleService.html" target="_self" >ToggleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The service used for toggling sidenav.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>localStorageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LocalStorageService.html" target="_self" >LocalStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The service for interacting with local storage features.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>The service for displaying snack bar notifications.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addPopup"></a>
+                    <span class="name">
+                        <span ><b>addPopup</b></span>
+                        <a href="#addPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addPopup(layer, text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="724"
+                                    class="link-to-prism">src/app/form/form.component.ts:724</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds a popup to the specified layer that displays the provided text when hovered over.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layer</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The layer to which the popup will be added.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>text</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The text to display inside the popup.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateAirPollution"></a>
+                    <span class="name">
+                        <span ><b>calculateAirPollution</b></span>
+                        <a href="#calculateAirPollution"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateAirPollution(plumeData: <a href="../classes/PlumeData.html" target="_self">PlumeData</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="658"
+                                    class="link-to-prism">src/app/form/form.component.ts:658</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calculates air pollution based on data gathered through the form.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>plumeData</td>
+                                            <td>
+                                                            <code><a href="../classes/PlumeData.html" target="_self" >PlumeData</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateAreaBox"></a>
+                    <span class="name">
+                        <span ><b>calculateAreaBox</b></span>
+                        <a href="#calculateAreaBox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateAreaBox()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="809"
+                                    class="link-to-prism">src/app/form/form.component.ts:809</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calculates the area boundaries for a specified region on a map based on the provided detector&#39;s road start coordinates,
+resolution and area size from the form. Determines the zoom level for rendering the map.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The zoom level based on the resolution and area boundaries. Defaults to 13 if no valid detector or start coordinates are available.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centerToTopoDetector"></a>
+                    <span class="name">
+                        <span ><b>centerToTopoDetector</b></span>
+                        <a href="#centerToTopoDetector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>centerToTopoDetector()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="768"
+                                    class="link-to-prism">src/app/form/form.component.ts:768</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Centers the map on the topological detector&#39;s location and configures map elements
+such as markers and polylines to represent the detector and associated road points.
+Removes any previously added map elements related to the road and the detector before
+setting up new ones. Adjusts the map view to fit the detector&#39;s location with an default zoom value.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeCityShowValue"></a>
+                    <span class="name">
+                        <span ><b>changeCityShowValue</b></span>
+                        <a href="#changeCityShowValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeCityShowValue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="398"
+                                    class="link-to-prism">src/app/form/form.component.ts:398</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the selected city value and enables or disables the detector field based on the selected city.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeDateTimeShowValue"></a>
+                    <span class="name">
+                        <span ><b>changeDateTimeShowValue</b></span>
+                        <a href="#changeDateTimeShowValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeDateTimeShowValue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="467"
+                                    class="link-to-prism">src/app/form/form.component.ts:467</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the selected date-time value and enables or disables the vehicle group field based on the selected date-time.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeDetectorShowValue"></a>
+                    <span class="name">
+                        <span ><b>changeDetectorShowValue</b></span>
+                        <a href="#changeDetectorShowValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeDetectorShowValue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="426"
+                                    class="link-to-prism">src/app/form/form.component.ts:426</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the selected detector value and enables or disables the date-time field based on the selected detector.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeStateShowValue"></a>
+                    <span class="name">
+                        <span ><b>changeStateShowValue</b></span>
+                        <a href="#changeStateShowValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeStateShowValue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="370"
+                                    class="link-to-prism">src/app/form/form.component.ts:370</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the selected state value and enables or disables state field based on the selected country.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeVehiclesShowValue"></a>
+                    <span class="name">
+                        <span ><b>changeVehiclesShowValue</b></span>
+                        <a href="#changeVehiclesShowValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeVehiclesShowValue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="485"
+                                    class="link-to-prism">src/app/form/form.component.ts:485</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the selected vehicle group value and enables or disables calculate button based on the selected vehicle groups.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearAllOptions"></a>
+                    <span class="name">
+                        <span ><b>clearAllOptions</b></span>
+                        <a href="#clearAllOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearAllOptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="737"
+                                    class="link-to-prism">src/app/form/form.component.ts:737</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Clears all form data.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearContours"></a>
+                    <span class="name">
+                        <span ><b>clearContours</b></span>
+                        <a href="#clearContours"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearContours()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="646"
+                                    class="link-to-prism">src/app/form/form.component.ts:646</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Clears contour data.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableButton"></a>
+                    <span class="name">
+                        <span ><b>enableButton</b></span>
+                        <a href="#enableButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableButton()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="580"
+                                    class="link-to-prism">src/app/form/form.component.ts:580</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Evaluates the selected properties and conditions to determine whether a button should be enabled.
+The button is enabled when all required properties (selectedCountry, selectedState, selectedCity,
+selectedDetector, selectedDate, selectedTime, selectedPollution, selectedWeatherStab, and valid vehicleTypes)
+are set and valid.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDatesFromBackend"></a>
+                    <span class="name">
+                        <span ><b>getDatesFromBackend</b></span>
+                        <a href="#getDatesFromBackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDatesFromBackend()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="527"
+                                    class="link-to-prism">src/app/form/form.component.ts:527</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Fetches dates from the backend based on the selected detector and processes them into a list of <code>CalendarDate</code> objects.
+Sets the start date and applies a custom date class logic for the calendar view.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="337"
+                                    class="link-to-prism">src/app/form/form.component.ts:337</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the component and retrieves necessary data by calling multiple backend services.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openErrorSnackBar"></a>
+                    <span class="name">
+                        <span ><b>openErrorSnackBar</b></span>
+                        <a href="#openErrorSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openErrorSnackBar(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, duration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="757"
+                                    class="link-to-prism">src/app/form/form.component.ts:757</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Displays an error snackbar with the provided message, action, and duration.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The message to display in the snackbar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The label for the snackbar&#39;s action button.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>duration</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The duration in milliseconds for which the snackbar should be visible.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="placeContoursOnMap"></a>
+                    <span class="name">
+                        <span ><b>placeContoursOnMap</b></span>
+                        <a href="#placeContoursOnMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>placeContoursOnMap()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="686"
+                                    class="link-to-prism">src/app/form/form.component.ts:686</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Places contour polygons on the map based on the calculated contour data, styles them, and attaches popups with relevant information.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeContourPolygons"></a>
+                    <span class="name">
+                        <span ><b>removeContourPolygons</b></span>
+                        <a href="#removeContourPolygons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeContourPolygons()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="516"
+                                    class="link-to-prism">src/app/form/form.component.ts:516</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Clears contour polygons and detector markers.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runMeasureButton"></a>
+                    <span class="name">
+                        <span ><b>runMeasureButton</b></span>
+                        <a href="#runMeasureButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>runMeasureButton()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="605"
+                                    class="link-to-prism">src/app/form/form.component.ts:605</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calculates Gaussian Plume and displays it on the map after pressing the &quot;Measure&quot; button.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="areaPolygon"></a>
+                    <span class="name">
+                        <span ><b>areaPolygon</b></span>
+                        <a href="#areaPolygon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>L.polygon([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="262" class="link-to-prism">src/app/form/form.component.ts:262</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a polygonal area on a map using Leaflet&#39;s polygon feature.
+The variable is used to define and manipulate a polygon by specifying
+its geographical coordinates.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="backendDataService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>backendDataService</b></span>
+                        <a href="#backendDataService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/BackendDataService.html" target="_self" >BackendDataService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="326" class="link-to-prism">src/app/form/form.component.ts:326</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">- The service responsible for handling backend data operations.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blueIcon"></a>
+                    <span class="name">
+                        <span ><b>blueIcon</b></span>
+                        <a href="#blueIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>L.icon({
+    iconUrl: &#x27;../assets/pin-blue-flip.png&#x27;,
+
+    iconSize: [38, 36],
+    iconAnchor: [8, 35],
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/app/form/form.component.ts:225</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a custom blue-colored map icon using Leaflet&#39;s L.icon method.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cities"></a>
+                    <span class="name">
+                        <span ><b>cities</b></span>
+                        <a href="#cities"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;String&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="197" class="link-to-prism">src/app/form/form.component.ts:197</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a list of city names stored as strings.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contourPolygons"></a>
+                    <span class="name">
+                        <span ><b>contourPolygons</b></span>
+                        <a href="#contourPolygons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/variables.html#L" target="_self" >Array&lt;L.Polygon&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;L.Polygon&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="268" class="link-to-prism">src/app/form/form.component.ts:268</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>An array of Leaflet Polygon objects representing contour polygons.
+Each polygon in the array defines a closed shape that represents a specific contour on a map.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contoursData"></a>
+                    <span class="name">
+                        <span ><b>contoursData</b></span>
+                        <a href="#contoursData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Contours.html" target="_self" >Contours</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">src/app/form/form.component.ts:181</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the data structure for storing information about contours displayed on the map.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countries"></a>
+                    <span class="name">
+                        <span ><b>countries</b></span>
+                        <a href="#countries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;String&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/app/form/form.component.ts:187</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a list of country names stored as strings.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateClass"></a>
+                    <span class="name">
+                        <span ><b>dateClass</b></span>
+                        <a href="#dateClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatCalendarCellClassFunction&lt;Date&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="313" class="link-to-prism">src/app/form/form.component.ts:313</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A function used to determine the CSS class to apply for a given calendar cell
+in a mat-datepicker component.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateList"></a>
+                    <span class="name">
+                        <span ><b>dateList</b></span>
+                        <a href="#dateList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/CalendarDate.html" target="_self" >CalendarDate[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="301" class="link-to-prism">src/app/form/form.component.ts:301</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a list of calendar dates.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detectorMarker"></a>
+                    <span class="name">
+                        <span ><b>detectorMarker</b></span>
+                        <a href="#detectorMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>L.marker([0.0, 0.0], { icon: this.redIcon })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">src/app/form/form.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a Leaflet marker that is used to visually indicate a specified location on a map.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detectorMarkerList"></a>
+                    <span class="name">
+                        <span ><b>detectorMarkerList</b></span>
+                        <a href="#detectorMarkerList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/variables.html#L" target="_self" >Array&lt;L.Marker&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;L.Marker&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="273" class="link-to-prism">src/app/form/form.component.ts:273</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A list of map markers used by the detectors.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detectors"></a>
+                    <span class="name">
+                        <span ><b>detectors</b></span>
+                        <a href="#detectors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;Detector&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="203" class="link-to-prism">src/app/form/form.component.ts:203</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>An array containing detector lists.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EARTH_RADIUS"></a>
+                    <span class="name">
+                        <span ><b>EARTH_RADIUS</b></span>
+                        <a href="#EARTH_RADIUS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>6378</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/form/form.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the average radius of the Earth in kilometers.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorBarDuration"></a>
+                    <span class="name">
+                        <span ><b>errorBarDuration</b></span>
+                        <a href="#errorBarDuration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>5</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="290" class="link-to-prism">src/app/form/form.component.ts:290</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the duration of the error bar display time in seconds.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="i"></a>
+                    <span class="name">
+                        <span ><b>i</b></span>
+                        <a href="#i"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="208" class="link-to-prism">src/app/form/form.component.ts:208</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialization value of the loop.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isButtonDisabled"></a>
+                    <span class="name">
+                        <span ><b>isButtonDisabled</b></span>
+                        <a href="#isButtonDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/app/form/form.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A boolean variable that indicates whether the calculate button is disabled.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCityDisabled"></a>
+                    <span class="name">
+                        <span ><b>isCityDisabled</b></span>
+                        <a href="#isCityDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">src/app/form/form.component.ts:140</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether the city field is disabled.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDateTimeDisabled"></a>
+                    <span class="name">
+                        <span ><b>isDateTimeDisabled</b></span>
+                        <a href="#isDateTimeDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/app/form/form.component.ts:150</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A boolean variable indicating whether the date-time field is disabled.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDetectorsDisabled"></a>
+                    <span class="name">
+                        <span ><b>isDetectorsDisabled</b></span>
+                        <a href="#isDetectorsDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/form/form.component.ts:145</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A boolean variable that indicates whether the detector field is disabled.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isRequestSent"></a>
+                    <span class="name">
+                        <span ><b>isRequestSent</b></span>
+                        <a href="#isRequestSent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="296" class="link-to-prism">src/app/form/form.component.ts:296</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether a request has been sent.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isStateDisabled"></a>
+                    <span class="name">
+                        <span ><b>isStateDisabled</b></span>
+                        <a href="#isStateDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/form/form.component.ts:135</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A boolean flag indicating whether the state field is disabled.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isVehiclesListDisabled"></a>
+                    <span class="name">
+                        <span ><b>isVehiclesListDisabled</b></span>
+                        <a href="#isVehiclesListDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/app/form/form.component.ts:155</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicates whether the vehicle list field is disabled or not.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localStorageService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>localStorageService</b></span>
+                        <a href="#localStorageService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/LocalStorageService.html" target="_self" >LocalStorageService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="328" class="link-to-prism">src/app/form/form.component.ts:328</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">- The service for interacting with local storage features.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="plumeData"></a>
+                    <span class="name">
+                        <span ><b>plumeData</b></span>
+                        <a href="#plumeData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/PlumeData.html" target="_self" >PlumeData</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="284" class="link-to-prism">src/app/form/form.component.ts:284</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the data structure containing Gaussian Plume calculations.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pollutionTypes"></a>
+                    <span class="name">
+                        <span ><b>pollutionTypes</b></span>
+                        <a href="#pollutionTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;PollutionType&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/app/form/form.component.ts:176</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a collection of <code>PollutionType</code> objects.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redIcon"></a>
+                    <span class="name">
+                        <span ><b>redIcon</b></span>
+                        <a href="#redIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>L.icon({
+    iconUrl: &#x27;../assets/pin-red-shadow.png&#x27;,
+
+    iconSize: [60, 47],
+    iconAnchor: [14, 45],
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="214" class="link-to-prism">src/app/form/form.component.ts:214</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a custom Leaflet red pin icon using Leaflet&#39;s L.icon method..</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resolutionValue"></a>
+                    <span class="name">
+                        <span ><b>resolutionValue</b></span>
+                        <a href="#resolutionValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>2000</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/form/form.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the default value for the area of the calculations.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roadEndMarker"></a>
+                    <span class="name">
+                        <span ><b>roadEndMarker</b></span>
+                        <a href="#roadEndMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>L.marker([0.0, 0.0], { icon: this.blueIcon })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">src/app/form/form.component.ts:254</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the ending point of a road using a geographical marker from the Leaflet library.
+The marker is initialized with default latitude and longitude coordinates [0.0, 0.0]
+and styled using a blue pin icon.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roadPolyline"></a>
+                    <span class="name">
+                        <span ><b>roadPolyline</b></span>
+                        <a href="#roadPolyline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>L.polyline([[0.0, 0.0]])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="279" class="link-to-prism">src/app/form/form.component.ts:279</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A Leaflet Polyline instance representing the road path from starting to ending point.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roadStartMarker"></a>
+                    <span class="name">
+                        <span ><b>roadStartMarker</b></span>
+                        <a href="#roadStartMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>L.marker([0.0, 0.0], { icon: this.blueIcon })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="245" class="link-to-prism">src/app/form/form.component.ts:245</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the starting point of a road using a geographical marker from the Leaflet library.
+The marker is initialized with default latitude and longitude coordinates [0.0, 0.0]
+and styled using a blue pin icon.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedCity"></a>
+                    <span class="name">
+                        <span ><b>selectedCity</b></span>
+                        <a href="#selectedCity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/form/form.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the currently selected city.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedCountry"></a>
+                    <span class="name">
+                        <span ><b>selectedCountry</b></span>
+                        <a href="#selectedCountry"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/form/form.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the currently selected country.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedDate"></a>
+                    <span class="name">
+                        <span ><b>selectedDate</b></span>
+                        <a href="#selectedDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/form/form.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the currently selected date.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedDetector"></a>
+                    <span class="name">
+                        <span ><b>selectedDetector</b></span>
+                        <a href="#selectedDetector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Detector.html" target="_self" >Detector</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/form/form.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the currently selected detector.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedPollution"></a>
+                    <span class="name">
+                        <span ><b>selectedPollution</b></span>
+                        <a href="#selectedPollution"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/PollutionType.html" target="_self" >PollutionType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/form/form.component.ts:124</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the currently selected type of pollution.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedState"></a>
+                    <span class="name">
+                        <span ><b>selectedState</b></span>
+                        <a href="#selectedState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/form/form.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the currently selected state.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedTime"></a>
+                    <span class="name">
+                        <span ><b>selectedTime</b></span>
+                        <a href="#selectedTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/form/form.component.ts:117</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the currently selected time.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedWeatherStab"></a>
+                    <span class="name">
+                        <span ><b>selectedWeatherStab</b></span>
+                        <a href="#selectedWeatherStab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/WeatherStability.html" target="_self" >WeatherStability</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/form/form.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the selected weather stability class.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startDate"></a>
+                    <span class="name">
+                        <span ><b>startDate</b></span>
+                        <a href="#startDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="306" class="link-to-prism">src/app/form/form.component.ts:306</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the starting date for a mat-datepicker component.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="states"></a>
+                    <span class="name">
+                        <span ><b>states</b></span>
+                        <a href="#states"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;String&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="192" class="link-to-prism">src/app/form/form.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a list of state names stored as strings.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="times"></a>
+                    <span class="name">
+                        <span ><b>times</b></span>
+                        <a href="#times"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, String&gt;([
+    [1, &#x27;00:00-01:00&#x27;],
+    [2, &#x27;01:00-02:00&#x27;],
+    [3, &#x27;02:00-03:00&#x27;],
+    [4, &#x27;03:00-04:00&#x27;],
+    [5, &#x27;04:00-05:00&#x27;],
+    [6, &#x27;05:00-06:00&#x27;],
+    [7, &#x27;06:00-07:00&#x27;],
+    [8, &#x27;07:00-08:00&#x27;],
+    [9, &#x27;08:00-09:00&#x27;],
+    [10, &#x27;09:00-10:00&#x27;],
+    [11, &#x27;10:00-11:00&#x27;],
+    [12, &#x27;11:00-12:00&#x27;],
+    [13, &#x27;12:00-13:00&#x27;],
+    [14, &#x27;13:00-14:00&#x27;],
+    [15, &#x27;14:00-15:00&#x27;],
+    [16, &#x27;15:00-16:00&#x27;],
+    [17, &#x27;16:00-17:00&#x27;],
+    [18, &#x27;17:00-18:00&#x27;],
+    [19, &#x27;18:00-19:00&#x27;],
+    [20, &#x27;19:00-20:00&#x27;],
+    [21, &#x27;20:00-21:00&#x27;],
+    [22, &#x27;21:00-22:00&#x27;],
+    [23, &#x27;22:00-23:00&#x27;],
+    [24, &#x27;23:00-24:00&#x27;],
+  ])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/form/form.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A map representing the mapping of hour indices to corresponding hour ranges in a 24-hour format.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleService</b></span>
+                        <a href="#toggleService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ToggleService.html" target="_self" >ToggleService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="327" class="link-to-prism">src/app/form/form.component.ts:327</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">- The service used for toggling sidenav.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vehicleGroups"></a>
+                    <span class="name">
+                        <span ><b>vehicleGroups</b></span>
+                        <a href="#vehicleGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;VehicleGroup&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/app/form/form.component.ts:166</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a collection of <code>VehicleGroup</code> objects.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vehicleTypes"></a>
+                    <span class="name">
+                        <span ><b>vehicleTypes</b></span>
+                        <a href="#vehicleTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormControl</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/form/form.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a form control for managing and validating vehicle type input in a form.
+This control is initialized with an empty string as its default value.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="weatherStabilities"></a>
+                    <span class="name">
+                        <span ><b>weatherStabilities</b></span>
+                        <a href="#weatherStabilities"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Array&lt;WeatherStability&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/app/form/form.component.ts:171</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents a collection of <code>WeatherStability</code> objects.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit, ViewEncapsulation} from &#x27;@angular/core&#x27;;
+import {FormControl} from &#x27;@angular/forms&#x27;;
+import {BackendDataService} from &#x27;../services/backend-data.service&#x27;;
+import {VehicleGroup} from &#x27;../model/vehicle-group&#x27;;
+import {WeatherStability} from &#x27;../model/weather-stability&#x27;;
+import {PollutionType} from &#x27;../model/pollution-type&#x27;;
+import {Contours, Point} from &#x27;../model/contours&#x27;;
+import {ToggleService} from &#x27;../services/toggle.service&#x27;;
+import &#x27;leaflet&#x27;;
+import &#x27;leaflet-textpath&#x27;;
+import &#x27;leaflet-polylinedecorator&#x27;;
+import {MatCalendarCellClassFunction} from &#x27;@angular/material/datepicker&#x27;;
+import {Detector} from &#x27;../model/detector&#x27;;
+import {MatSnackBar} from &#x27;@angular/material/snack-bar&#x27;;
+import {PlumeData} from &#x27;../model/plume-data&#x27;;
+import moment from &#x27;moment&#x27;;
+import {LocalStorageService} from &#x27;../services/local-storage.service&#x27;;
+import {HttpErrorResponse} from &#x27;@angular/common/http&#x27;;
+import {CalendarDate} from &#x27;../model/calendar-date&#x27;;
+import {Polygon} from &#x27;leaflet&#x27;;
+
+/**
+ * Leaflet map
+ *
+ */
+declare let L;
+
+/**
+ * FormComponent is an Angular component designed to manage a form interface for selecting geographical,
+ * vehicle, detector, and environmental parameters. It leverages Leaflet for map-based interactions.
+ */
+@Component({
+  selector: &#x27;app-form&#x27;,
+  templateUrl: &#x27;./form.component.html&#x27;,
+  styleUrl: &#x27;./form.component.css&#x27;,
+  encapsulation: ViewEncapsulation.None,
+})
+export class FormComponent implements OnInit {
+  /**
+   * Represents the average radius of the Earth in kilometers.
+   *
+   */
+  EARTH_RADIUS &#x3D; 6378;
+
+  /**
+   * Represents the default value for the area of the calculations.
+   *
+   * */
+  resolutionValue: number &#x3D; 2000;
+  /**
+   * Represents a form control for managing and validating vehicle type input in a form.
+   * This control is initialized with an empty string as its default value.
+   *
+   */
+  vehicleTypes: FormControl &#x3D; new FormControl(&#x27;&#x27;);
+  /**
+   * A map representing the mapping of hour indices to corresponding hour ranges in a 24-hour format.
+   *
+   */
+  times &#x3D; new Map&lt;number, String&gt;([
+    [1, &#x27;00:00-01:00&#x27;],
+    [2, &#x27;01:00-02:00&#x27;],
+    [3, &#x27;02:00-03:00&#x27;],
+    [4, &#x27;03:00-04:00&#x27;],
+    [5, &#x27;04:00-05:00&#x27;],
+    [6, &#x27;05:00-06:00&#x27;],
+    [7, &#x27;06:00-07:00&#x27;],
+    [8, &#x27;07:00-08:00&#x27;],
+    [9, &#x27;08:00-09:00&#x27;],
+    [10, &#x27;09:00-10:00&#x27;],
+    [11, &#x27;10:00-11:00&#x27;],
+    [12, &#x27;11:00-12:00&#x27;],
+    [13, &#x27;12:00-13:00&#x27;],
+    [14, &#x27;13:00-14:00&#x27;],
+    [15, &#x27;14:00-15:00&#x27;],
+    [16, &#x27;15:00-16:00&#x27;],
+    [17, &#x27;16:00-17:00&#x27;],
+    [18, &#x27;17:00-18:00&#x27;],
+    [19, &#x27;18:00-19:00&#x27;],
+    [20, &#x27;19:00-20:00&#x27;],
+    [21, &#x27;20:00-21:00&#x27;],
+    [22, &#x27;21:00-22:00&#x27;],
+    [23, &#x27;22:00-23:00&#x27;],
+    [24, &#x27;23:00-24:00&#x27;],
+  ]);
+
+  /**
+   * Represents the currently selected country.
+   *
+   */
+  selectedCountry: String &#x3D; &#x27;&#x27;;
+  /**
+   * Represents the currently selected state.
+   *
+   */
+  selectedState: String &#x3D; &#x27;&#x27;;
+  /**
+   * Represents the currently selected city.
+   *
+   */
+  selectedCity: String &#x3D; &#x27;&#x27;;
+
+  /**
+   * Represents the currently selected detector.
+   *
+   */
+  selectedDetector: Detector;
+  /**
+   * Represents the currently selected date.
+   *
+   */
+  selectedDate &#x3D; &#x27;&#x27;;
+  /**
+   * Represents the currently selected time.
+   *
+   */
+  selectedTime &#x3D; null;
+
+  /**
+   * Represents the currently selected type of pollution.
+   *
+   * @type {PollutionType | null}
+   */
+  selectedPollution: PollutionType &#x3D; null;
+  /**
+   * Represents the selected weather stability class.
+   *
+   */
+  selectedWeatherStab: WeatherStability &#x3D; null;
+
+  /**
+   * A boolean flag indicating whether the state field is disabled.
+   *
+   */
+  isStateDisabled: boolean &#x3D; true;
+  /**
+   * Indicates whether the city field is disabled.
+   *
+   */
+  isCityDisabled: boolean &#x3D; true;
+  /**
+   * A boolean variable that indicates whether the detector field is disabled.
+   *
+   */
+  isDetectorsDisabled: boolean &#x3D; true;
+  /**
+   * A boolean variable indicating whether the date-time field is disabled.
+   *
+   */
+  isDateTimeDisabled: boolean &#x3D; true;
+  /**
+   * Indicates whether the vehicle list field is disabled or not.
+   *
+   */
+  isVehiclesListDisabled: boolean &#x3D; true;
+  /**
+   * A boolean variable that indicates whether the calculate button is disabled.
+   *
+   */
+  isButtonDisabled: boolean &#x3D; true;
+
+  /**
+   * Represents a collection of &#x60;VehicleGroup&#x60; objects.
+   *
+   */
+  vehicleGroups &#x3D; new Array&lt;VehicleGroup&gt;();
+  /**
+   * Represents a collection of &#x60;WeatherStability&#x60; objects.
+   *
+   */
+  weatherStabilities &#x3D; new Array&lt;WeatherStability&gt;();
+  /**
+   * Represents a collection of &#x60;PollutionType&#x60; objects.
+   *
+   */
+  pollutionTypes &#x3D; new Array&lt;PollutionType&gt;();
+  /**
+   * Represents the data structure for storing information about contours displayed on the map.
+   *
+   */
+  contoursData: Contours;
+
+  /**
+   * Represents a list of country names stored as strings.
+   *
+   */
+  countries &#x3D; new Array&lt;String&gt;();
+  /**
+   * Represents a list of state names stored as strings.
+   *
+   */
+  states &#x3D; new Array&lt;String&gt;();
+  /**
+   * Represents a list of city names stored as strings.
+   *
+   */
+  cities &#x3D; new Array&lt;String&gt;();
+
+  /**
+   * An array containing detector lists.
+   *
+   */
+  detectors &#x3D; new Array&lt;Detector&gt;();
+  /**
+   * Initialization value of the loop.
+   *
+   */
+  i: number &#x3D; 0;
+
+  /**
+   * Represents a custom Leaflet red pin icon using Leaflet&#x27;s L.icon method..
+   *
+   */
+  redIcon &#x3D; L.icon({
+    iconUrl: &#x27;../assets/pin-red-shadow.png&#x27;,
+
+    iconSize: [60, 47],
+    iconAnchor: [14, 45],
+  });
+
+  /**
+   * Represents a custom blue-colored map icon using Leaflet&#x27;s L.icon method.
+   *
+   */
+  blueIcon &#x3D; L.icon({
+    iconUrl: &#x27;../assets/pin-blue-flip.png&#x27;,
+
+    iconSize: [38, 36],
+    iconAnchor: [8, 35],
+  });
+
+  /**
+   * Represents a Leaflet marker that is used to visually indicate a specified location on a map.
+   *
+   */
+  detectorMarker &#x3D; L.marker([0.0, 0.0], { icon: this.redIcon });
+  /**
+   * Represents the starting point of a road using a geographical marker from the Leaflet library.
+   * The marker is initialized with default latitude and longitude coordinates [0.0, 0.0]
+   * and styled using a blue pin icon.
+   *
+   *
+   * @type {L.Marker}
+   */
+  roadStartMarker &#x3D; L.marker([0.0, 0.0], { icon: this.blueIcon });
+  /**
+   * Represents the ending point of a road using a geographical marker from the Leaflet library.
+   * The marker is initialized with default latitude and longitude coordinates [0.0, 0.0]
+   * and styled using a blue pin icon.
+   *
+   *
+   * @type {L.Marker}
+   */
+  roadEndMarker &#x3D; L.marker([0.0, 0.0], { icon: this.blueIcon });
+
+  /**
+   * Represents a polygonal area on a map using Leaflet&#x27;s polygon feature.
+   * The variable is used to define and manipulate a polygon by specifying
+   * its geographical coordinates.
+   *
+   */
+  areaPolygon &#x3D; L.polygon([]);
+  /**
+   * An array of Leaflet Polygon objects representing contour polygons.
+   * Each polygon in the array defines a closed shape that represents a specific contour on a map.
+   *
+   */
+  contourPolygons: Array&lt;L.Polygon&gt; &#x3D; new Array&lt;L.Polygon&gt;();
+  /**
+   * A list of map markers used by the detectors.
+   *
+   */
+  detectorMarkerList: Array&lt;L.Marker&gt; &#x3D; new Array&lt;L.Marker&gt;();
+
+  /**
+   * A Leaflet Polyline instance representing the road path from starting to ending point.
+   *
+   */
+  roadPolyline &#x3D; L.polyline([[0.0, 0.0]]);
+  /**
+   * Represents the data structure containing Gaussian Plume calculations.
+   *
+   */
+  plumeData: PlumeData &#x3D; null;
+
+  /**
+   * Represents the duration of the error bar display time in seconds.
+   *
+   */
+  errorBarDuration &#x3D; 5;
+
+  /**
+   * Indicates whether a request has been sent.
+   *
+   */
+  isRequestSent: boolean &#x3D; false;
+  /**
+   * Represents a list of calendar dates.
+   *
+   */
+  dateList: CalendarDate[] &#x3D; null;
+  /**
+   * Represents the starting date for a mat-datepicker component.
+   *
+   */
+  startDate: Date &#x3D; null;
+
+  /**
+   * A function used to determine the CSS class to apply for a given calendar cell
+   * in a mat-datepicker component.
+   *
+   */
+  dateClass: MatCalendarCellClassFunction&lt;Date&gt; &#x3D; (cellDate, view) &#x3D;&gt; {
+    return &#x27;&#x27;;
+  };
+
+  /**
+   * Constructor for initializing the service dependencies.
+   *
+   * @param {BackendDataService} backendDataService - The service responsible for handling backend data operations.
+   * @param {ToggleService} toggleService - The service used for toggling sidenav.
+   * @param {LocalStorageService} localStorageService - The service for interacting with local storage features.
+   * @param {MatSnackBar} snackBar - The service for displaying snack bar notifications.
+   */
+  constructor(
+    public backendDataService: BackendDataService,
+    public toggleService: ToggleService,
+    public localStorageService: LocalStorageService,
+    private snackBar: MatSnackBar
+  ) {
+  }
+
+  /**
+   * Initializes the component and retrieves necessary data by calling multiple backend services.
+   *
+   */
+  ngOnInit(): void {
+    this.backendDataService.getStabilityData().subscribe((response) &#x3D;&gt; {
+      this.weatherStabilities &#x3D; response.map((item) &#x3D;&gt; {
+        return new WeatherStability(
+          item.id,
+          item.weatherStability,
+          item.description
+        );
+      });
+    });
+
+    this.backendDataService.getPollutionData().subscribe((response) &#x3D;&gt; {
+      this.pollutionTypes &#x3D; response.map((item) &#x3D;&gt; {
+        return new PollutionType(item.id, item.pollutionType, item.description);
+      });
+    });
+
+    this.backendDataService.getCountryData().subscribe((response) &#x3D;&gt; {
+      this.countries &#x3D; response.map((item) &#x3D;&gt; {
+        return item;
+      });
+
+      if (this.countries.length &#x3D;&#x3D; 1) {
+        this.selectedCountry &#x3D; this.countries[0] as String;
+        this.changeStateShowValue();
+      }
+    });
+  }
+
+  /**
+   * Updates the selected state value and enables or disables state field based on the selected country.
+   *
+   */
+  changeStateShowValue() {
+    this.selectedState &#x3D; &#x27;&#x27;;
+    this.changeCityShowValue();
+
+    if (this.selectedCountry) {
+      this.backendDataService
+        .getStateData(this.selectedCountry)
+        .subscribe((response) &#x3D;&gt; {
+          this.states &#x3D; response.map((item) &#x3D;&gt; {
+            return item;
+          });
+
+          if (this.states.length &#x3D;&#x3D; 1) {
+            this.selectedState &#x3D; this.states[0] as String;
+            this.changeCityShowValue();
+          }
+        });
+
+      this.isStateDisabled &#x3D; false;
+    } else {
+      this.isStateDisabled &#x3D; true;
+    }
+  }
+
+  /**
+   * Updates the selected city value and enables or disables the detector field based on the selected city.
+   *
+   */
+  changeCityShowValue() {
+    this.selectedCity &#x3D; &#x27;&#x27;;
+    this.changeDetectorShowValue();
+
+    if (this.selectedState) {
+      this.backendDataService
+        .getCityData(this.selectedCountry, this.selectedState)
+        .subscribe((response) &#x3D;&gt; {
+          this.cities &#x3D; response.map((item) &#x3D;&gt; {
+            return item;
+          });
+
+          if (this.cities.length &#x3D;&#x3D; 1) {
+            this.selectedCity &#x3D; this.cities[0] as String;
+            this.changeDetectorShowValue();
+          }
+        });
+
+      this.isCityDisabled &#x3D; false;
+    } else {
+      this.isCityDisabled &#x3D; true;
+    }
+  }
+
+  /**
+   * Updates the selected detector value and enables or disables the date-time field based on the selected detector.
+   *
+   */
+  changeDetectorShowValue() {
+    this.detectorMarker.removeFrom(this.toggleService.map);
+    this.roadStartMarker.removeFrom(this.toggleService.map);
+    this.roadEndMarker.removeFrom(this.toggleService.map);
+    this.areaPolygon.removeFrom(this.toggleService.map);
+    this.roadPolyline.removeFrom(this.toggleService.map);
+
+    this.removeContourPolygons();
+
+    this.selectedDetector &#x3D; null;
+    this.changeDateTimeShowValue();
+
+    if (this.selectedCity) {
+      this.backendDataService
+        .getDetectorData(
+          this.selectedCountry,
+          this.selectedState,
+          this.selectedCity
+        )
+        .subscribe((response) &#x3D;&gt; {
+          this.detectors &#x3D; response.map((item) &#x3D;&gt; {
+            return new Detector(
+              item.id,
+              item.locationName,
+              item.topoDetectorCoordinates,
+              item.roadStartCoordinates,
+              item.roadEndCoordinates
+            );
+          });
+        });
+
+      this.isDetectorsDisabled &#x3D; false;
+    } else {
+      this.isDetectorsDisabled &#x3D; true;
+    }
+  }
+
+  /**
+   * Updates the selected date-time value and enables or disables the vehicle group field based on the selected date-time.
+   *
+   */
+  changeDateTimeShowValue() {
+    this.selectedDate &#x3D; &#x27;&#x27;;
+    this.selectedTime &#x3D; null;
+    this.changeVehiclesShowValue();
+
+    if (this.selectedDetector) {
+      this.getDatesFromBackend();
+
+      this.isDateTimeDisabled &#x3D; false;
+    } else {
+      this.isDateTimeDisabled &#x3D; true;
+    }
+  }
+
+  /**
+   * Updates the selected vehicle group value and enables or disables calculate button based on the selected vehicle groups.
+   *
+   */
+  changeVehiclesShowValue() {
+    this.vehicleGroups.length &#x3D; 0;
+    this.vehicleTypes.reset();
+    this.enableButton();
+
+    if (this.selectedDate &amp;&amp; this.selectedTime) {
+      this.isVehiclesListDisabled &#x3D; false;
+
+      this.backendDataService.getVehicleGroupsData(this.selectedDetector.id, moment(this.selectedDate).format(&#x27;YYYY-MM-DD&#x27;), this.selectedTime.key).subscribe({
+        next: (response) &#x3D;&gt; {
+          this.vehicleGroups &#x3D; response.map((item) &#x3D;&gt; {
+            return new VehicleGroup(
+              item.id,
+              item.vehicleGroup,
+              item.description
+            );
+          });
+        },
+        error: (error: HttpErrorResponse) &#x3D;&gt; {
+          this.isVehiclesListDisabled &#x3D; true;
+        },
+      });
+    } else {
+      this.isVehiclesListDisabled &#x3D; true;
+    }
+  }
+
+  /**
+   * Clears contour polygons and detector markers.
+   *
+   */
+  removeContourPolygons() {
+    this.contourPolygons.forEach((polygon) &#x3D;&gt; {
+      polygon.removeFrom(this.toggleService.map);
+    });
+  }
+
+  /**
+   * Fetches dates from the backend based on the selected detector and processes them into a list of &#x60;CalendarDate&#x60; objects.
+   * Sets the start date and applies a custom date class logic for the calendar view.
+   *
+   */
+  getDatesFromBackend() {
+    this.backendDataService
+      .getDates(this.selectedDetector.id)
+      .subscribe((response) &#x3D;&gt; {
+        this.dateList &#x3D; response.map((item) &#x3D;&gt; {
+          return new CalendarDate(item.day, item.month, item.year);
+        });
+
+        this.dateList.forEach(element &#x3D;&gt; {
+          element.isSelected &#x3D; false;
+        });
+
+        var lastDate: CalendarDate &#x3D; this.dateList[this.dateList.length - 1];
+        this.startDate &#x3D; new Date(
+          lastDate.year,
+          lastDate.month - 1,
+          lastDate.day
+        );
+
+        this.dateClass &#x3D; (cellDate, view) &#x3D;&gt; {
+          if (view &#x3D;&#x3D;&#x3D; &#x27;month&#x27;) {
+            const day &#x3D; cellDate.getDate();
+            const month &#x3D; cellDate.getMonth();
+            const year &#x3D; cellDate.getFullYear();
+
+            for (var i &#x3D; 0; i &lt; this.dateList.length; i +&#x3D; 1) {
+              this.dateList[i].isSelected &#x3D; false;
+            }
+
+            for (var i &#x3D; 0; i &lt; this.dateList.length; i +&#x3D; 1) {
+              if (
+                day &#x3D;&#x3D;&#x3D; this.dateList[i].day &amp;&amp;
+                month &#x3D;&#x3D;&#x3D; this.dateList[i].month - 1 &amp;&amp;
+                year &#x3D;&#x3D;&#x3D; this.dateList[i].year &amp;&amp;
+                this.dateList[i].isSelected &#x3D;&#x3D;&#x3D; false
+              ) {
+                this.dateList[i].isSelected &#x3D; true;
+                return &#x27;dateEnabled&#x27;;
+              }
+            }
+          }
+          return &#x27;&#x27;;
+        };
+      });
+  }
+
+  /**
+   * Evaluates the selected properties and conditions to determine whether a button should be enabled.
+   * The button is enabled when all required properties (selectedCountry, selectedState, selectedCity,
+   * selectedDetector, selectedDate, selectedTime, selectedPollution, selectedWeatherStab, and valid vehicleTypes)
+   * are set and valid.
+   *
+   */
+  enableButton() {
+    this.clearContours();
+
+    if (
+      this.selectedCountry &amp;&amp;
+      this.selectedState &amp;&amp;
+      this.selectedCity &amp;&amp;
+      this.selectedDetector &amp;&amp;
+      this.selectedDate &amp;&amp;
+      this.selectedTime &amp;&amp;
+      this.selectedPollution &amp;&amp;
+      this.selectedWeatherStab &amp;&amp;
+      this.vehicleTypes.value !&#x3D; null &amp;&amp;
+      this.vehicleTypes.value.length
+    ) {
+      this.isButtonDisabled &#x3D; false;
+    } else {
+      this.isButtonDisabled &#x3D; true;
+    }
+  }
+
+  /**
+   * Calculates Gaussian Plume and displays it on the map after pressing the &quot;Measure&quot; button.
+   *
+   */
+  runMeasureButton() {
+    if (
+      this.selectedCountry &amp;&amp;
+      this.selectedState &amp;&amp;
+      this.selectedCity &amp;&amp;
+      this.selectedDetector &amp;&amp;
+      this.selectedDate &amp;&amp;
+      this.selectedTime &amp;&amp;
+      this.selectedPollution &amp;&amp;
+      this.selectedWeatherStab &amp;&amp;
+      this.vehicleTypes.value.length
+    ) {
+      this.isRequestSent &#x3D; true;
+
+      this.openErrorSnackBar(&#x27;System is currently processing data&#x27;, &#x27;&#x27;, 3000);
+
+      var vehicleArray &#x3D; new Array&lt;number&gt;();
+      this.vehicleTypes.value.forEach((vehicle) &#x3D;&gt; {
+        vehicleArray.push(vehicle.id);
+      });
+
+      this.plumeData &#x3D; new PlumeData(
+        vehicleArray,
+        this.selectedWeatherStab.id,
+        this.selectedPollution.id,
+        this.selectedDetector.id,
+        moment(this.selectedDate).format(&#x27;YYYY-MM-DD&#x27;),
+        this.selectedTime.key,
+        this.resolutionValue
+      );
+      this.clearContours();
+      this.calculateAirPollution(this.plumeData);
+    } else {
+      this.openErrorSnackBar(&#x27;Incorrect data&#x27;, &#x27;Close&#x27;, 5000);
+    }
+  }
+
+  /**
+   * Clears contour data.
+   *
+   */
+  clearContours() {
+    if (this.contourPolygons.length !&#x3D; 0) {
+      this.contourPolygons.forEach((polygon: Polygon) &#x3D;&gt; {
+        polygon.removeFrom(this.toggleService.map);
+      });
+    }
+  }
+
+  /**
+   * Calculates air pollution based on data gathered through the form.
+   *
+   */
+  calculateAirPollution(plumeData: PlumeData) {
+    this.backendDataService.postGaussianPlumeData(this.plumeData).subscribe({
+      next: (response) &#x3D;&gt; {
+        this.toggleService.opened &#x3D; !this.toggleService.opened;
+        this.isRequestSent &#x3D; false;
+
+        this.contoursData &#x3D; response;
+        this.placeContoursOnMap();
+
+        this.openErrorSnackBar(
+          &#x27;Simulation completed successfully!&#x27;,
+          &#x27;Close&#x27;,
+          5000
+        );
+      },
+      error: (error: HttpErrorResponse) &#x3D;&gt; {
+        this.toggleService.opened &#x3D; !this.toggleService.opened;
+        this.isRequestSent &#x3D; false;
+
+        this.openErrorSnackBar(error.error.msg, &#x27;Close&#x27;, 5000);
+      },
+    });
+  }
+
+  /**
+   * Places contour polygons on the map based on the calculated contour data, styles them, and attaches popups with relevant information.
+   *
+   */
+  placeContoursOnMap() {
+    for (var i &#x3D; 0; i &lt; this.contoursData.contours.length; i++) {
+      this.contourPolygons.push(L.polygon([]));
+    }
+
+    for (var i &#x3D; 0; i &lt; this.contoursData.contours.length; i++) {
+      var gpsPointList: [number, number][] &#x3D; [];
+
+      this.contoursData.contours[i].points.forEach((point: Point) &#x3D;&gt; {
+        gpsPointList.push([point.lat, point.lon]);
+      });
+
+      this.contourPolygons[i].removeFrom(this.toggleService.map);
+
+      this.contourPolygons[i] &#x3D; L.polygon(gpsPointList);
+      var myStyle &#x3D; {
+        color: this.contoursData.contours[i].color,
+        opacity: 1,
+        fillOpacity: 0.07,
+      };
+      this.contourPolygons[i].setStyle(myStyle);
+      this.contourPolygons[i].addTo(this.toggleService.map);
+
+      this.addPopup(
+        this.contourPolygons[i],
+        this.contoursData.contours[i].threshold +
+          &#x27;&amp;nbsp&lt;sup&gt;µg&lt;/sup&gt;&lt;span&gt;&amp;frasl;&lt;/span&gt;&lt;sub&gt;m&lt;sup&gt;3&lt;/sup&gt;&lt;/sub&gt;&lt;/span&gt;&#x27;
+      );
+    }
+  }
+
+  /**
+   * Adds a popup to the specified layer that displays the provided text when hovered over.
+   *
+   * @param {Object} layer - The layer to which the popup will be added.
+   * @param {string} text - The text to display inside the popup.
+   *
+   */
+  addPopup(layer, text: string) {
+    layer.on(&#x27;mouseover&#x27;, function (e) {
+      this.bindPopup(text, { className: &#x27;my-popup&#x27; }).openPopup(e.latlng);
+    });
+    layer.on(&#x27;mouseout&#x27;, function (e) {
+      this.closePopup();
+    });
+  }
+
+  /**
+   * Clears all form data.
+   *
+   */
+  clearAllOptions() {
+    this.selectedCountry &#x3D; &#x27;&#x27;;
+    this.changeStateShowValue();
+
+    this.selectedPollution &#x3D; null;
+    this.selectedWeatherStab &#x3D; null;
+    this.vehicleTypes.reset();
+    this.resolutionValue &#x3D; 1000;
+
+    this.openErrorSnackBar(&#x27;Data cleared&#x27;, &#x27;Close&#x27;, 5000);
+  }
+
+  /**
+   * Displays an error snackbar with the provided message, action, and duration.
+   *
+   * @param {string} message - The message to display in the snackbar.
+   * @param {string} action - The label for the snackbar&#x27;s action button.
+   * @param {number} duration - The duration in milliseconds for which the snackbar should be visible.
+   *
+   */
+  openErrorSnackBar(message: string, action: string, duration: number) {
+    this.snackBar.open(message, action, { duration: duration });
+  }
+
+  /**
+   * Centers the map on the topological detector&#x27;s location and configures map elements
+   * such as markers and polylines to represent the detector and associated road points.
+   * Removes any previously added map elements related to the road and the detector before
+   * setting up new ones. Adjusts the map view to fit the detector&#x27;s location with an default zoom value.
+   *
+   */
+  centerToTopoDetector() {
+    this.roadPolyline.removeFrom(this.toggleService.map);
+    this.areaPolygon.removeFrom(this.toggleService.map);
+    this.roadStartMarker.removeFrom(this.toggleService.map);
+    this.roadEndMarker.removeFrom(this.toggleService.map);
+    this.detectorMarker.removeFrom(this.toggleService.map);
+
+    if (this.selectedDetector !&#x3D; null) {
+      this.detectorMarker
+        .setLatLng(this.selectedDetector.getTopoDetectorPoint())
+        .addTo(this.toggleService.map);
+      this.roadStartMarker
+        .setLatLng(this.selectedDetector.getRoadStartPoint())
+        .addTo(this.toggleService.map);
+      this.roadEndMarker
+        .setLatLng(this.selectedDetector.getRoadEndPoint())
+        .addTo(this.toggleService.map);
+
+      var zoomValue &#x3D; this.calculateAreaBox();
+
+      this.toggleService.map.setView(
+        this.selectedDetector.getTopoDetectorPoint(),
+        zoomValue
+      );
+
+      this.roadPolyline &#x3D; L.polyline(
+        [
+          this.selectedDetector.getRoadStartPoint(),
+          this.selectedDetector.getRoadEndPoint(),
+        ],
+        { color: &#x27;rgb(56,124,180)&#x27; }
+      ).addTo(this.toggleService.map);
+    }
+  }
+
+  /**
+   * Calculates the area boundaries for a specified region on a map based on the provided detector&#x27;s road start coordinates,
+   * resolution and area size from the form. Determines the zoom level for rendering the map.
+   *
+   * @return {number} The zoom level based on the resolution and area boundaries. Defaults to 13 if no valid detector or start coordinates are available.
+   */
+  calculateAreaBox(): number {
+    if (this.selectedDetector &amp;&amp; this.selectedDetector.roadStartCoordinates) {
+      this.areaPolygon.removeFrom(this.toggleService.map);
+
+      var areaPolygonList: [number, number][] &#x3D; [];
+
+      var areaMarkerLat &#x3D;
+        this.selectedDetector.roadStartCoordinates.latitude +
+        (-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI);
+      var areaMarkerLon &#x3D;
+        this.selectedDetector.roadStartCoordinates.longitude +
+        ((-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI)) /
+          Math.cos(
+            (this.selectedDetector.roadStartCoordinates.latitude * Math.PI) /
+              180
+          );
+      areaPolygonList.push([areaMarkerLat, areaMarkerLon]);
+
+      areaMarkerLat &#x3D;
+        this.selectedDetector.roadStartCoordinates.latitude +
+        (-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI);
+      areaMarkerLon &#x3D;
+        this.selectedDetector.roadStartCoordinates.longitude -
+        ((-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI)) /
+          Math.cos(
+            (this.selectedDetector.roadStartCoordinates.latitude * Math.PI) /
+              180
+          );
+      areaPolygonList.push([areaMarkerLat, areaMarkerLon]);
+
+      areaMarkerLat &#x3D;
+        this.selectedDetector.roadStartCoordinates.latitude -
+        (-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI);
+      areaMarkerLon &#x3D;
+        this.selectedDetector.roadStartCoordinates.longitude -
+        ((-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI)) /
+          Math.cos(
+            (this.selectedDetector.roadStartCoordinates.latitude * Math.PI) /
+              180
+          );
+      areaPolygonList.push([areaMarkerLat, areaMarkerLon]);
+
+      areaMarkerLat &#x3D;
+        this.selectedDetector.roadStartCoordinates.latitude -
+        (-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI);
+      areaMarkerLon &#x3D;
+        this.selectedDetector.roadStartCoordinates.longitude +
+        ((-(this.resolutionValue / 2) / 1000 / this.EARTH_RADIUS) *
+          (180 / Math.PI)) /
+          Math.cos(
+            (this.selectedDetector.roadStartCoordinates.latitude * Math.PI) /
+              180
+          );
+      areaPolygonList.push([areaMarkerLat, areaMarkerLon]);
+
+      this.areaPolygon &#x3D; new L.Polygon(areaPolygonList);
+      var myStyle &#x3D; {
+        color: &#x27;rgb(56,124,180)&#x27;,
+        weight: 2,
+        fillOpacity: 0,
+      };
+      this.areaPolygon.setStyle(myStyle);
+      this.areaPolygon.addTo(this.toggleService.map);
+
+      return 14;
+    }
+
+    return 13;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://fonts.googleapis.com/css2?family&#x3D;Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&quot; /&gt;
+
+&lt;div class&#x3D;&quot;spinner-wrapper&quot; *ngIf&#x3D;&quot;this.isRequestSent&quot;&gt;
+    &lt;mat-spinner color&#x3D;&quot;primary&quot; diameter&#x3D;&quot;100&quot;&gt;&lt;/mat-spinner&gt;
+&lt;/div&gt;
+
+&lt;div fxLayout&#x3D;&quot;column wrap&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
+    &lt;div class&#x3D;&quot;topSpacer&quot;&gt;&lt;/div&gt;
+    &lt;h1 class&#x3D;&quot;formTitle&quot;&gt;Measurement parameters&lt;/h1&gt;
+    &lt;div class&#x3D;&quot;afterTitleSpacer&quot;&gt;&lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;location&quot; fxLayout&#x3D;&quot;column wrap&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
+        &lt;mat-form-field class&#x3D;&quot;locationFormField&quot;&gt;
+            &lt;mat-label&gt;Country&lt;/mat-label&gt;
+            &lt;mat-select [(value)]&#x3D;&quot;selectedCountry&quot; (selectionChange)&#x3D;&quot;changeStateShowValue()&quot;&gt;
+                &lt;mat-option&gt;None&lt;/mat-option&gt;
+                @for (c of countries; track c) {
+                &lt;mat-option [value]&#x3D;&quot;c&quot;&gt;{{c}}&lt;/mat-option&gt;
+                }
+            &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;div class&#x3D;&quot;midSpacer&quot;&gt;&lt;/div&gt;
+
+        &lt;mat-form-field class&#x3D;&quot;locationFormField&quot;&gt;
+            &lt;mat-label&gt;State&lt;/mat-label&gt;
+            &lt;mat-select [(value)]&#x3D;&quot;selectedState&quot; [disabled]&#x3D;&quot;isStateDisabled&quot; (selectionChange)&#x3D;&quot;changeCityShowValue()&quot;&gt;
+                &lt;mat-option&gt;None&lt;/mat-option&gt;
+                @for (s of states; track s) {
+                &lt;mat-option [value]&#x3D;&quot;s&quot;&gt;{{s}}&lt;/mat-option&gt;
+                }
+            &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;div class&#x3D;&quot;midSpacer&quot;&gt;&lt;/div&gt;
+
+        &lt;mat-form-field class&#x3D;&quot;locationFormField&quot;&gt;
+            &lt;mat-label&gt;City&lt;/mat-label&gt;
+            &lt;mat-select [(value)]&#x3D;&quot;selectedCity&quot; [disabled]&#x3D;&quot;isCityDisabled&quot; (selectionChange)&#x3D;&quot;changeDetectorShowValue()&quot;&gt;
+                &lt;mat-option&gt;None&lt;/mat-option&gt;
+                @for (ct of cities; track ct) {
+                &lt;mat-option [value]&#x3D;&quot;ct&quot;&gt;{{ct}}&lt;/mat-option&gt;
+                }
+            &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+    &lt;/div&gt;
+
+    &lt;mat-form-field class&#x3D;&quot;fullWidthFormField&quot;&gt;
+        &lt;mat-label&gt;Detector&lt;/mat-label&gt;
+        &lt;mat-select [(value)]&#x3D;&quot;selectedDetector&quot; [disabled]&#x3D;&quot;isDetectorsDisabled&quot; (selectionChange)&#x3D;&quot;changeDateTimeShowValue();centerToTopoDetector()&quot;&gt;
+            &lt;mat-option&gt;None&lt;/mat-option&gt;
+                @for (d of detectors; track d) {
+                &lt;mat-option [value]&#x3D;&quot;d&quot;&gt;{{d.locationName}}&lt;/mat-option&gt;
+                }
+            &lt;/mat-select&gt;
+    &lt;/mat-form-field&gt;
+
+    &lt;div class&#x3D;&quot;date&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
+        &lt;mat-form-field class&#x3D;&quot;dateFormField&quot;&gt;
+            &lt;mat-label&gt;Date&lt;/mat-label&gt;
+            &lt;input matInput [matDatepicker]&#x3D;&quot;picker&quot; [(ngModel)]&#x3D;&quot;selectedDate&quot; [disabled]&#x3D;&quot;isDateTimeDisabled&quot; (dateChange)&#x3D;&quot;changeVehiclesShowValue()&quot;&gt;
+            &lt;mat-datepicker-toggle matIconSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker [dateClass]&#x3D;&quot;dateClass&quot; [startAt]&#x3D;&quot;startDate&quot; #picker&gt;&lt;/mat-datepicker&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;div class&#x3D;&quot;midSpacer&quot;&gt;&lt;/div&gt;
+
+        &lt;mat-form-field class&#x3D;&quot;timeFormField&quot;&gt;
+            &lt;mat-label&gt;Time&lt;/mat-label&gt;
+            &lt;mat-select [(value)]&#x3D;&quot;selectedTime&quot; [disabled]&#x3D;&quot;isDateTimeDisabled&quot; (selectionChange)&#x3D;&quot;changeVehiclesShowValue()&quot;&gt;
+                &lt;mat-option&gt;None&lt;/mat-option&gt;
+                    @for (t of times | keyvalue; track t) {
+                    &lt;mat-option [value]&#x3D;&quot;t&quot;&gt;{{t.value}}&lt;/mat-option&gt;
+                    }
+            &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+    &lt;/div&gt;
+
+    &lt;mat-form-field class&#x3D;&quot;fullWidthFormField&quot; *ngIf&#x3D;&quot;isVehiclesListDisabled&quot;&gt;
+        &lt;mat-label&gt;Vehicle Types&lt;/mat-label&gt;
+        &lt;mat-select [disabled]&#x3D;&quot;true&quot;&gt;
+        &lt;/mat-select&gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-form-field class&#x3D;&quot;fullWidthFormField&quot; *ngIf&#x3D;&quot;!isVehiclesListDisabled&quot;&gt;
+        &lt;mat-label&gt;Vehicle Types&lt;/mat-label&gt;
+        &lt;mat-select [formControl]&#x3D;&quot;vehicleTypes&quot; multiple (selectionChange)&#x3D;&quot;enableButton()&quot;&gt;
+            &lt;mat-select-trigger&gt;
+                {{vehicleTypes.value?.[0]?.description || &#x27;&#x27;}}
+                @if ((vehicleTypes.value?.length || 0) &gt; 1) {
+                &lt;span class&#x3D;&quot;example-additional-selection&quot;&gt;
+                    (+{{(vehicleTypes.value?.length || 0) - 1}} {{vehicleTypes.value?.length &#x3D;&#x3D;&#x3D; 2 ? &#x27;other&#x27; : &#x27;others&#x27;}})
+                &lt;/span&gt;
+                }
+            &lt;/mat-select-trigger&gt;
+            @for (vg of vehicleGroups; track vg) {
+            &lt;mat-option [value]&#x3D;&quot;vg&quot;&gt;
+                &lt;div [innerHTML]&#x3D;&quot;vg.vehicleGroup&quot;&gt;&lt;/div&gt;
+            &lt;/mat-option&gt;
+            }
+        &lt;/mat-select&gt;
+    &lt;/mat-form-field&gt;
+
+
+
+    &lt;div class&#x3D;&quot;extraInfo&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
+        &lt;mat-form-field class&#x3D;&quot;extraInfoFormField&quot;&gt;
+            &lt;mat-label&gt;Pollution Type&lt;/mat-label&gt;
+            &lt;mat-select [(value)]&#x3D;&quot;selectedPollution&quot; (selectionChange)&#x3D;&quot;enableButton()&quot;&gt;
+                &lt;mat-option&gt;None&lt;/mat-option&gt;
+                @for (pt of pollutionTypes; track pt) {
+                &lt;mat-option [innerHTML]&#x3D;&quot;pt.pollutionType&quot; [value]&#x3D;&quot;pt&quot;&gt;{{pt.description}}&lt;/mat-option&gt;
+                }
+            &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+
+        &lt;div class&#x3D;&quot;midSpacer&quot;&gt;&lt;/div&gt;
+
+        &lt;mat-form-field class&#x3D;&quot;extraInfoFormField&quot;&gt;
+            &lt;mat-label&gt;Weather Stability&lt;/mat-label&gt;
+            &lt;mat-select [(value)]&#x3D;&quot;selectedWeatherStab&quot; (selectionChange)&#x3D;&quot;enableButton()&quot;&gt;
+                &lt;mat-option&gt;None&lt;/mat-option&gt;
+                @for (ws of weatherStabilities; track ws) {
+                &lt;mat-option [value]&#x3D;&quot;ws&quot;&gt;{{ws.weatherStability}}&lt;/mat-option&gt;
+                }
+            &lt;/mat-select&gt;
+        &lt;/mat-form-field&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;sliderStyle&quot; fxLayout&#x3D;&quot;column wrap&quot; fxFlex&#x3D;&quot;100%&quot; fxLayoutAlign&#x3D;&quot; center&quot;&gt;
+        &lt;div class&#x3D;&quot;sliderLabels&quot; fxLayout&#x3D;&quot;row wrap&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
+            &lt;label class&#x3D;&quot;label&quot;&gt;Area: {{resolutionValue * resolutionValue / 1000000}} km&lt;sup&gt;2&lt;/sup&gt; ({{resolutionValue}} m x {{resolutionValue}} m)&lt;/label&gt;
+            &lt;div class&#x3D;&quot;midSpacer&quot;&gt;&lt;/div&gt;
+            &lt;label class&#x3D;&quot;label&quot;&gt;&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;mat-slider style&#x3D;&quot;width: 100%;&quot; min&#x3D;&quot;1000&quot; max&#x3D;&quot;5000&quot; step&#x3D;&quot;500&quot; value&#x3D;&quot;value&quot; showTickMarks&gt;
+            &lt;input  matSliderThumb [(ngModel)]&#x3D;&quot;resolutionValue&quot; #slider (input)&#x3D;&quot;calculateAreaBox()&quot;&gt;
+        &lt;/mat-slider&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;topSpacer&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;buttonContainer&quot; fxLayout&#x3D;&quot;row wrap&quot;&gt;
+        &lt;button class&#x3D;&quot;calculateButton&quot; mat-raised-button color&#x3D;&quot;success&quot; (click)&#x3D;&quot;runMeasureButton()&quot; [disabled]&#x3D;&quot;isButtonDisabled&quot;&gt;Measure&lt;/button&gt;
+        &lt;div class&#x3D;&quot;buttonSpacer&quot;&gt;&lt;/div&gt;
+        &lt;button class&#x3D;&quot;clearAllOptions&quot; mat-raised-button color&#x3D;&quot;success&quot; (click)&#x3D;&quot;clearAllOptions()&quot;&gt;Clear&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;topSpacer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /><div class="spinner-wrapper" *ngIf="this.isRequestSent">    <mat-spinner color="primary" diameter="100"></mat-spinner></div><div fxLayout="column wrap" fxLayoutAlign="center center">    <div class="topSpacer"></div>    <h1 class="formTitle">Measurement parameters</h1>    <div class="afterTitleSpacer"></div>    <div class="location" fxLayout="column wrap" fxLayoutAlign="center center">        <mat-form-field class="locationFormField">            <mat-label>Country</mat-label>            <mat-select [(value)]="selectedCountry" (selectionChange)="changeStateShowValue()">                <mat-option>None</mat-option>                @for (c of countries; track c) {                <mat-option [value]="c">{{c}}</mat-option>                }            </mat-select>        </mat-form-field>        <div class="midSpacer"></div>        <mat-form-field class="locationFormField">            <mat-label>State</mat-label>            <mat-select [(value)]="selectedState" [disabled]="isStateDisabled" (selectionChange)="changeCityShowValue()">                <mat-option>None</mat-option>                @for (s of states; track s) {                <mat-option [value]="s">{{s}}</mat-option>                }            </mat-select>        </mat-form-field>        <div class="midSpacer"></div>        <mat-form-field class="locationFormField">            <mat-label>City</mat-label>            <mat-select [(value)]="selectedCity" [disabled]="isCityDisabled" (selectionChange)="changeDetectorShowValue()">                <mat-option>None</mat-option>                @for (ct of cities; track ct) {                <mat-option [value]="ct">{{ct}}</mat-option>                }            </mat-select>        </mat-form-field>    </div>    <mat-form-field class="fullWidthFormField">        <mat-label>Detector</mat-label>        <mat-select [(value)]="selectedDetector" [disabled]="isDetectorsDisabled" (selectionChange)="changeDateTimeShowValue();centerToTopoDetector()">            <mat-option>None</mat-option>                @for (d of detectors; track d) {                <mat-option [value]="d">{{d.locationName}}</mat-option>                }            </mat-select>    </mat-form-field>    <div class="date" fxLayout="row" fxLayoutAlign="center center">        <mat-form-field class="dateFormField">            <mat-label>Date</mat-label>            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" [disabled]="isDateTimeDisabled" (dateChange)="changeVehiclesShowValue()">            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>            <mat-datepicker [dateClass]="dateClass" [startAt]="startDate" #picker></mat-datepicker>        </mat-form-field>        <div class="midSpacer"></div>        <mat-form-field class="timeFormField">            <mat-label>Time</mat-label>            <mat-select [(value)]="selectedTime" [disabled]="isDateTimeDisabled" (selectionChange)="changeVehiclesShowValue()">                <mat-option>None</mat-option>                    @for (t of times | keyvalue; track t) {                    <mat-option [value]="t">{{t.value}}</mat-option>                    }            </mat-select>        </mat-form-field>    </div>    <mat-form-field class="fullWidthFormField" *ngIf="isVehiclesListDisabled">        <mat-label>Vehicle Types</mat-label>        <mat-select [disabled]="true">        </mat-select>    </mat-form-field>    <mat-form-field class="fullWidthFormField" *ngIf="!isVehiclesListDisabled">        <mat-label>Vehicle Types</mat-label>        <mat-select [formControl]="vehicleTypes" multiple (selectionChange)="enableButton()">            <mat-select-trigger>                {{vehicleTypes.value?.[0]?.description || \'\'}}                @if ((vehicleTypes.value?.length || 0) > 1) {                <span class="example-additional-selection">                    (+{{(vehicleTypes.value?.length || 0) - 1}} {{vehicleTypes.value?.length === 2 ? \'other\' : \'others\'}})                </span>                }            </mat-select-trigger>            @for (vg of vehicleGroups; track vg) {            <mat-option [value]="vg">                <div [innerHTML]="vg.vehicleGroup"></div>            </mat-option>            }        </mat-select>    </mat-form-field>    <div class="extraInfo" fxLayout="row" fxLayoutAlign="center center">        <mat-form-field class="extraInfoFormField">            <mat-label>Pollution Type</mat-label>            <mat-select [(value)]="selectedPollution" (selectionChange)="enableButton()">                <mat-option>None</mat-option>                @for (pt of pollutionTypes; track pt) {                <mat-option [innerHTML]="pt.pollutionType" [value]="pt">{{pt.description}}</mat-option>                }            </mat-select>        </mat-form-field>        <div class="midSpacer"></div>        <mat-form-field class="extraInfoFormField">            <mat-label>Weather Stability</mat-label>            <mat-select [(value)]="selectedWeatherStab" (selectionChange)="enableButton()">                <mat-option>None</mat-option>                @for (ws of weatherStabilities; track ws) {                <mat-option [value]="ws">{{ws.weatherStability}}</mat-option>                }            </mat-select>        </mat-form-field>    </div>    <div class="sliderStyle" fxLayout="column wrap" fxFlex="100%" fxLayoutAlign=" center">        <div class="sliderLabels" fxLayout="row wrap" fxLayoutAlign="center center">            <label class="label">Area: {{resolutionValue * resolutionValue / 1000000}} km<sup>2</sup> ({{resolutionValue}} m x {{resolutionValue}} m)</label>            <div class="midSpacer"></div>            <label class="label"></label>        </div>        <mat-slider style="width: 100%;" min="1000" max="5000" step="500" value="value" showTickMarks>            <input  matSliderThumb [(ngModel)]="resolutionValue" #slider (input)="calculateAreaBox()">        </mat-slider>    </div>    <div class="topSpacer"></div>    <div class="buttonContainer" fxLayout="row wrap">        <button class="calculateButton" mat-raised-button color="success" (click)="runMeasureButton()" [disabled]="isButtonDisabled">Measure</button>        <div class="buttonSpacer"></div>        <button class="clearAllOptions" mat-raised-button color="success" (click)="clearAllOptions()">Clear</button>    </div>    <div class="topSpacer"></div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DialogLegendComponent', 'selector': 'app-dialog-legend'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PanelComponent', 'selector': 'app-panel'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,480 @@
+\doxysection{Gaussian\+Plume Class Reference}
+\hypertarget{class_gaussian_plume}{}\label{class_gaussian_plume}\index{GaussianPlume@{GaussianPlume}}
+
+
+The overloaded constructor of the Car class.  
+
+
+
+
+{\ttfamily \#include $<$Gaussian\+Plume.\+h$>$}
+
+
+
+Collaboration diagram for Gaussian\+Plume\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_gaussian_plume_1_1_contour}{Contour}}
+\begin{DoxyCompactList}\small\item\em A class describing the contour data for a single treshold. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_gaussian_plume_1_1_contours}{Contours}}
+\begin{DoxyCompactList}\small\item\em A class describing the contour data for a single treshold. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_gaussian_plume_1_1_gaussian_params}{Gaussian\+Params}}
+\begin{DoxyCompactList}\small\item\em The intermediary structure for matrix calculations. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_gaussian_plume_1_1_gps_point}{Gps\+Point}}
+\begin{DoxyCompactList}\small\item\em A structure describing the GPS coordinates of a point on the map. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{Min\+Max}}
+\begin{DoxyCompactList}\small\item\em A structure describing the matrix fragment size. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params}}
+\begin{DoxyCompactList}\small\item\em The structure \doxylink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params} that contains data necessary for calculating air pollution. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_gaussian_plume_1_1_sigmas}{Sigmas}}
+\begin{DoxyCompactList}\small\item\em The structure defining parameters necessary to calculate sigma value as a part of the main equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gaussian_plume_a24a3c0f90897fd725243faeb604f36e1}{Gaussian\+Plume}} (const char \texorpdfstring{$\ast$}{*}json\+In)
+\begin{DoxyCompactList}\small\item\em The constructor of the Gaussain\+Plume class that is responsible for air pollution dispersion calculations based on given data and the Gaussian plume equation. \end{DoxyCompactList}\item 
+\Hypertarget{class_gaussian_plume_a7280eb224c2b377cdd983cef46029beb}\label{class_gaussian_plume_a7280eb224c2b377cdd983cef46029beb} 
+string {\bfseries gaussian\+Plume} ()
+\begin{DoxyCompactList}\small\item\em Function that prepares the output data in the form of JSON. \end{DoxyCompactList}\item 
+\Hypertarget{class_gaussian_plume_a26bbbea7e2ffe376b8fa798714221280}\label{class_gaussian_plume_a26bbbea7e2ffe376b8fa798714221280} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Gaussian\+Plume} ()
+\begin{DoxyCompactList}\small\item\em The destructor of \doxylink{class_gaussian_plume}{Gaussian\+Plume} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_gaussian_plume_afafcfe182b3d2682570536d810b71718}\label{class_gaussian_plume_afafcfe182b3d2682570536d810b71718} 
+json {\bfseries prepare\+Json} (double sec\+Duration)
+\begin{DoxyCompactList}\small\item\em A method converting simulation data to JSON. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaussian_plume_a133659d868e81834728e67c2fc54d763}{gaussian\+Plume\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Main function responsible for calculating air pollution dispersion based on arguments from \doxylink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params} structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaussian_plume_a5b4016002934ee6085b22883bfc61f43}{calculate\+Emitters}} (int fragmentX, int fragmentY, int x\+Start, int y\+Start, int x\+End, int y\+End)
+\begin{DoxyCompactList}\small\item\em Function that calculates emitters for a set section of the matrix. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_gaussian_plume_aec6af109d74f06b49e82c024088752e4}{gaussian\+Function}} (\mbox{\hyperlink{struct_gaussian_plume_1_1_gaussian_params}{Gaussian\+Params}} \&gp)
+\begin{DoxyCompactList}\small\item\em Function that calculates Gaussian function for a part of the matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gaussian_plume_a1483f355ad48fc6a97fddcaa1f5e3bd9}{calculate\+Sigmas}} (double x, int weather\+Stab, \mbox{\hyperlink{struct_gaussian_plume_1_1_sigmas}{Sigmas}} \&sigmas)
+\begin{DoxyCompactList}\small\item\em Function that calculates y and z values of sigma as part of the Gaussian plume equation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_gaussian_plume_a840a026c589a5e2764a284e5e42e298a}{haversine\+Distance}} (double lat1, double lon1, double lat2, double lon2)
+\begin{DoxyCompactList}\small\item\em Function that determines the angular distance between two points on a sphere using Haversine formula. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_gaussian_plume_a5e05d4a460fc4e231cb0b3781a590dc6}{azimuth}} (double lat1, double lon1, double lat2, double lon2)
+\begin{DoxyCompactList}\small\item\em Function that determines the azimuth between two points. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_gaussian_plume_a729c6ab29f5aad2c119a7a8eca6864b3}{to\+Radians}} (double degrees)
+\begin{DoxyCompactList}\small\item\em Function converting degrees to radians. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_gaussian_plume_a56776051ccbe0c235cf3f633224487b9}{to\+Degrees}} (double radians)
+\begin{DoxyCompactList}\small\item\em Function converting radians to degrees. \end{DoxyCompactList}\item 
+\Hypertarget{class_gaussian_plume_a1f98dc5214b3e1da84f5a183f37b950e}\label{class_gaussian_plume_a1f98dc5214b3e1da84f5a183f37b950e} 
+void {\bfseries calculate\+Std\+Dev} ()
+\begin{DoxyCompactList}\small\item\em Function calculating the standard deviation of the matrix. \end{DoxyCompactList}\item 
+\Hypertarget{class_gaussian_plume_a691fd68b4e9a594abab771730cd4670b}\label{class_gaussian_plume_a691fd68b4e9a594abab771730cd4670b} 
+void {\bfseries find\+Optimal\+Thresholds} ()
+\begin{DoxyCompactList}\small\item\em Function for finding optimal tresholds based on matrix data. \end{DoxyCompactList}\item 
+\Hypertarget{class_gaussian_plume_acb92934a2571d6f921b70507af07a9eb}\label{class_gaussian_plume_acb92934a2571d6f921b70507af07a9eb} 
+void {\bfseries find\+Isolines} (int contour\+Idx)
+\begin{DoxyCompactList}\small\item\em Function for finding isolines for specific contours. \end{DoxyCompactList}\item 
+\Hypertarget{class_gaussian_plume_a7102f04110c0ecf93bac244d36057fed}\label{class_gaussian_plume_a7102f04110c0ecf93bac244d36057fed} 
+void {\bfseries create\+Contours} ()
+\begin{DoxyCompactList}\small\item\em Function for creating \doxylink{class_gaussian_plume_1_1_contour}{Contour} objects based on data provided. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_gaussian_plume_a7f1fcca17cea571f8e12dedabc82558a}\label{class_gaussian_plume_a7f1fcca17cea571f8e12dedabc82558a} 
+const double {\bfseries EARTH\+\_\+\+RADIUS} = 6378.\+0
+\begin{DoxyCompactList}\small\item\em A constant representing Earth\textquotesingle{}s radius. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params}} \mbox{\hyperlink{class_gaussian_plume_a4ff02161c43e4e22a3cff6dc7a8f7031}{pp}} = \{ 0 \}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params} structure. \end{DoxyCompactList}\item 
+\Hypertarget{class_gaussian_plume_a74cb68e5f1bf7ed6c3e544397027b46c}\label{class_gaussian_plume_a74cb68e5f1bf7ed6c3e544397027b46c} 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries C1}
+\begin{DoxyCompactList}\small\item\em Output matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{Min\+Max}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_gaussian_plume_a816f949872a16e03389c636b3a965471}{min\+Max}}
+\begin{DoxyCompactList}\small\item\em An list of the \doxylink{struct_gaussian_plume_1_1_min_max}{Min\+Max} objects for a matrix array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{Min\+Max}} \mbox{\hyperlink{class_gaussian_plume_aec4fffe9197f8146a420a9f3f0184547}{min\+Max\+Matrix}}
+\begin{DoxyCompactList}\small\item\em An instance of the \doxylink{struct_gaussian_plume_1_1_min_max}{Min\+Max} object for a single matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_gaussian_plume_1_1_contours}{Contours}} \mbox{\hyperlink{class_gaussian_plume_a71993d35ff27ebe7d324007d67ac8fd3}{contours}}
+\begin{DoxyCompactList}\small\item\em An instance of the \doxylink{class_gaussian_plume_1_1_contours}{Contours} object for storing contour data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The overloaded constructor of the Car class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & -\/ speed value of the vehicle (in segments) \\
+\hline
+{\em car\+Length} & -\/ the length of the car \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_gaussian_plume_a24a3c0f90897fd725243faeb604f36e1}\label{class_gaussian_plume_a24a3c0f90897fd725243faeb604f36e1} 
+\index{GaussianPlume@{GaussianPlume}!GaussianPlume@{GaussianPlume}}
+\index{GaussianPlume@{GaussianPlume}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{GaussianPlume()}{GaussianPlume()}}
+{\footnotesize\ttfamily Gaussian\+Plume\+::\+Gaussian\+Plume (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{json\+In }\end{DoxyParamCaption})}
+
+
+
+The constructor of the Gaussain\+Plume class that is responsible for air pollution dispersion calculations based on given data and the Gaussian plume equation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em road\+Start\+Lat} & -\/ latitude of the starting point of the road segment \\
+\hline
+{\em road\+Start\+Lon} & -\/ longitude of the starting point of the road segment \\
+\hline
+{\em road\+End\+Lat} & -\/ latitude of the ending point of the road segment \\
+\hline
+{\em road\+End\+Lon} & -\/ longitude of the ending point of the road segment \\
+\hline
+{\em vehicle\+Groups\+Num} & -\/ number of chosen vehicle group (...) \\
+\hline
+{\em chosen\+Vehicle\+Types} & -\/ array of markers describing which vehicle group was chosen for calculation \\
+\hline
+{\em vehicle\+Count} & -\/ number of vehicles in each group \\
+\hline
+{\em vehicle\+Avg\+Velocity} & -\/ average velocity of vehicles in each group \\
+\hline
+{\em wind\+Speed} & -\/ wind speed in kmph \\
+\hline
+{\em wind\+Direction} & -\/ the direction of wind in degrees \\
+\hline
+{\em pollution} & -\/ type of pollution chosen by the user \\
+\hline
+{\em emitters\+Height} & -\/ the height on which emitters were installed \\
+\hline
+{\em weather\+Stability} & -\/ the value representing the atmospheric stability class \\
+\hline
+{\em resolution} & -\/ the size of one side of the calculated area (in meters) \\
+\hline
+{\em matrix\+Size\+Start} & -\/ the starting index of the matrix representing calculater area \\
+\hline
+{\em matrix\+Size\+End} & -\/ the ending index of the matrix representing calculater area \\
+\hline
+{\em concentration\+Height} & -\/ the height at which the concentration of air pollution will be calculated \\
+\hline
+{\em contour\+Threshold\+Min} & -\/ the minimal threshold for calculating isolines \\
+\hline
+{\em contour\+Threshold\+Max} & -\/ the maximal threshold for calculating isolines \\
+\hline
+{\em contour\+Threshold\+Step} & -\/ the step between isolines \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gaussian_plume_a5e05d4a460fc4e231cb0b3781a590dc6}\label{class_gaussian_plume_a5e05d4a460fc4e231cb0b3781a590dc6} 
+\index{GaussianPlume@{GaussianPlume}!azimuth@{azimuth}}
+\index{azimuth@{azimuth}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{azimuth()}{azimuth()}}
+{\footnotesize\ttfamily double Gaussian\+Plume\+::azimuth (\begin{DoxyParamCaption}\item[{double}]{lat1,  }\item[{double}]{lon1,  }\item[{double}]{lat2,  }\item[{double}]{lon2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function that determines the azimuth between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lat1} & -\/ latitude of the first point \\
+\hline
+{\em lon1} & -\/ longitude of the first point \\
+\hline
+{\em lat2} & -\/ latitude of the second point \\
+\hline
+{\em lon2} & -\/ longitude of the second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Azimuth between two points in degrees 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a5e05d4a460fc4e231cb0b3781a590dc6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a5e05d4a460fc4e231cb0b3781a590dc6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_a5b4016002934ee6085b22883bfc61f43}\label{class_gaussian_plume_a5b4016002934ee6085b22883bfc61f43} 
+\index{GaussianPlume@{GaussianPlume}!calculateEmitters@{calculateEmitters}}
+\index{calculateEmitters@{calculateEmitters}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{calculateEmitters()}{calculateEmitters()}}
+{\footnotesize\ttfamily void Gaussian\+Plume\+::calculate\+Emitters (\begin{DoxyParamCaption}\item[{int}]{fragmentX,  }\item[{int}]{fragmentY,  }\item[{int}]{x\+Start,  }\item[{int}]{y\+Start,  }\item[{int}]{x\+End,  }\item[{int}]{y\+End }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function that calculates emitters for a set section of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Start} & -\/ starting cell of the matrix (x-\/axis) \\
+\hline
+{\em x\+End} & -\/ last cell of the matrix (x-\/axis) \\
+\hline
+{\em y\+Start} & -\/ starting cell of the matrix (y-\/axis) \\
+\hline
+{\em y\+End} & -\/ last cell of the matrix (y-\/axis) \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a5b4016002934ee6085b22883bfc61f43_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a5b4016002934ee6085b22883bfc61f43_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_a1483f355ad48fc6a97fddcaa1f5e3bd9}\label{class_gaussian_plume_a1483f355ad48fc6a97fddcaa1f5e3bd9} 
+\index{GaussianPlume@{GaussianPlume}!calculateSigmas@{calculateSigmas}}
+\index{calculateSigmas@{calculateSigmas}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{calculateSigmas()}{calculateSigmas()}}
+{\footnotesize\ttfamily void Gaussian\+Plume\+::calculate\+Sigmas (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{int}]{weather\+Stab,  }\item[{\mbox{\hyperlink{struct_gaussian_plume_1_1_sigmas}{Gaussian\+Plume\+::\+Sigmas}} \&}]{sigmas }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function that calculates y and z values of sigma as part of the Gaussian plume equation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & -\/ downwind value \\
+\hline
+{\em weather\+Stab} & -\/ the value representing the atmospheric stability class \\
+\hline
+{\em sigmas} & -\/ the structure that stores the result of sigma x and y values \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{struct_gaussian_plume_1_1_sigmas}{Sigmas} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a1483f355ad48fc6a97fddcaa1f5e3bd9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_aec6af109d74f06b49e82c024088752e4}\label{class_gaussian_plume_aec6af109d74f06b49e82c024088752e4} 
+\index{GaussianPlume@{GaussianPlume}!gaussianFunction@{gaussianFunction}}
+\index{gaussianFunction@{gaussianFunction}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{gaussianFunction()}{gaussianFunction()}}
+{\footnotesize\ttfamily double Gaussian\+Plume\+::gaussian\+Function (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gaussian_plume_1_1_gaussian_params}{Gaussian\+Plume\+::\+Gaussian\+Params}} \&}]{gp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function that calculates Gaussian function for a part of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gp} & -\/ parameters necessary for Gaussian function calculation \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{struct_gaussian_plume_1_1_gaussian_params}{Gaussian\+Params} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_aec6af109d74f06b49e82c024088752e4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_aec6af109d74f06b49e82c024088752e4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_a133659d868e81834728e67c2fc54d763}\label{class_gaussian_plume_a133659d868e81834728e67c2fc54d763} 
+\index{GaussianPlume@{GaussianPlume}!gaussianPlumeModel@{gaussianPlumeModel}}
+\index{gaussianPlumeModel@{gaussianPlumeModel}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{gaussianPlumeModel()}{gaussianPlumeModel()}}
+{\footnotesize\ttfamily void Gaussian\+Plume\+::gaussian\+Plume\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Main function responsible for calculating air pollution dispersion based on arguments from \doxylink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params} structure. 
+
+\begin{DoxyReturn}{Returns}
+Matrix with air pollution results for each cell 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a133659d868e81834728e67c2fc54d763_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a133659d868e81834728e67c2fc54d763_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_a840a026c589a5e2764a284e5e42e298a}\label{class_gaussian_plume_a840a026c589a5e2764a284e5e42e298a} 
+\index{GaussianPlume@{GaussianPlume}!haversineDistance@{haversineDistance}}
+\index{haversineDistance@{haversineDistance}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{haversineDistance()}{haversineDistance()}}
+{\footnotesize\ttfamily double Gaussian\+Plume\+::haversine\+Distance (\begin{DoxyParamCaption}\item[{double}]{lat1,  }\item[{double}]{lon1,  }\item[{double}]{lat2,  }\item[{double}]{lon2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function that determines the angular distance between two points on a sphere using Haversine formula. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lat1} & -\/ latitude of the first point \\
+\hline
+{\em lon1} & -\/ longitude of the first point \\
+\hline
+{\em lat2} & -\/ latitude of the second point \\
+\hline
+{\em lon2} & -\/ longitude of the second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Angular distance between two points on a sphere in meters 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a840a026c589a5e2764a284e5e42e298a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a840a026c589a5e2764a284e5e42e298a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_a56776051ccbe0c235cf3f633224487b9}\label{class_gaussian_plume_a56776051ccbe0c235cf3f633224487b9} 
+\index{GaussianPlume@{GaussianPlume}!toDegrees@{toDegrees}}
+\index{toDegrees@{toDegrees}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{toDegrees()}{toDegrees()}}
+{\footnotesize\ttfamily double Gaussian\+Plume\+::to\+Degrees (\begin{DoxyParamCaption}\item[{double}]{radians }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function converting radians to degrees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radians} & -\/ value in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted value in degrees 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a56776051ccbe0c235cf3f633224487b9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_a729c6ab29f5aad2c119a7a8eca6864b3}\label{class_gaussian_plume_a729c6ab29f5aad2c119a7a8eca6864b3} 
+\index{GaussianPlume@{GaussianPlume}!toRadians@{toRadians}}
+\index{toRadians@{toRadians}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{toRadians()}{toRadians()}}
+{\footnotesize\ttfamily double Gaussian\+Plume\+::to\+Radians (\begin{DoxyParamCaption}\item[{double}]{degrees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function converting degrees to radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & -\/ value in degrees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted value in radians 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_a729c6ab29f5aad2c119a7a8eca6864b3_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_gaussian_plume_a71993d35ff27ebe7d324007d67ac8fd3}\label{class_gaussian_plume_a71993d35ff27ebe7d324007d67ac8fd3} 
+\index{GaussianPlume@{GaussianPlume}!contours@{contours}}
+\index{contours@{contours}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{contours}{contours}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gaussian_plume_1_1_contours}{Contours}} Gaussian\+Plume\+::contours\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+An instance of the \doxylink{class_gaussian_plume_1_1_contours}{Contours} object for storing contour data. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_gaussian_plume_1_1_contours}{Contours} 
+\end{DoxySeeAlso}
+\Hypertarget{class_gaussian_plume_a816f949872a16e03389c636b3a965471}\label{class_gaussian_plume_a816f949872a16e03389c636b3a965471} 
+\index{GaussianPlume@{GaussianPlume}!minMax@{minMax}}
+\index{minMax@{minMax}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{minMax}{minMax}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{Min\+Max}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Gaussian\+Plume\+::min\+Max\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+An list of the \doxylink{struct_gaussian_plume_1_1_min_max}{Min\+Max} objects for a matrix array. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{struct_gaussian_plume_1_1_min_max}{Min\+Max} 
+\end{DoxySeeAlso}
+\Hypertarget{class_gaussian_plume_aec4fffe9197f8146a420a9f3f0184547}\label{class_gaussian_plume_aec4fffe9197f8146a420a9f3f0184547} 
+\index{GaussianPlume@{GaussianPlume}!minMaxMatrix@{minMaxMatrix}}
+\index{minMaxMatrix@{minMaxMatrix}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{minMaxMatrix}{minMaxMatrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{Min\+Max}} Gaussian\+Plume\+::min\+Max\+Matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+An instance of the \doxylink{struct_gaussian_plume_1_1_min_max}{Min\+Max} object for a single matrix. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{struct_gaussian_plume_1_1_min_max}{Min\+Max} 
+\end{DoxySeeAlso}
+\Hypertarget{class_gaussian_plume_a4ff02161c43e4e22a3cff6dc7a8f7031}\label{class_gaussian_plume_a4ff02161c43e4e22a3cff6dc7a8f7031} 
+\index{GaussianPlume@{GaussianPlume}!pp@{pp}}
+\index{pp@{pp}!GaussianPlume@{GaussianPlume}}
+\doxysubsubsection{\texorpdfstring{pp}{pp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params}} Gaussian\+Plume\+::pp = \{ 0 \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params} structure. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{struct_gaussian_plume_1_1_plume_params}{Plume\+Params} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Math\+Test/Gaussian\+Plume.\+h\item 
+Math\+Test/Gaussian\+Plume.\+cpp\end{DoxyCompactItemize}

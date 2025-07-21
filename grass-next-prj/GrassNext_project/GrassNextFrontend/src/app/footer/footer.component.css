@@ -1,0 +1,27 @@
+.footerFullScreen {
+    position: fixed;
+    bottom: 0;
+    background-color: #008956;
+    color: white;
+    padding: 10px 0px 0px 0px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+}
+
+.footerMobile {
+    position: fixed;
+    bottom: 0;
+    background-color: #008956;
+    color: white;
+    padding: 10px 0px 0px 0px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,9 @@
+<map id="GaussianPlume::Contours::contourListToJson" name="GaussianPlume::Contours::contourListToJson">
+<area shape="rect" id="Node000001" title="A method converting contour list to JSON." alt="" coords="724,5,898,48"/>
+<area shape="rect" id="Node000002" href="$class_gaussian_plume_1_1_contours.html#af26e4952a59cbae89c326cde2a811f15" title="A method Contours object JSON." alt="" coords="503,5,676,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="709,29,677,29,677,24,709,24"/>
+<area shape="rect" id="Node000003" href="$class_gaussian_plume.html#afafcfe182b3d2682570536d810b71718" title="A method converting simulation data to JSON." alt="" coords="264,13,455,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="488,29,455,29,455,24,488,24"/>
+<area shape="rect" id="Node000004" href="$class_gaussian_plume.html#a7280eb224c2b377cdd983cef46029beb" title="Function that prepares the output data in the form of JSON." alt="" coords="5,13,216,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="248,29,216,29,216,24,248,24"/>
+</map>

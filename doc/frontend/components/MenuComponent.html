@@ -1,0 +1,754 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>grass-next documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">grass-next documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MenuComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/menu/menu.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>MenuComponent is responsible for managing and interacting with the application menu&#39;s functionality.
+It provides methods to toggle the sidenav and open dialogs for additional menu-related features.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-menu</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./menu.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./menu.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_router" >_router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleService" >toggleService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#openDialog" >openDialog</a>
+                            </li>
+                            <li>
+                                <a href="#openDialogPhone" >openDialogPhone</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidenav" >toggleSidenav</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(toggleService: <a href="../injectables/ToggleService.html" target="_self">ToggleService</a>, _router: Router, dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/menu/menu.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initializes a new instance of the class.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>toggleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToggleService.html" target="_self" >ToggleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service used for toggling sidenav.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Router service for navigation and routing within the application.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Service used to open and manage Material Design dialogs.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialog"></a>
+                    <span class="name">
+                        <span ><b>openDialog</b></span>
+                        <a href="#openDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/menu/menu.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Opens a dialog using the DialogLegendComponent with a fixed width of 50%.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialogPhone"></a>
+                    <span class="name">
+                        <span ><b>openDialogPhone</b></span>
+                        <a href="#openDialogPhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDialogPhone()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/menu/menu.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Opens a dialog displaying the DialogLegendComponent with a specified width.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidenav"></a>
+                    <span class="name">
+                        <span ><b>toggleSidenav</b></span>
+                        <a href="#toggleSidenav"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidenav()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/menu/menu.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Toggles the visibility state of the sidenav. Additionally, adjusts the map size if the sidenav visibility changes.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Does not return a value.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_router"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>_router</b></span>
+                        <a href="#_router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Router</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/menu/menu.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">- Router service for navigation and routing within the application.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleService</b></span>
+                        <a href="#toggleService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ToggleService.html" target="_self" >ToggleService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/menu/menu.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">- Service used for toggling sidenav.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { ToggleService } from &#x27;../services/toggle.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { DialogLegendComponent } from &#x27;../dialog-legend/dialog-legend.component&#x27;;
+
+/**
+ * MenuComponent is responsible for managing and interacting with the application menu&#x27;s functionality.
+ * It provides methods to toggle the sidenav and open dialogs for additional menu-related features.
+ */
+@Component({
+  selector: &#x27;app-menu&#x27;,
+  templateUrl: &#x27;./menu.component.html&#x27;,
+  styleUrl: &#x27;./menu.component.css&#x27;
+})
+export class MenuComponent {
+  /**
+   * Initializes a new instance of the class.
+   *
+   * @param {ToggleService} toggleService - Service used for toggling sidenav.
+   * @param {Router} _router - Router service for navigation and routing within the application.
+   * @param {MatDialog} dialog - Service used to open and manage Material Design dialogs.
+   */
+  constructor(public toggleService: ToggleService, public _router: Router, private dialog: MatDialog) {
+  }
+
+  /**
+   * Toggles the visibility state of the sidenav. Additionally, adjusts the map size if the sidenav visibility changes.
+   *
+   * @return {void} Does not return a value.
+   */
+  toggleSidenav() {
+    this.toggleService.toggleSidenav();
+    setTimeout(() &#x3D;&gt; {
+      this.toggleService.map.invalidateSize();
+    }, 200);
+  }
+
+  /**
+   * Opens a dialog using the DialogLegendComponent with a fixed width of 50%.
+   *
+   */
+  openDialog() {
+    this.dialog.open(DialogLegendComponent, {
+      width: &quot;50%&quot;
+    });
+  }
+
+  /**
+   * Opens a dialog displaying the DialogLegendComponent with a specified width.
+   *
+   *
+   */
+  openDialogPhone() {
+    this.dialog.open(DialogLegendComponent, {
+      width: &quot;80%&quot;
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
+    &lt;button mat-icon-button (click)&#x3D;&quot;toggleSidenav()&quot; *ngIf&#x3D;&quot;_router.url &#x3D;&#x3D;&#x3D; &#x27;/home&#x27;&quot;&gt;
+        &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;div class&#x3D;&quot;aboutSpacer&quot; *ngIf&#x3D;&quot;_router.url &#x3D;&#x3D;&#x3D; &#x27;/about&#x27;&quot;&gt;&lt;/div&gt;
+    &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;home&quot;&gt;&lt;img class&#x3D;&quot;grassNext&quot; src&#x3D;&quot;../assets/grass-next-logo.png&quot; fxShow fxHide.sm fxHide.xs&gt;&lt;/a&gt;
+        &lt;button mat-icon-button fxHide fxShow.sm fxShow.xs&gt;
+            &lt;mat-icon&gt;home&lt;/mat-icon&gt;
+        &lt;/button&gt;
+    &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;https://www.gov.pl/web/ncbr-en&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img class&#x3D;&quot;ncbr&quot; src&#x3D;&quot;../assets/ncbr.svg&quot; *ngIf&#x3D;&quot;_router.url &#x3D;&#x3D;&#x3D; &#x27;/home&#x27;&quot; fxShow fxHide.sm fxHide.xs&gt;&lt;/a&gt;
+    &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;https://eeagrants.org&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img class&#x3D;&quot;norwayGrants&quot; src&#x3D;&quot;../assets/Norway-Grants-small-white.png&quot; *ngIf&#x3D;&quot;_router.url &#x3D;&#x3D;&#x3D; &#x27;/home&#x27;&quot; fxShow fxHide.sm fxHide.xs&gt;&lt;/a&gt;
+
+    &lt;div class&#x3D;&quot;spacer&quot;&gt;&lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;toolbarTitles&quot; fxLayout&#x3D;&quot;center center&quot; fxShow fxHide.sm fxHide.xs&gt;
+        &lt;a class&#x3D;&quot;menuButtons&quot; mat-button routerLink&#x3D;&quot;/home&quot;&gt;Home&lt;/a&gt;
+        &lt;a class&#x3D;&quot;menuButtons&quot; mat-button routerLink&#x3D;&quot;/about&quot;&gt;About&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;button mat-icon-button (click)&#x3D;&quot;openDialog()&quot; *ngIf&#x3D;&quot;_router.url &#x3D;&#x3D;&#x3D; &#x27;/home&#x27;&quot; fxShow fxHide.sm fxHide.xs&gt;
+        &lt;mat-icon&gt;info&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;button mat-icon-button (click)&#x3D;&quot;openDialogPhone()&quot; *ngIf&#x3D;&quot;_router.url &#x3D;&#x3D;&#x3D; &#x27;/home&#x27;&quot; fxHide fxShow.sm fxShow.xs&gt;
+        &lt;mat-icon&gt;info&lt;/mat-icon&gt;
+    &lt;/button&gt;
+
+    &lt;div fxHide fxShow.sm fxShow.xs [matMenuTriggerFor]&#x3D;&quot;menu&quot;&gt;
+        &lt;button mat-icon-button&gt;
+            &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;mat-menu #menu&#x3D;&quot;matMenu&quot;&gt;
+            &lt;button mat-menu-item routerLink&#x3D;&quot;/home&quot;&gt;Home&lt;/button&gt;
+            &lt;button mat-menu-item routerLink&#x3D;&quot;/about&quot;&gt;About&lt;/button&gt;
+        &lt;/mat-menu&gt;
+    &lt;/div&gt;
+&lt;/mat-toolbar&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary">    <button mat-icon-button (click)="toggleSidenav()" *ngIf="_router.url === \'/home\'">        <mat-icon>menu</mat-icon>    </button>    <div class="aboutSpacer" *ngIf="_router.url === \'/about\'"></div>    <a class="imageLink" href="home"><img class="grassNext" src="../assets/grass-next-logo.png" fxShow fxHide.sm fxHide.xs></a>        <button mat-icon-button fxHide fxShow.sm fxShow.xs>            <mat-icon>home</mat-icon>        </button>    <a class="imageLink" href="https://www.gov.pl/web/ncbr-en" target="_blank"><img class="ncbr" src="../assets/ncbr.svg" *ngIf="_router.url === \'/home\'" fxShow fxHide.sm fxHide.xs></a>    <a class="imageLink" href="https://eeagrants.org" target="_blank"><img class="norwayGrants" src="../assets/Norway-Grants-small-white.png" *ngIf="_router.url === \'/home\'" fxShow fxHide.sm fxHide.xs></a>    <div class="spacer"></div>    <div class="toolbarTitles" fxLayout="center center" fxShow fxHide.sm fxHide.xs>        <a class="menuButtons" mat-button routerLink="/home">Home</a>        <a class="menuButtons" mat-button routerLink="/about">About</a>    </div>    <button mat-icon-button (click)="openDialog()" *ngIf="_router.url === \'/home\'" fxShow fxHide.sm fxHide.xs>        <mat-icon>info</mat-icon>    </button>    <button mat-icon-button (click)="openDialogPhone()" *ngIf="_router.url === \'/home\'" fxHide fxShow.sm fxShow.xs>        <mat-icon>info</mat-icon>    </button>    <div fxHide fxShow.sm fxShow.xs [matMenuTriggerFor]="menu">        <button mat-icon-button>            <mat-icon>more_vert</mat-icon>        </button>        <mat-menu #menu="matMenu">            <button mat-menu-item routerLink="/home">Home</button>            <button mat-menu-item routerLink="/about">About</button>        </mat-menu>    </div></mat-toolbar></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DialogLegendComponent', 'selector': 'app-dialog-legend'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PanelComponent', 'selector': 'app-panel'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MenuComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MenuComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

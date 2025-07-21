@@ -1,0 +1,27 @@
+<map id="basic_json::patch" name="basic_json::patch">
+<area shape="rect" id="Node000001" title="applies a JSON patch to a copy of the current object" alt="" coords="5,259,129,285"/>
+<area shape="rect" id="Node000002" href="$classbasic__json.html#a693812b31e106dec9166e93d8f6dd7d7" title="applies a JSON patch in&#45;place without copying the object" alt="" coords="177,259,348,285"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,269,161,269,161,275,129,275"/>
+<area shape="rect" id="Node000003" href="$classbasic__json.html#a899e4623fe377af5c9ad14c40c64280c" title="access specified array element with bounds checking" alt="" coords="422,5,524,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="265,258,280,216,306,158,344,96,368,67,394,42,406,34,409,38,398,46,372,71,348,99,311,161,285,218,270,259"/>
+<area shape="rect" id="Node000004" href="$classbasic__json.html#a0d93dc1dbdf67a6ee3a5cf1d2439ca77" title="access the last element" alt="" coords="414,56,533,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="268,257,286,224,313,180,350,133,394,93,402,88,405,92,398,97,354,137,318,183,290,226,273,259"/>
+<area shape="rect" id="Node000005" href="$classbasic__json.html#a5251a08382864af52c854fca1bdba61c" title="returns an iterator to the first element" alt="" coords="412,107,534,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="273,256,322,202,356,171,395,143,405,138,407,142,397,148,360,175,325,206,277,260"/>
+<area shape="rect" id="Node000006" href="$classbasic__json.html#a4dbc83213b31a171aa8ba65ff00fa954" title="returns an iterator to one past the last element" alt="" coords="417,157,529,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="283,256,333,226,395,194,410,187,412,192,397,198,336,230,286,261"/>
+<area shape="rect" id="Node000007" href="$classbasic__json.html#a7d0fef086b1b72372113db6ce7446189" title="remove element given an iterator" alt="" coords="412,208,535,235"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="320,255,399,236,400,241,322,261"/>
+<area shape="rect" id="Node000008" href="$classbasic__json.html#a727e3cfb5a874314d8deb12cb53a8105" title="find an element in a JSON object" alt="" coords="418,259,529,285"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="348,269,402,269,402,275,348,275"/>
+<area shape="rect" id="Node000009" href="$classbasic__json.html#a7f3817060c2bec896a99cb2c236b9c27" title="inserts element into array" alt="" coords="412,309,535,336"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="322,283,400,303,399,308,320,289"/>
+<area shape="rect" id="Node000010" href="$classbasic__json.html#a184ba4a6b47e6da3703af19349bd776f" title="return whether value is an array" alt="" coords="405,360,542,387"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="286,283,336,314,397,346,412,352,410,357,395,350,333,318,283,288"/>
+<area shape="rect" id="Node000011" href="$classbasic__json.html#af355a2b131068acf3d623eb6d80a711c" title="return whether value is an object" alt="" coords="402,411,545,437"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="277,284,325,338,360,369,397,396,407,402,405,406,395,401,356,373,322,342,273,288"/>
+<area shape="rect" id="Node000012" href="$classbasic__json.html#a3d13acce4e49e0d5ee768643a7b89010" title="add an object to an array" alt="" coords="396,461,550,488"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="273,285,290,318,318,361,354,407,398,447,405,452,402,456,394,451,350,411,313,364,286,320,268,287"/>
+<area shape="rect" id="Node000013" href="$classbasic__json.html#a086cbfd1ad4ba83a8127c87467a92f47" title="returns the number of elements" alt="" coords="416,512,531,539"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="270,285,285,326,311,383,348,445,372,473,398,498,404,502,401,507,394,502,368,477,344,448,306,386,280,328,265,286"/>
+</map>

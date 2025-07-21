@@ -1,0 +1,2007 @@
+\doxysection{jni.\+h}
+\hypertarget{jni_8h_source}{}\label{jni_8h_source}\index{MathTest/jni.h@{MathTest/jni.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 1996,\ 2023,\ Oracle\ and/or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ ORACLE\ PROPRIETARY/CONFIDENTIAL.\ Use\ is\ subject\ to\ license\ terms.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ We\ used\ part\ of\ Netscape's\ Java\ Runtime\ Interface\ (JRI)\ as\ the\ starting}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ point\ of\ our\ design\ and\ implementation.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ Java\ Runtime\ Interface}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ Copyright\ (c)\ 1996\ Netscape\ Communications\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *****************************************************************************/}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ \_JAVASOFT\_JNI\_H\_}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ \_JAVASOFT\_JNI\_H\_}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*\ jni\_md.h\ contains\ the\ machine-\/dependent\ typedefs\ for\ jbyte,\ jint}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ and\ jlong\ */}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}jni\_md.h"{}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ JNI\ Types}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifndef\ JNI\_TYPES\_ALREADY\_DEFINED\_IN\_JNI\_MD\_H}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ jboolean;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ jchar;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \ \ \ \ \ jshort;}
+\DoxyCodeLine{00060\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ jfloat;}
+\DoxyCodeLine{00061\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ jdouble;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ jint\ \ \ \ \ \ \ \ \ \ \ \ jsize;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\_jobject\ \{\};}
+\DoxyCodeLine{00068\ \textcolor{keyword}{class\ }\_jclass\ :\ \textcolor{keyword}{public}\ \_jobject\ \{\};}
+\DoxyCodeLine{00069\ \textcolor{keyword}{class\ }\_jthrowable\ :\ \textcolor{keyword}{public}\ \_jobject\ \{\};}
+\DoxyCodeLine{00070\ \textcolor{keyword}{class\ }\_jstring\ :\ \textcolor{keyword}{public}\ \_jobject\ \{\};}
+\DoxyCodeLine{00071\ \textcolor{keyword}{class\ }\_jarray\ :\ \textcolor{keyword}{public}\ \_jobject\ \{\};}
+\DoxyCodeLine{00072\ \textcolor{keyword}{class\ }\_jbooleanArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00073\ \textcolor{keyword}{class\ }\_jbyteArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00074\ \textcolor{keyword}{class\ }\_jcharArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00075\ \textcolor{keyword}{class\ }\_jshortArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00076\ \textcolor{keyword}{class\ }\_jintArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00077\ \textcolor{keyword}{class\ }\_jlongArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\_jfloatArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00079\ \textcolor{keyword}{class\ }\_jdoubleArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00080\ \textcolor{keyword}{class\ }\_jobjectArray\ :\ \textcolor{keyword}{public}\ \_jarray\ \{\};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \_jobject\ *jobject;}
+\DoxyCodeLine{00083\ \textcolor{keyword}{typedef}\ \_jclass\ *jclass;}
+\DoxyCodeLine{00084\ \textcolor{keyword}{typedef}\ \_jthrowable\ *jthrowable;}
+\DoxyCodeLine{00085\ \textcolor{keyword}{typedef}\ \_jstring\ *jstring;}
+\DoxyCodeLine{00086\ \textcolor{keyword}{typedef}\ \_jarray\ *jarray;}
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \_jbooleanArray\ *jbooleanArray;}
+\DoxyCodeLine{00088\ \textcolor{keyword}{typedef}\ \_jbyteArray\ *jbyteArray;}
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \_jcharArray\ *jcharArray;}
+\DoxyCodeLine{00090\ \textcolor{keyword}{typedef}\ \_jshortArray\ *jshortArray;}
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ \_jintArray\ *jintArray;}
+\DoxyCodeLine{00092\ \textcolor{keyword}{typedef}\ \_jlongArray\ *jlongArray;}
+\DoxyCodeLine{00093\ \textcolor{keyword}{typedef}\ \_jfloatArray\ *jfloatArray;}
+\DoxyCodeLine{00094\ \textcolor{keyword}{typedef}\ \_jdoubleArray\ *jdoubleArray;}
+\DoxyCodeLine{00095\ \textcolor{keyword}{typedef}\ \_jobjectArray\ *jobjectArray;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{struct\ }\_jobject;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_jobject\ *jobject;}
+\DoxyCodeLine{00102\ \textcolor{keyword}{typedef}\ jobject\ jclass;}
+\DoxyCodeLine{00103\ \textcolor{keyword}{typedef}\ jobject\ jthrowable;}
+\DoxyCodeLine{00104\ \textcolor{keyword}{typedef}\ jobject\ jstring;}
+\DoxyCodeLine{00105\ \textcolor{keyword}{typedef}\ jobject\ jarray;}
+\DoxyCodeLine{00106\ \textcolor{keyword}{typedef}\ jarray\ jbooleanArray;}
+\DoxyCodeLine{00107\ \textcolor{keyword}{typedef}\ jarray\ jbyteArray;}
+\DoxyCodeLine{00108\ \textcolor{keyword}{typedef}\ jarray\ jcharArray;}
+\DoxyCodeLine{00109\ \textcolor{keyword}{typedef}\ jarray\ jshortArray;}
+\DoxyCodeLine{00110\ \textcolor{keyword}{typedef}\ jarray\ jintArray;}
+\DoxyCodeLine{00111\ \textcolor{keyword}{typedef}\ jarray\ jlongArray;}
+\DoxyCodeLine{00112\ \textcolor{keyword}{typedef}\ jarray\ jfloatArray;}
+\DoxyCodeLine{00113\ \textcolor{keyword}{typedef}\ jarray\ jdoubleArray;}
+\DoxyCodeLine{00114\ \textcolor{keyword}{typedef}\ jarray\ jobjectArray;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{typedef}\ jobject\ jweak;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionjvalue}{jvalue}}\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ jboolean\ z;}
+\DoxyCodeLine{00122\ \ \ \ \ jbyte\ \ \ \ b;}
+\DoxyCodeLine{00123\ \ \ \ \ jchar\ \ \ \ c;}
+\DoxyCodeLine{00124\ \ \ \ \ jshort\ \ \ s;}
+\DoxyCodeLine{00125\ \ \ \ \ jint\ \ \ \ \ i;}
+\DoxyCodeLine{00126\ \ \ \ \ jlong\ \ \ \ j;}
+\DoxyCodeLine{00127\ \ \ \ \ jfloat\ \ \ f;}
+\DoxyCodeLine{00128\ \ \ \ \ jdouble\ \ d;}
+\DoxyCodeLine{00129\ \ \ \ \ jobject\ \ l;}
+\DoxyCodeLine{00130\ \}\ \mbox{\hyperlink{unionjvalue}{jvalue}};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{struct\ }\_jfieldID;}
+\DoxyCodeLine{00133\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_jfieldID\ *jfieldID;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{struct\ }\_jmethodID;}
+\DoxyCodeLine{00136\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_jmethodID\ *jmethodID;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{comment}{/*\ Return\ values\ from\ jobjectRefType\ */}}
+\DoxyCodeLine{00139\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_jobjectType\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ JNIInvalidRefType\ \ \ \ =\ 0,}
+\DoxyCodeLine{00141\ \ \ \ \ \ JNILocalRefType\ \ \ \ \ \ =\ 1,}
+\DoxyCodeLine{00142\ \ \ \ \ \ JNIGlobalRefType\ \ \ \ \ =\ 2,}
+\DoxyCodeLine{00143\ \ \ \ \ \ JNIWeakGlobalRefType\ =\ 3}
+\DoxyCodeLine{00144\ \}\ jobjectRefType;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ JNI\_TYPES\_ALREADY\_DEFINED\_IN\_JNI\_MD\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ *\ jboolean\ constants}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ JNI\_FALSE\ 0}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ JNI\_TRUE\ 1}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ *\ possible\ return\ values\ for\ JNI\ functions.}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ JNI\_OK\ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ success\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ JNI\_ERR\ \ \ \ \ \ \ \ \ \ (-\/1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ unknown\ error\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ JNI\_EDETACHED\ \ \ \ (-\/2)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ thread\ detached\ from\ the\ VM\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ JNI\_EVERSION\ \ \ \ \ (-\/3)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ JNI\ version\ error\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ JNI\_ENOMEM\ \ \ \ \ \ \ (-\/4)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ not\ enough\ memory\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ JNI\_EEXIST\ \ \ \ \ \ \ (-\/5)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ VM\ already\ created\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ JNI\_EINVAL\ \ \ \ \ \ \ (-\/6)\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ invalid\ arguments\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ *\ used\ in\ ReleaseScalarArrayElements}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ JNI\_COMMIT\ 1}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ JNI\_ABORT\ 2}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ *\ used\ in\ RegisterNatives\ to\ describe\ native\ method\ name,\ signature,}}
+\DoxyCodeLine{00177\ \textcolor{comment}{\ *\ and\ function\ pointer.}}
+\DoxyCodeLine{00178\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{char}\ *name;}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{char}\ *signature;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ *fnPtr;}
+\DoxyCodeLine{00184\ \}\ \mbox{\hyperlink{struct_j_n_i_native_method}{JNINativeMethod}};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ *\ JNI\ Native\ Method\ Interface.}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNINativeInterface\_}};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_env__}{JNIEnv\_}};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00195\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_j_n_i_env__}{JNIEnv\_}}\ \mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}};}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00197\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNINativeInterface\_}}\ *\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}};}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ *\ JNI\ Invocation\ Interface.}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JNIInvokeInterface\_}};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_java_v_m__}{JavaVM\_}};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00209\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_java_v_m__}{JavaVM\_}}\ \mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}};}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00211\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JNIInvokeInterface\_}}\ *\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}};}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNINativeInterface\_}}\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{void}\ *reserved0;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ *reserved1;}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{void}\ *reserved2;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{void}\ *reserved3;}
+\DoxyCodeLine{00220\ \ \ \ \ jint\ (JNICALL\ *GetVersion)(\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ jclass\ (JNICALL\ *DefineClass)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ jobject\ loader,\ \textcolor{keyword}{const}\ jbyte\ *buf,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ jsize\ len);}
+\DoxyCodeLine{00225\ \ \ \ \ jclass\ (JNICALL\ *FindClass)}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ jmethodID\ (JNICALL\ *FromReflectedMethod)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ method);}
+\DoxyCodeLine{00230\ \ \ \ \ jfieldID\ (JNICALL\ *FromReflectedField)}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ field);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ jobject\ (JNICALL\ *ToReflectedMethod)}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ cls,\ jmethodID\ methodID,\ jboolean\ isStatic);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ jclass\ (JNICALL\ *GetSuperclass)}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ sub);}
+\DoxyCodeLine{00238\ \ \ \ \ jboolean\ (JNICALL\ *IsAssignableFrom)}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ sub,\ jclass\ sup);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ jobject\ (JNICALL\ *ToReflectedField)}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ cls,\ jfieldID\ fieldID,\ jboolean\ isStatic);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ jint\ (JNICALL\ *Throw)}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jthrowable\ obj);}
+\DoxyCodeLine{00246\ \ \ \ \ jint\ (JNICALL\ *ThrowNew)}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg);}
+\DoxyCodeLine{00248\ \ \ \ \ jthrowable\ (JNICALL\ *ExceptionOccurred)}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env);}
+\DoxyCodeLine{00250\ \ \ \ \ void\ (JNICALL\ *ExceptionDescribe)}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env);}
+\DoxyCodeLine{00252\ \ \ \ \ void\ (JNICALL\ *ExceptionClear)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env);}
+\DoxyCodeLine{00254\ \ \ \ \ void\ (JNICALL\ *FatalError)}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ jint\ (JNICALL\ *PushLocalFrame)}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jint\ capacity);}
+\DoxyCodeLine{00259\ \ \ \ \ jobject\ (JNICALL\ *PopLocalFrame)}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ result);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ jobject\ (JNICALL\ *NewGlobalRef)}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ lobj);}
+\DoxyCodeLine{00264\ \ \ \ \ void\ (JNICALL\ *DeleteGlobalRef)}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ gref);}
+\DoxyCodeLine{00266\ \ \ \ \ void\ (JNICALL\ *DeleteLocalRef)}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj);}
+\DoxyCodeLine{00268\ \ \ \ \ jboolean\ (JNICALL\ *IsSameObject)}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj1,\ jobject\ obj2);}
+\DoxyCodeLine{00270\ \ \ \ \ jobject\ (JNICALL\ *NewLocalRef)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ ref);}
+\DoxyCodeLine{00272\ \ \ \ \ jint\ (JNICALL\ *EnsureLocalCapacity)}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jint\ capacity);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ jobject\ (JNICALL\ *AllocObject)}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz);}
+\DoxyCodeLine{00277\ \ \ \ \ jobject\ (JNICALL\ *NewObject)}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00279\ \ \ \ \ jobject\ (JNICALL\ *NewObjectV)}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00281\ \ \ \ \ jobject\ (JNICALL\ *NewObjectA)}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ jclass\ (JNICALL\ *GetObjectClass)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj);}
+\DoxyCodeLine{00286\ \ \ \ \ jboolean\ (JNICALL\ *IsInstanceOf)}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ jmethodID\ (JNICALL\ *GetMethodID)}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ jobject\ (JNICALL\ *CallObjectMethod)}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00294\ \ \ \ \ jobject\ (JNICALL\ *CallObjectMethodV)}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00296\ \ \ \ \ jobject\ (JNICALL\ *CallObjectMethodA)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ jboolean\ (JNICALL\ *CallBooleanMethod)}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00301\ \ \ \ \ jboolean\ (JNICALL\ *CallBooleanMethodV)}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00303\ \ \ \ \ jboolean\ (JNICALL\ *CallBooleanMethodA)}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ jbyte\ (JNICALL\ *CallByteMethod)}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00308\ \ \ \ \ jbyte\ (JNICALL\ *CallByteMethodV)}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00310\ \ \ \ \ jbyte\ (JNICALL\ *CallByteMethodA)}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ jchar\ (JNICALL\ *CallCharMethod)}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00315\ \ \ \ \ jchar\ (JNICALL\ *CallCharMethodV)}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00317\ \ \ \ \ jchar\ (JNICALL\ *CallCharMethodA)}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ jshort\ (JNICALL\ *CallShortMethod)}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00322\ \ \ \ \ jshort\ (JNICALL\ *CallShortMethodV)}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00324\ \ \ \ \ jshort\ (JNICALL\ *CallShortMethodA)}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ jint\ (JNICALL\ *CallIntMethod)}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00329\ \ \ \ \ jint\ (JNICALL\ *CallIntMethodV)}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00331\ \ \ \ \ jint\ (JNICALL\ *CallIntMethodA)}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ jlong\ (JNICALL\ *CallLongMethod)}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00336\ \ \ \ \ jlong\ (JNICALL\ *CallLongMethodV)}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00338\ \ \ \ \ jlong\ (JNICALL\ *CallLongMethodA)}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ jfloat\ (JNICALL\ *CallFloatMethod)}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00343\ \ \ \ \ jfloat\ (JNICALL\ *CallFloatMethodV)}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00345\ \ \ \ \ jfloat\ (JNICALL\ *CallFloatMethodA)}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ jdouble\ (JNICALL\ *CallDoubleMethod)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00350\ \ \ \ \ jdouble\ (JNICALL\ *CallDoubleMethodV)}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00352\ \ \ \ \ jdouble\ (JNICALL\ *CallDoubleMethodA)}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ void\ (JNICALL\ *CallVoidMethod)}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00357\ \ \ \ \ void\ (JNICALL\ *CallVoidMethodV)}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00359\ \ \ \ \ void\ (JNICALL\ *CallVoidMethodA)}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args);}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ jobject\ (JNICALL\ *CallNonvirtualObjectMethod)}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00364\ \ \ \ \ jobject\ (JNICALL\ *CallNonvirtualObjectMethodV)}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00367\ \ \ \ \ jobject\ (JNICALL\ *CallNonvirtualObjectMethodA)}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ jboolean\ (JNICALL\ *CallNonvirtualBooleanMethod)}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00373\ \ \ \ \ jboolean\ (JNICALL\ *CallNonvirtualBooleanMethodV)}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00376\ \ \ \ \ jboolean\ (JNICALL\ *CallNonvirtualBooleanMethodA)}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ jbyte\ (JNICALL\ *CallNonvirtualByteMethod)}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00382\ \ \ \ \ jbyte\ (JNICALL\ *CallNonvirtualByteMethodV)}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00385\ \ \ \ \ jbyte\ (JNICALL\ *CallNonvirtualByteMethodA)}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ jchar\ (JNICALL\ *CallNonvirtualCharMethod)}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00391\ \ \ \ \ jchar\ (JNICALL\ *CallNonvirtualCharMethodV)}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00394\ \ \ \ \ jchar\ (JNICALL\ *CallNonvirtualCharMethodA)}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ jshort\ (JNICALL\ *CallNonvirtualShortMethod)}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00400\ \ \ \ \ jshort\ (JNICALL\ *CallNonvirtualShortMethodV)}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00403\ \ \ \ \ jshort\ (JNICALL\ *CallNonvirtualShortMethodA)}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ jint\ (JNICALL\ *CallNonvirtualIntMethod)}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00409\ \ \ \ \ jint\ (JNICALL\ *CallNonvirtualIntMethodV)}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00412\ \ \ \ \ jint\ (JNICALL\ *CallNonvirtualIntMethodA)}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ jlong\ (JNICALL\ *CallNonvirtualLongMethod)}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00418\ \ \ \ \ jlong\ (JNICALL\ *CallNonvirtualLongMethodV)}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00421\ \ \ \ \ jlong\ (JNICALL\ *CallNonvirtualLongMethodA)}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \ \ \ \ jfloat\ (JNICALL\ *CallNonvirtualFloatMethod)}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00427\ \ \ \ \ jfloat\ (JNICALL\ *CallNonvirtualFloatMethodV)}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00430\ \ \ \ \ jfloat\ (JNICALL\ *CallNonvirtualFloatMethodA)}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \ \ \ \ jdouble\ (JNICALL\ *CallNonvirtualDoubleMethod)}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00436\ \ \ \ \ jdouble\ (JNICALL\ *CallNonvirtualDoubleMethodV)}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00439\ \ \ \ \ jdouble\ (JNICALL\ *CallNonvirtualDoubleMethodA)}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ void\ (JNICALL\ *CallNonvirtualVoidMethod)}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00445\ \ \ \ \ void\ (JNICALL\ *CallNonvirtualVoidMethodV)}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ va\_list\ args);}
+\DoxyCodeLine{00448\ \ \ \ \ void\ (JNICALL\ *CallNonvirtualVoidMethodA)}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args);}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \ \ \ \ jfieldID\ (JNICALL\ *GetFieldID)}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig);}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ jobject\ (JNICALL\ *GetObjectField)}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00457\ \ \ \ \ jboolean\ (JNICALL\ *GetBooleanField)}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00459\ \ \ \ \ jbyte\ (JNICALL\ *GetByteField)}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00461\ \ \ \ \ jchar\ (JNICALL\ *GetCharField)}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00463\ \ \ \ \ jshort\ (JNICALL\ *GetShortField)}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00465\ \ \ \ \ jint\ (JNICALL\ *GetIntField)}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00467\ \ \ \ \ jlong\ (JNICALL\ *GetLongField)}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00469\ \ \ \ \ jfloat\ (JNICALL\ *GetFloatField)}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00471\ \ \ \ \ jdouble\ (JNICALL\ *GetDoubleField)}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \ \ \ \ void\ (JNICALL\ *SetObjectField)}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jobject\ val);}
+\DoxyCodeLine{00476\ \ \ \ \ void\ (JNICALL\ *SetBooleanField)}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jboolean\ val);}
+\DoxyCodeLine{00478\ \ \ \ \ void\ (JNICALL\ *SetByteField)}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jbyte\ val);}
+\DoxyCodeLine{00480\ \ \ \ \ void\ (JNICALL\ *SetCharField)}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jchar\ val);}
+\DoxyCodeLine{00482\ \ \ \ \ void\ (JNICALL\ *SetShortField)}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jshort\ val);}
+\DoxyCodeLine{00484\ \ \ \ \ void\ (JNICALL\ *SetIntField)}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jint\ val);}
+\DoxyCodeLine{00486\ \ \ \ \ void\ (JNICALL\ *SetLongField)}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jlong\ val);}
+\DoxyCodeLine{00488\ \ \ \ \ void\ (JNICALL\ *SetFloatField)}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jfloat\ val);}
+\DoxyCodeLine{00490\ \ \ \ \ void\ (JNICALL\ *SetDoubleField)}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj,\ jfieldID\ fieldID,\ jdouble\ val);}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ jmethodID\ (JNICALL\ *GetStaticMethodID)}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig);}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ jobject\ (JNICALL\ *CallStaticObjectMethod)}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00498\ \ \ \ \ jobject\ (JNICALL\ *CallStaticObjectMethodV)}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00500\ \ \ \ \ jobject\ (JNICALL\ *CallStaticObjectMethodA)}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \ \ \ \ jboolean\ (JNICALL\ *CallStaticBooleanMethod)}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00505\ \ \ \ \ jboolean\ (JNICALL\ *CallStaticBooleanMethodV)}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00507\ \ \ \ \ jboolean\ (JNICALL\ *CallStaticBooleanMethodA)}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ jbyte\ (JNICALL\ *CallStaticByteMethod)}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00512\ \ \ \ \ jbyte\ (JNICALL\ *CallStaticByteMethodV)}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00514\ \ \ \ \ jbyte\ (JNICALL\ *CallStaticByteMethodA)}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \ \ jchar\ (JNICALL\ *CallStaticCharMethod)}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00519\ \ \ \ \ jchar\ (JNICALL\ *CallStaticCharMethodV)}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00521\ \ \ \ \ jchar\ (JNICALL\ *CallStaticCharMethodA)}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00524\ \ \ \ \ jshort\ (JNICALL\ *CallStaticShortMethod)}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00526\ \ \ \ \ jshort\ (JNICALL\ *CallStaticShortMethodV)}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00528\ \ \ \ \ jshort\ (JNICALL\ *CallStaticShortMethodA)}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \ \ \ \ jint\ (JNICALL\ *CallStaticIntMethod)}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00533\ \ \ \ \ jint\ (JNICALL\ *CallStaticIntMethodV)}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00535\ \ \ \ \ jint\ (JNICALL\ *CallStaticIntMethodA)}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \ \ \ \ jlong\ (JNICALL\ *CallStaticLongMethod)}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00540\ \ \ \ \ jlong\ (JNICALL\ *CallStaticLongMethodV)}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00542\ \ \ \ \ jlong\ (JNICALL\ *CallStaticLongMethodA)}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00545\ \ \ \ \ jfloat\ (JNICALL\ *CallStaticFloatMethod)}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00547\ \ \ \ \ jfloat\ (JNICALL\ *CallStaticFloatMethodV)}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00549\ \ \ \ \ jfloat\ (JNICALL\ *CallStaticFloatMethodA)}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \ \ \ \ jdouble\ (JNICALL\ *CallStaticDoubleMethod)}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00554\ \ \ \ \ jdouble\ (JNICALL\ *CallStaticDoubleMethodV)}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00556\ \ \ \ \ jdouble\ (JNICALL\ *CallStaticDoubleMethodA)}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args);}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00559\ \ \ \ \ void\ (JNICALL\ *CallStaticVoidMethod)}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ cls,\ jmethodID\ methodID,\ ...);}
+\DoxyCodeLine{00561\ \ \ \ \ void\ (JNICALL\ *CallStaticVoidMethodV)}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ cls,\ jmethodID\ methodID,\ va\_list\ args);}
+\DoxyCodeLine{00563\ \ \ \ \ void\ (JNICALL\ *CallStaticVoidMethodA)}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ cls,\ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args);}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \ \ \ \ jfieldID\ (JNICALL\ *GetStaticFieldID)}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig);}
+\DoxyCodeLine{00568\ \ \ \ \ jobject\ (JNICALL\ *GetStaticObjectField)}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00570\ \ \ \ \ jboolean\ (JNICALL\ *GetStaticBooleanField)}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00572\ \ \ \ \ jbyte\ (JNICALL\ *GetStaticByteField)}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00574\ \ \ \ \ jchar\ (JNICALL\ *GetStaticCharField)}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00576\ \ \ \ \ jshort\ (JNICALL\ *GetStaticShortField)}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00578\ \ \ \ \ jint\ (JNICALL\ *GetStaticIntField)}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00580\ \ \ \ \ jlong\ (JNICALL\ *GetStaticLongField)}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00582\ \ \ \ \ jfloat\ (JNICALL\ *GetStaticFloatField)}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00584\ \ \ \ \ jdouble\ (JNICALL\ *GetStaticDoubleField)}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID);}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \ \ \ \ void\ (JNICALL\ *SetStaticObjectField)}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jobject\ value);}
+\DoxyCodeLine{00589\ \ \ \ \ void\ (JNICALL\ *SetStaticBooleanField)}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jboolean\ value);}
+\DoxyCodeLine{00591\ \ \ \ \ void\ (JNICALL\ *SetStaticByteField)}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jbyte\ value);}
+\DoxyCodeLine{00593\ \ \ \ \ void\ (JNICALL\ *SetStaticCharField)}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jchar\ value);}
+\DoxyCodeLine{00595\ \ \ \ \ void\ (JNICALL\ *SetStaticShortField)}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jshort\ value);}
+\DoxyCodeLine{00597\ \ \ \ \ void\ (JNICALL\ *SetStaticIntField)}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jint\ value);}
+\DoxyCodeLine{00599\ \ \ \ \ void\ (JNICALL\ *SetStaticLongField)}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jlong\ value);}
+\DoxyCodeLine{00601\ \ \ \ \ void\ (JNICALL\ *SetStaticFloatField)}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jfloat\ value);}
+\DoxyCodeLine{00603\ \ \ \ \ void\ (JNICALL\ *SetStaticDoubleField)}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ jfieldID\ fieldID,\ jdouble\ value);}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \ \ \ \ jstring\ (JNICALL\ *NewString)}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ \textcolor{keyword}{const}\ jchar\ *unicode,\ jsize\ len);}
+\DoxyCodeLine{00608\ \ \ \ \ jsize\ (JNICALL\ *GetStringLength)}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str);}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keyword}{const}\ jchar\ *(JNICALL\ *GetStringChars)}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00612\ \ \ \ \ void\ (JNICALL\ *ReleaseStringChars)}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str,\ \textcolor{keyword}{const}\ jchar\ *chars);}
+\DoxyCodeLine{00614\ }
+\DoxyCodeLine{00615\ \ \ \ \ jstring\ (JNICALL\ *NewStringUTF)}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *utf);}
+\DoxyCodeLine{00617\ \ \ \ \ jsize\ (JNICALL\ *GetStringUTFLength)}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str);}
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ (JNICALL\ *GetStringUTFChars)}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00621\ \ \ \ \ void\ (JNICALL\ *ReleaseStringUTFChars)}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ chars);}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00624\ }
+\DoxyCodeLine{00625\ \ \ \ \ jsize\ (JNICALL\ *GetArrayLength)}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jarray\ array);}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \ \ \ \ jobjectArray\ (JNICALL\ *NewObjectArray)}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len,\ jclass\ clazz,\ jobject\ init);}
+\DoxyCodeLine{00630\ \ \ \ \ jobject\ (JNICALL\ *GetObjectArrayElement)}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobjectArray\ array,\ jsize\ index);}
+\DoxyCodeLine{00632\ \ \ \ \ void\ (JNICALL\ *SetObjectArrayElement)}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobjectArray\ array,\ jsize\ index,\ jobject\ val);}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00635\ \ \ \ \ jbooleanArray\ (JNICALL\ *NewBooleanArray)}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00637\ \ \ \ \ jbyteArray\ (JNICALL\ *NewByteArray)}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00639\ \ \ \ \ jcharArray\ (JNICALL\ *NewCharArray)}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00641\ \ \ \ \ jshortArray\ (JNICALL\ *NewShortArray)}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00643\ \ \ \ \ jintArray\ (JNICALL\ *NewIntArray)}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00645\ \ \ \ \ jlongArray\ (JNICALL\ *NewLongArray)}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00647\ \ \ \ \ jfloatArray\ (JNICALL\ *NewFloatArray)}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00649\ \ \ \ \ jdoubleArray\ (JNICALL\ *NewDoubleArray)}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jsize\ len);}
+\DoxyCodeLine{00651\ }
+\DoxyCodeLine{00652\ \ \ \ \ jboolean\ *\ (JNICALL\ *GetBooleanArrayElements)}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbooleanArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00654\ \ \ \ \ jbyte\ *\ (JNICALL\ *GetByteArrayElements)}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbyteArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00656\ \ \ \ \ jchar\ *\ (JNICALL\ *GetCharArrayElements)}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jcharArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00658\ \ \ \ \ jshort\ *\ (JNICALL\ *GetShortArrayElements)}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jshortArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00660\ \ \ \ \ jint\ *\ (JNICALL\ *GetIntArrayElements)}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jintArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00662\ \ \ \ \ jlong\ *\ (JNICALL\ *GetLongArrayElements)}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jlongArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00664\ \ \ \ \ jfloat\ *\ (JNICALL\ *GetFloatArrayElements)}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jfloatArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00666\ \ \ \ \ jdouble\ *\ (JNICALL\ *GetDoubleArrayElements)}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jdoubleArray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ \ \ \ \ void\ (JNICALL\ *ReleaseBooleanArrayElements)}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbooleanArray\ array,\ jboolean\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00671\ \ \ \ \ void\ (JNICALL\ *ReleaseByteArrayElements)}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbyteArray\ array,\ jbyte\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00673\ \ \ \ \ void\ (JNICALL\ *ReleaseCharArrayElements)}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jcharArray\ array,\ jchar\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00675\ \ \ \ \ void\ (JNICALL\ *ReleaseShortArrayElements)}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jshortArray\ array,\ jshort\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00677\ \ \ \ \ void\ (JNICALL\ *ReleaseIntArrayElements)}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jintArray\ array,\ jint\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00679\ \ \ \ \ void\ (JNICALL\ *ReleaseLongArrayElements)}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jlongArray\ array,\ jlong\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00681\ \ \ \ \ void\ (JNICALL\ *ReleaseFloatArrayElements)}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jfloatArray\ array,\ jfloat\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00683\ \ \ \ \ void\ (JNICALL\ *ReleaseDoubleArrayElements)}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jdoubleArray\ array,\ jdouble\ *elems,\ jint\ mode);}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00686\ \ \ \ \ void\ (JNICALL\ *GetBooleanArrayRegion)}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbooleanArray\ array,\ jsize\ start,\ jsize\ l,\ jboolean\ *buf);}
+\DoxyCodeLine{00688\ \ \ \ \ void\ (JNICALL\ *GetByteArrayRegion)}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbyteArray\ array,\ jsize\ start,\ jsize\ len,\ jbyte\ *buf);}
+\DoxyCodeLine{00690\ \ \ \ \ void\ (JNICALL\ *GetCharArrayRegion)}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jcharArray\ array,\ jsize\ start,\ jsize\ len,\ jchar\ *buf);}
+\DoxyCodeLine{00692\ \ \ \ \ void\ (JNICALL\ *GetShortArrayRegion)}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jshortArray\ array,\ jsize\ start,\ jsize\ len,\ jshort\ *buf);}
+\DoxyCodeLine{00694\ \ \ \ \ void\ (JNICALL\ *GetIntArrayRegion)}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jintArray\ array,\ jsize\ start,\ jsize\ len,\ jint\ *buf);}
+\DoxyCodeLine{00696\ \ \ \ \ void\ (JNICALL\ *GetLongArrayRegion)}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jlongArray\ array,\ jsize\ start,\ jsize\ len,\ jlong\ *buf);}
+\DoxyCodeLine{00698\ \ \ \ \ void\ (JNICALL\ *GetFloatArrayRegion)}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jfloatArray\ array,\ jsize\ start,\ jsize\ len,\ jfloat\ *buf);}
+\DoxyCodeLine{00700\ \ \ \ \ void\ (JNICALL\ *GetDoubleArrayRegion)}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jdoubleArray\ array,\ jsize\ start,\ jsize\ len,\ jdouble\ *buf);}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \ \ void\ (JNICALL\ *SetBooleanArrayRegion)}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbooleanArray\ array,\ jsize\ start,\ jsize\ l,\ \textcolor{keyword}{const}\ jboolean\ *buf);}
+\DoxyCodeLine{00705\ \ \ \ \ void\ (JNICALL\ *SetByteArrayRegion)}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jbyteArray\ array,\ jsize\ start,\ jsize\ len,\ \textcolor{keyword}{const}\ jbyte\ *buf);}
+\DoxyCodeLine{00707\ \ \ \ \ void\ (JNICALL\ *SetCharArrayRegion)}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jcharArray\ array,\ jsize\ start,\ jsize\ len,\ \textcolor{keyword}{const}\ jchar\ *buf);}
+\DoxyCodeLine{00709\ \ \ \ \ void\ (JNICALL\ *SetShortArrayRegion)}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jshortArray\ array,\ jsize\ start,\ jsize\ len,\ \textcolor{keyword}{const}\ jshort\ *buf);}
+\DoxyCodeLine{00711\ \ \ \ \ void\ (JNICALL\ *SetIntArrayRegion)}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jintArray\ array,\ jsize\ start,\ jsize\ len,\ \textcolor{keyword}{const}\ jint\ *buf);}
+\DoxyCodeLine{00713\ \ \ \ \ void\ (JNICALL\ *SetLongArrayRegion)}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jlongArray\ array,\ jsize\ start,\ jsize\ len,\ \textcolor{keyword}{const}\ jlong\ *buf);}
+\DoxyCodeLine{00715\ \ \ \ \ void\ (JNICALL\ *SetFloatArrayRegion)}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jfloatArray\ array,\ jsize\ start,\ jsize\ len,\ \textcolor{keyword}{const}\ jfloat\ *buf);}
+\DoxyCodeLine{00717\ \ \ \ \ void\ (JNICALL\ *SetDoubleArrayRegion)}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jdoubleArray\ array,\ jsize\ start,\ jsize\ len,\ \textcolor{keyword}{const}\ jdouble\ *buf);}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \ \ \ \ jint\ (JNICALL\ *RegisterNatives)}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_j_n_i_native_method}{JNINativeMethod}}\ *methods,}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ jint\ nMethods);}
+\DoxyCodeLine{00723\ \ \ \ \ jint\ (JNICALL\ *UnregisterNatives)}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jclass\ clazz);}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00726\ \ \ \ \ jint\ (JNICALL\ *MonitorEnter)}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj);}
+\DoxyCodeLine{00728\ \ \ \ \ jint\ (JNICALL\ *MonitorExit)}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj);}
+\DoxyCodeLine{00730\ }
+\DoxyCodeLine{00731\ \ \ \ \ jint\ (JNICALL\ *GetJavaVM)}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ \mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ **vm);}
+\DoxyCodeLine{00733\ }
+\DoxyCodeLine{00734\ \ \ \ \ void\ (JNICALL\ *GetStringRegion)}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str,\ jsize\ start,\ jsize\ len,\ jchar\ *buf);}
+\DoxyCodeLine{00736\ \ \ \ \ void\ (JNICALL\ *GetStringUTFRegion)}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ str,\ jsize\ start,\ jsize\ len,\ \textcolor{keywordtype}{char}\ *buf);}
+\DoxyCodeLine{00738\ }
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ (JNICALL\ *GetPrimitiveArrayCritical)}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jarray\ array,\ jboolean\ *isCopy);}
+\DoxyCodeLine{00741\ \ \ \ \ void\ (JNICALL\ *ReleasePrimitiveArrayCritical)}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jarray\ array,\ \textcolor{keywordtype}{void}\ *carray,\ jint\ mode);}
+\DoxyCodeLine{00743\ }
+\DoxyCodeLine{00744\ \ \ \ \ \textcolor{keyword}{const}\ jchar\ *\ (JNICALL\ *GetStringCritical)}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ \textcolor{keywordtype}{string},\ jboolean\ *isCopy);}
+\DoxyCodeLine{00746\ \ \ \ \ void\ (JNICALL\ *ReleaseStringCritical)}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jstring\ string,\ \textcolor{keyword}{const}\ jchar\ *cstring);}
+\DoxyCodeLine{00748\ }
+\DoxyCodeLine{00749\ \ \ \ \ jweak\ (JNICALL\ *NewWeakGlobalRef)}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jobject\ obj);}
+\DoxyCodeLine{00751\ \ \ \ \ void\ (JNICALL\ *DeleteWeakGlobalRef)}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env,\ jweak\ ref);}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ \ \ \ \ jboolean\ (JNICALL\ *ExceptionCheck)}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}\ *env);}
+\DoxyCodeLine{00756\ }
+\DoxyCodeLine{00757\ \ \ \ \ jobject\ (JNICALL\ *NewDirectByteBuffer)}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}*\ env,\ \textcolor{keywordtype}{void}*\ address,\ jlong\ capacity);}
+\DoxyCodeLine{00759\ \ \ \ \ \textcolor{keywordtype}{void}*\ (JNICALL\ *GetDirectBufferAddress)}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}*\ env,\ jobject\ buf);}
+\DoxyCodeLine{00761\ \ \ \ \ jlong\ (JNICALL\ *GetDirectBufferCapacity)}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}*\ env,\ jobject\ buf);}
+\DoxyCodeLine{00763\ }
+\DoxyCodeLine{00764\ \ \ \ \ \textcolor{comment}{/*\ New\ JNI\ 1.6\ Features\ */}}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00766\ \ \ \ \ jobjectRefType\ (JNICALL\ *GetObjectRefType)}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}*\ env,\ jobject\ obj);}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \ \ \ \ \textcolor{comment}{/*\ Module\ Features\ */}}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00771\ \ \ \ \ jobject\ (JNICALL\ *GetModule)}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}*\ env,\ jclass\ clazz);}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \ \ \ \ \textcolor{comment}{/*\ Virtual\ threads\ */}}
+\DoxyCodeLine{00775\ }
+\DoxyCodeLine{00776\ \ \ \ \ jboolean\ (JNICALL\ *IsVirtualThread)}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNIEnv}}*\ env,\ jobject\ obj);}
+\DoxyCodeLine{00778\ \};}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00780\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00781\ \textcolor{comment}{\ *\ We\ use\ inlined\ functions\ for\ C++\ so\ that\ programmers\ can\ write:}}
+\DoxyCodeLine{00782\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00783\ \textcolor{comment}{\ *\ \ \ \ env-\/>FindClass("{}java/lang/String"{})}}
+\DoxyCodeLine{00784\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00785\ \textcolor{comment}{\ *\ in\ C++\ rather\ than:}}
+\DoxyCodeLine{00786\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00787\ \textcolor{comment}{\ *\ \ \ \ (*env)-\/>FindClass(env,\ "{}java/lang/String"{})}}
+\DoxyCodeLine{00788\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00789\ \textcolor{comment}{\ *\ in\ C.}}
+\DoxyCodeLine{00790\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00791\ }
+\DoxyCodeLine{00792\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_env__}{JNIEnv\_}}\ \{}
+\DoxyCodeLine{00793\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_native_interface__}{JNINativeInterface\_}}\ *functions;}
+\DoxyCodeLine{00794\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00795\ }
+\DoxyCodeLine{00796\ \ \ \ \ jint\ GetVersion()\ \{}
+\DoxyCodeLine{00797\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetVersion(\textcolor{keyword}{this});}
+\DoxyCodeLine{00798\ \ \ \ \ \}}
+\DoxyCodeLine{00799\ \ \ \ \ jclass\ DefineClass(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ jobject\ loader,\ \textcolor{keyword}{const}\ jbyte\ *buf,}
+\DoxyCodeLine{00800\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ len)\ \{}
+\DoxyCodeLine{00801\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>DefineClass(\textcolor{keyword}{this},\ name,\ loader,\ buf,\ len);}
+\DoxyCodeLine{00802\ \ \ \ \ \}}
+\DoxyCodeLine{00803\ \ \ \ \ jclass\ FindClass(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name)\ \{}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>FindClass(\textcolor{keyword}{this},\ name);}
+\DoxyCodeLine{00805\ \ \ \ \ \}}
+\DoxyCodeLine{00806\ \ \ \ \ jmethodID\ FromReflectedMethod(jobject\ method)\ \{}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>FromReflectedMethod(\textcolor{keyword}{this},method);}
+\DoxyCodeLine{00808\ \ \ \ \ \}}
+\DoxyCodeLine{00809\ \ \ \ \ jfieldID\ FromReflectedField(jobject\ field)\ \{}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>FromReflectedField(\textcolor{keyword}{this},field);}
+\DoxyCodeLine{00811\ \ \ \ \ \}}
+\DoxyCodeLine{00812\ }
+\DoxyCodeLine{00813\ \ \ \ \ jobject\ ToReflectedMethod(jclass\ cls,\ jmethodID\ methodID,\ jboolean\ isStatic)\ \{}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>ToReflectedMethod(\textcolor{keyword}{this},\ cls,\ methodID,\ isStatic);}
+\DoxyCodeLine{00815\ \ \ \ \ \}}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \ \ \ \ jclass\ GetSuperclass(jclass\ sub)\ \{}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetSuperclass(\textcolor{keyword}{this},\ sub);}
+\DoxyCodeLine{00819\ \ \ \ \ \}}
+\DoxyCodeLine{00820\ \ \ \ \ jboolean\ IsAssignableFrom(jclass\ sub,\ jclass\ sup)\ \{}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>IsAssignableFrom(\textcolor{keyword}{this},\ sub,\ sup);}
+\DoxyCodeLine{00822\ \ \ \ \ \}}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00824\ \ \ \ \ jobject\ ToReflectedField(jclass\ cls,\ jfieldID\ fieldID,\ jboolean\ isStatic)\ \{}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>ToReflectedField(\textcolor{keyword}{this},cls,fieldID,isStatic);}
+\DoxyCodeLine{00826\ \ \ \ \ \}}
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \ \ \ \ jint\ Throw(jthrowable\ obj)\ \{}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>Throw(\textcolor{keyword}{this},\ obj);}
+\DoxyCodeLine{00830\ \ \ \ \ \}}
+\DoxyCodeLine{00831\ \ \ \ \ jint\ ThrowNew(jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg)\ \{}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>ThrowNew(\textcolor{keyword}{this},\ clazz,\ msg);}
+\DoxyCodeLine{00833\ \ \ \ \ \}}
+\DoxyCodeLine{00834\ \ \ \ \ jthrowable\ ExceptionOccurred()\ \{}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>ExceptionOccurred(\textcolor{keyword}{this});}
+\DoxyCodeLine{00836\ \ \ \ \ \}}
+\DoxyCodeLine{00837\ \ \ \ \ \textcolor{keywordtype}{void}\ ExceptionDescribe()\ \{}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ functions-\/>ExceptionDescribe(\textcolor{keyword}{this});}
+\DoxyCodeLine{00839\ \ \ \ \ \}}
+\DoxyCodeLine{00840\ \ \ \ \ \textcolor{keywordtype}{void}\ ExceptionClear()\ \{}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ functions-\/>ExceptionClear(\textcolor{keyword}{this});}
+\DoxyCodeLine{00842\ \ \ \ \ \}}
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keywordtype}{void}\ FatalError(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg)\ \{}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ functions-\/>FatalError(\textcolor{keyword}{this},\ msg);}
+\DoxyCodeLine{00845\ \ \ \ \ \}}
+\DoxyCodeLine{00846\ }
+\DoxyCodeLine{00847\ \ \ \ \ jint\ PushLocalFrame(jint\ capacity)\ \{}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>PushLocalFrame(\textcolor{keyword}{this},capacity);}
+\DoxyCodeLine{00849\ \ \ \ \ \}}
+\DoxyCodeLine{00850\ \ \ \ \ jobject\ PopLocalFrame(jobject\ result)\ \{}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>PopLocalFrame(\textcolor{keyword}{this},result);}
+\DoxyCodeLine{00852\ \ \ \ \ \}}
+\DoxyCodeLine{00853\ }
+\DoxyCodeLine{00854\ \ \ \ \ jobject\ NewGlobalRef(jobject\ lobj)\ \{}
+\DoxyCodeLine{00855\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewGlobalRef(\textcolor{keyword}{this},lobj);}
+\DoxyCodeLine{00856\ \ \ \ \ \}}
+\DoxyCodeLine{00857\ \ \ \ \ \textcolor{keywordtype}{void}\ DeleteGlobalRef(jobject\ gref)\ \{}
+\DoxyCodeLine{00858\ \ \ \ \ \ \ \ \ functions-\/>DeleteGlobalRef(\textcolor{keyword}{this},gref);}
+\DoxyCodeLine{00859\ \ \ \ \ \}}
+\DoxyCodeLine{00860\ \ \ \ \ \textcolor{keywordtype}{void}\ DeleteLocalRef(jobject\ obj)\ \{}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ functions-\/>DeleteLocalRef(\textcolor{keyword}{this},\ obj);}
+\DoxyCodeLine{00862\ \ \ \ \ \}}
+\DoxyCodeLine{00863\ }
+\DoxyCodeLine{00864\ \ \ \ \ jboolean\ IsSameObject(jobject\ obj1,\ jobject\ obj2)\ \{}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>IsSameObject(\textcolor{keyword}{this},obj1,obj2);}
+\DoxyCodeLine{00866\ \ \ \ \ \}}
+\DoxyCodeLine{00867\ }
+\DoxyCodeLine{00868\ \ \ \ \ jobject\ NewLocalRef(jobject\ ref)\ \{}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewLocalRef(\textcolor{keyword}{this},ref);}
+\DoxyCodeLine{00870\ \ \ \ \ \}}
+\DoxyCodeLine{00871\ \ \ \ \ jint\ EnsureLocalCapacity(jint\ capacity)\ \{}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>EnsureLocalCapacity(\textcolor{keyword}{this},capacity);}
+\DoxyCodeLine{00873\ \ \ \ \ \}}
+\DoxyCodeLine{00874\ }
+\DoxyCodeLine{00875\ \ \ \ \ jobject\ AllocObject(jclass\ clazz)\ \{}
+\DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>AllocObject(\textcolor{keyword}{this},clazz);}
+\DoxyCodeLine{00877\ \ \ \ \ \}}
+\DoxyCodeLine{00878\ \ \ \ \ jobject\ NewObject(jclass\ clazz,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ jobject\ result;}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ va\_start(args,\ methodID);}
+\DoxyCodeLine{00882\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>NewObjectV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{00884\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00885\ \ \ \ \ \}}
+\DoxyCodeLine{00886\ \ \ \ \ jobject\ NewObjectV(jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewObjectV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{00889\ \ \ \ \ \}}
+\DoxyCodeLine{00890\ \ \ \ \ jobject\ NewObjectA(jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewObjectA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{00893\ \ \ \ \ \}}
+\DoxyCodeLine{00894\ }
+\DoxyCodeLine{00895\ \ \ \ \ jclass\ GetObjectClass(jobject\ obj)\ \{}
+\DoxyCodeLine{00896\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetObjectClass(\textcolor{keyword}{this},obj);}
+\DoxyCodeLine{00897\ \ \ \ \ \}}
+\DoxyCodeLine{00898\ \ \ \ \ jboolean\ IsInstanceOf(jobject\ obj,\ jclass\ clazz)\ \{}
+\DoxyCodeLine{00899\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>IsInstanceOf(\textcolor{keyword}{this},obj,clazz);}
+\DoxyCodeLine{00900\ \ \ \ \ \}}
+\DoxyCodeLine{00901\ }
+\DoxyCodeLine{00902\ \ \ \ \ jmethodID\ GetMethodID(jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,}
+\DoxyCodeLine{00903\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig)\ \{}
+\DoxyCodeLine{00904\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetMethodID(\textcolor{keyword}{this},clazz,name,sig);}
+\DoxyCodeLine{00905\ \ \ \ \ \}}
+\DoxyCodeLine{00906\ }
+\DoxyCodeLine{00907\ \ \ \ \ jobject\ CallObjectMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{00908\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{00909\ \ \ \ \ \ \ \ \ jobject\ result;}
+\DoxyCodeLine{00910\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{00911\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallObjectMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{00913\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00914\ \ \ \ \ \}}
+\DoxyCodeLine{00915\ \ \ \ \ jobject\ CallObjectMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00916\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{00917\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallObjectMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00918\ \ \ \ \ \}}
+\DoxyCodeLine{00919\ \ \ \ \ jobject\ CallObjectMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00920\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallObjectMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00922\ \ \ \ \ \}}
+\DoxyCodeLine{00923\ }
+\DoxyCodeLine{00924\ \ \ \ \ jboolean\ CallBooleanMethod(jobject\ obj,}
+\DoxyCodeLine{00925\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{00927\ \ \ \ \ \ \ \ \ jboolean\ result;}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallBooleanMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{00931\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00932\ \ \ \ \ \}}
+\DoxyCodeLine{00933\ \ \ \ \ jboolean\ CallBooleanMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{00935\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallBooleanMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00936\ \ \ \ \ \}}
+\DoxyCodeLine{00937\ \ \ \ \ jboolean\ CallBooleanMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallBooleanMethodA(\textcolor{keyword}{this},obj,methodID,\ args);}
+\DoxyCodeLine{00940\ \ \ \ \ \}}
+\DoxyCodeLine{00941\ }
+\DoxyCodeLine{00942\ \ \ \ \ jbyte\ CallByteMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ jbyte\ result;}
+\DoxyCodeLine{00945\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallByteMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00949\ \ \ \ \ \}}
+\DoxyCodeLine{00950\ \ \ \ \ jbyte\ CallByteMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{00952\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallByteMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00953\ \ \ \ \ \}}
+\DoxyCodeLine{00954\ \ \ \ \ jbyte\ CallByteMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallByteMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00957\ \ \ \ \ \}}
+\DoxyCodeLine{00958\ }
+\DoxyCodeLine{00959\ \ \ \ \ jchar\ CallCharMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{00960\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{00961\ \ \ \ \ \ \ \ \ jchar\ result;}
+\DoxyCodeLine{00962\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{00963\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallCharMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00964\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00966\ \ \ \ \ \}}
+\DoxyCodeLine{00967\ \ \ \ \ jchar\ CallCharMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallCharMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00970\ \ \ \ \ \}}
+\DoxyCodeLine{00971\ \ \ \ \ jchar\ CallCharMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00972\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{00973\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallCharMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00974\ \ \ \ \ \}}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \ \ \ \ jshort\ CallShortMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{00977\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{00978\ \ \ \ \ \ \ \ \ jshort\ result;}
+\DoxyCodeLine{00979\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{00980\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallShortMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00981\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{00982\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00983\ \ \ \ \ \}}
+\DoxyCodeLine{00984\ \ \ \ \ jshort\ CallShortMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00985\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{00986\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallShortMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00987\ \ \ \ \ \}}
+\DoxyCodeLine{00988\ \ \ \ \ jshort\ CallShortMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallShortMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00991\ \ \ \ \ \}}
+\DoxyCodeLine{00992\ }
+\DoxyCodeLine{00993\ \ \ \ \ jint\ CallIntMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ jint\ result;}
+\DoxyCodeLine{00996\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallIntMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01000\ \ \ \ \ \}}
+\DoxyCodeLine{01001\ \ \ \ \ jint\ CallIntMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01003\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallIntMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01004\ \ \ \ \ \}}
+\DoxyCodeLine{01005\ \ \ \ \ jint\ CallIntMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallIntMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01008\ \ \ \ \ \}}
+\DoxyCodeLine{01009\ }
+\DoxyCodeLine{01010\ \ \ \ \ jlong\ CallLongMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ jlong\ result;}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallLongMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01017\ \ \ \ \ \}}
+\DoxyCodeLine{01018\ \ \ \ \ jlong\ CallLongMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallLongMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01021\ \ \ \ \ \}}
+\DoxyCodeLine{01022\ \ \ \ \ jlong\ CallLongMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallLongMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01025\ \ \ \ \ \}}
+\DoxyCodeLine{01026\ }
+\DoxyCodeLine{01027\ \ \ \ \ jfloat\ CallFloatMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01029\ \ \ \ \ \ \ \ \ jfloat\ result;}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallFloatMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01034\ \ \ \ \ \}}
+\DoxyCodeLine{01035\ \ \ \ \ jfloat\ CallFloatMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallFloatMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01038\ \ \ \ \ \}}
+\DoxyCodeLine{01039\ \ \ \ \ jfloat\ CallFloatMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallFloatMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01042\ \ \ \ \ \}}
+\DoxyCodeLine{01043\ }
+\DoxyCodeLine{01044\ \ \ \ \ jdouble\ CallDoubleMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ jdouble\ result;}
+\DoxyCodeLine{01047\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallDoubleMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01051\ \ \ \ \ \}}
+\DoxyCodeLine{01052\ \ \ \ \ jdouble\ CallDoubleMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallDoubleMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01055\ \ \ \ \ \}}
+\DoxyCodeLine{01056\ \ \ \ \ jdouble\ CallDoubleMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallDoubleMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01059\ \ \ \ \ \}}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ \ \ \ \ \textcolor{keywordtype}{void}\ CallVoidMethod(jobject\ obj,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ functions-\/>CallVoidMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01066\ \ \ \ \ \}}
+\DoxyCodeLine{01067\ \ \ \ \ \textcolor{keywordtype}{void}\ CallVoidMethodV(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ functions-\/>CallVoidMethodV(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01070\ \ \ \ \ \}}
+\DoxyCodeLine{01071\ \ \ \ \ \textcolor{keywordtype}{void}\ CallVoidMethodA(jobject\ obj,\ jmethodID\ methodID,}
+\DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ functions-\/>CallVoidMethodA(\textcolor{keyword}{this},obj,methodID,args);}
+\DoxyCodeLine{01074\ \ \ \ \ \}}
+\DoxyCodeLine{01075\ }
+\DoxyCodeLine{01076\ \ \ \ \ jobject\ CallNonvirtualObjectMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01079\ \ \ \ \ \ \ \ \ jobject\ result;}
+\DoxyCodeLine{01080\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01081\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualObjectMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01085\ \ \ \ \ \}}
+\DoxyCodeLine{01086\ \ \ \ \ jobject\ CallNonvirtualObjectMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualObjectMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01090\ \ \ \ \ \}}
+\DoxyCodeLine{01091\ \ \ \ \ jobject\ CallNonvirtualObjectMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualObjectMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01095\ \ \ \ \ \}}
+\DoxyCodeLine{01096\ }
+\DoxyCodeLine{01097\ \ \ \ \ jboolean\ CallNonvirtualBooleanMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01099\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01100\ \ \ \ \ \ \ \ \ jboolean\ result;}
+\DoxyCodeLine{01101\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01102\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualBooleanMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01104\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01106\ \ \ \ \ \}}
+\DoxyCodeLine{01107\ \ \ \ \ jboolean\ CallNonvirtualBooleanMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualBooleanMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01111\ \ \ \ \ \}}
+\DoxyCodeLine{01112\ \ \ \ \ jboolean\ CallNonvirtualBooleanMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualBooleanMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,\ args);}
+\DoxyCodeLine{01116\ \ \ \ \ \}}
+\DoxyCodeLine{01117\ }
+\DoxyCodeLine{01118\ \ \ \ \ jbyte\ CallNonvirtualByteMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01120\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ jbyte\ result;}
+\DoxyCodeLine{01122\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualByteMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01125\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01127\ \ \ \ \ \}}
+\DoxyCodeLine{01128\ \ \ \ \ jbyte\ CallNonvirtualByteMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualByteMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01132\ \ \ \ \ \}}
+\DoxyCodeLine{01133\ \ \ \ \ jbyte\ CallNonvirtualByteMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualByteMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01137\ \ \ \ \ \}}
+\DoxyCodeLine{01138\ }
+\DoxyCodeLine{01139\ \ \ \ \ jchar\ CallNonvirtualCharMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01141\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01142\ \ \ \ \ \ \ \ \ jchar\ result;}
+\DoxyCodeLine{01143\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01144\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualCharMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01146\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01148\ \ \ \ \ \}}
+\DoxyCodeLine{01149\ \ \ \ \ jchar\ CallNonvirtualCharMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualCharMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01153\ \ \ \ \ \}}
+\DoxyCodeLine{01154\ \ \ \ \ jchar\ CallNonvirtualCharMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualCharMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01158\ \ \ \ \ \}}
+\DoxyCodeLine{01159\ }
+\DoxyCodeLine{01160\ \ \ \ \ jshort\ CallNonvirtualShortMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01162\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01163\ \ \ \ \ \ \ \ \ jshort\ result;}
+\DoxyCodeLine{01164\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01165\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualShortMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01169\ \ \ \ \ \}}
+\DoxyCodeLine{01170\ \ \ \ \ jshort\ CallNonvirtualShortMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualShortMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01174\ \ \ \ \ \}}
+\DoxyCodeLine{01175\ \ \ \ \ jshort\ CallNonvirtualShortMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualShortMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01179\ \ \ \ \ \}}
+\DoxyCodeLine{01180\ }
+\DoxyCodeLine{01181\ \ \ \ \ jint\ CallNonvirtualIntMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01183\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \ \ jint\ result;}
+\DoxyCodeLine{01185\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01186\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualIntMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01188\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01190\ \ \ \ \ \}}
+\DoxyCodeLine{01191\ \ \ \ \ jint\ CallNonvirtualIntMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualIntMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01195\ \ \ \ \ \}}
+\DoxyCodeLine{01196\ \ \ \ \ jint\ CallNonvirtualIntMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualIntMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01200\ \ \ \ \ \}}
+\DoxyCodeLine{01201\ }
+\DoxyCodeLine{01202\ \ \ \ \ jlong\ CallNonvirtualLongMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01204\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01205\ \ \ \ \ \ \ \ \ jlong\ result;}
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualLongMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01209\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01211\ \ \ \ \ \}}
+\DoxyCodeLine{01212\ \ \ \ \ jlong\ CallNonvirtualLongMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualLongMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01216\ \ \ \ \ \}}
+\DoxyCodeLine{01217\ \ \ \ \ jlong\ CallNonvirtualLongMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualLongMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01221\ \ \ \ \ \}}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01223\ \ \ \ \ jfloat\ CallNonvirtualFloatMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ jfloat\ result;}
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualFloatMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01230\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01232\ \ \ \ \ \}}
+\DoxyCodeLine{01233\ \ \ \ \ jfloat\ CallNonvirtualFloatMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualFloatMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01238\ \ \ \ \ \}}
+\DoxyCodeLine{01239\ \ \ \ \ jfloat\ CallNonvirtualFloatMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,}
+\DoxyCodeLine{01241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualFloatMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01244\ \ \ \ \ \}}
+\DoxyCodeLine{01245\ }
+\DoxyCodeLine{01246\ \ \ \ \ jdouble\ CallNonvirtualDoubleMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01248\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01249\ \ \ \ \ \ \ \ \ jdouble\ result;}
+\DoxyCodeLine{01250\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01251\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallNonvirtualDoubleMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01255\ \ \ \ \ \}}
+\DoxyCodeLine{01256\ \ \ \ \ jdouble\ CallNonvirtualDoubleMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,}
+\DoxyCodeLine{01258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualDoubleMethodV(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01261\ \ \ \ \ \}}
+\DoxyCodeLine{01262\ \ \ \ \ jdouble\ CallNonvirtualDoubleMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,}
+\DoxyCodeLine{01264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallNonvirtualDoubleMethodA(\textcolor{keyword}{this},obj,clazz,}
+\DoxyCodeLine{01266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ methodID,args);}
+\DoxyCodeLine{01267\ \ \ \ \ \}}
+\DoxyCodeLine{01268\ }
+\DoxyCodeLine{01269\ \ \ \ \ \textcolor{keywordtype}{void}\ CallNonvirtualVoidMethod(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01271\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01272\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01273\ \ \ \ \ \ \ \ \ functions-\/>CallNonvirtualVoidMethodV(\textcolor{keyword}{this},obj,clazz,methodID,args);}
+\DoxyCodeLine{01274\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01275\ \ \ \ \ \}}
+\DoxyCodeLine{01276\ \ \ \ \ \textcolor{keywordtype}{void}\ CallNonvirtualVoidMethodV(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,}
+\DoxyCodeLine{01278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01279\ \ \ \ \ \ \ \ \ functions-\/>CallNonvirtualVoidMethodV(\textcolor{keyword}{this},obj,clazz,methodID,args);}
+\DoxyCodeLine{01280\ \ \ \ \ \}}
+\DoxyCodeLine{01281\ \ \ \ \ \textcolor{keywordtype}{void}\ CallNonvirtualVoidMethodA(jobject\ obj,\ jclass\ clazz,}
+\DoxyCodeLine{01282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,}
+\DoxyCodeLine{01283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01284\ \ \ \ \ \ \ \ \ functions-\/>CallNonvirtualVoidMethodA(\textcolor{keyword}{this},obj,clazz,methodID,args);}
+\DoxyCodeLine{01285\ \ \ \ \ \}}
+\DoxyCodeLine{01286\ }
+\DoxyCodeLine{01287\ \ \ \ \ jfieldID\ GetFieldID(jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig)\ \{}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetFieldID(\textcolor{keyword}{this},clazz,name,sig);}
+\DoxyCodeLine{01290\ \ \ \ \ \}}
+\DoxyCodeLine{01291\ }
+\DoxyCodeLine{01292\ \ \ \ \ jobject\ GetObjectField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetObjectField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01294\ \ \ \ \ \}}
+\DoxyCodeLine{01295\ \ \ \ \ jboolean\ GetBooleanField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetBooleanField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01297\ \ \ \ \ \}}
+\DoxyCodeLine{01298\ \ \ \ \ jbyte\ GetByteField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetByteField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01300\ \ \ \ \ \}}
+\DoxyCodeLine{01301\ \ \ \ \ jchar\ GetCharField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetCharField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01303\ \ \ \ \ \}}
+\DoxyCodeLine{01304\ \ \ \ \ jshort\ GetShortField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetShortField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01306\ \ \ \ \ \}}
+\DoxyCodeLine{01307\ \ \ \ \ jint\ GetIntField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetIntField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01309\ \ \ \ \ \}}
+\DoxyCodeLine{01310\ \ \ \ \ jlong\ GetLongField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetLongField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01312\ \ \ \ \ \}}
+\DoxyCodeLine{01313\ \ \ \ \ jfloat\ GetFloatField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetFloatField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01315\ \ \ \ \ \}}
+\DoxyCodeLine{01316\ \ \ \ \ jdouble\ GetDoubleField(jobject\ obj,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01317\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetDoubleField(\textcolor{keyword}{this},obj,fieldID);}
+\DoxyCodeLine{01318\ \ \ \ \ \}}
+\DoxyCodeLine{01319\ }
+\DoxyCodeLine{01320\ \ \ \ \ \textcolor{keywordtype}{void}\ SetObjectField(jobject\ obj,\ jfieldID\ fieldID,\ jobject\ val)\ \{}
+\DoxyCodeLine{01321\ \ \ \ \ \ \ \ \ functions-\/>SetObjectField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01322\ \ \ \ \ \}}
+\DoxyCodeLine{01323\ \ \ \ \ \textcolor{keywordtype}{void}\ SetBooleanField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jboolean\ val)\ \{}
+\DoxyCodeLine{01325\ \ \ \ \ \ \ \ \ functions-\/>SetBooleanField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01326\ \ \ \ \ \}}
+\DoxyCodeLine{01327\ \ \ \ \ \textcolor{keywordtype}{void}\ SetByteField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jbyte\ val)\ \{}
+\DoxyCodeLine{01329\ \ \ \ \ \ \ \ \ functions-\/>SetByteField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01330\ \ \ \ \ \}}
+\DoxyCodeLine{01331\ \ \ \ \ \textcolor{keywordtype}{void}\ SetCharField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jchar\ val)\ \{}
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ functions-\/>SetCharField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01334\ \ \ \ \ \}}
+\DoxyCodeLine{01335\ \ \ \ \ \textcolor{keywordtype}{void}\ SetShortField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jshort\ val)\ \{}
+\DoxyCodeLine{01337\ \ \ \ \ \ \ \ \ functions-\/>SetShortField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01338\ \ \ \ \ \}}
+\DoxyCodeLine{01339\ \ \ \ \ \textcolor{keywordtype}{void}\ SetIntField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ val)\ \{}
+\DoxyCodeLine{01341\ \ \ \ \ \ \ \ \ functions-\/>SetIntField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01342\ \ \ \ \ \}}
+\DoxyCodeLine{01343\ \ \ \ \ \textcolor{keywordtype}{void}\ SetLongField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jlong\ val)\ \{}
+\DoxyCodeLine{01345\ \ \ \ \ \ \ \ \ functions-\/>SetLongField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01346\ \ \ \ \ \}}
+\DoxyCodeLine{01347\ \ \ \ \ \textcolor{keywordtype}{void}\ SetFloatField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jfloat\ val)\ \{}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ functions-\/>SetFloatField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01350\ \ \ \ \ \}}
+\DoxyCodeLine{01351\ \ \ \ \ \textcolor{keywordtype}{void}\ SetDoubleField(jobject\ obj,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jdouble\ val)\ \{}
+\DoxyCodeLine{01353\ \ \ \ \ \ \ \ \ functions-\/>SetDoubleField(\textcolor{keyword}{this},obj,fieldID,val);}
+\DoxyCodeLine{01354\ \ \ \ \ \}}
+\DoxyCodeLine{01355\ }
+\DoxyCodeLine{01356\ \ \ \ \ jmethodID\ GetStaticMethodID(jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,}
+\DoxyCodeLine{01357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig)\ \{}
+\DoxyCodeLine{01358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticMethodID(\textcolor{keyword}{this},clazz,name,sig);}
+\DoxyCodeLine{01359\ \ \ \ \ \}}
+\DoxyCodeLine{01360\ }
+\DoxyCodeLine{01361\ \ \ \ \ jobject\ CallStaticObjectMethod(jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...)\ \{}
+\DoxyCodeLine{01363\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01364\ \ \ \ \ \ \ \ \ jobject\ result;}
+\DoxyCodeLine{01365\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticObjectMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01367\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01369\ \ \ \ \ \}}
+\DoxyCodeLine{01370\ \ \ \ \ jobject\ CallStaticObjectMethodV(jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticObjectMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01373\ \ \ \ \ \}}
+\DoxyCodeLine{01374\ \ \ \ \ jobject\ CallStaticObjectMethodA(jclass\ clazz,\ jmethodID\ methodID,}
+\DoxyCodeLine{01375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01376\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticObjectMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01377\ \ \ \ \ \}}
+\DoxyCodeLine{01378\ }
+\DoxyCodeLine{01379\ \ \ \ \ jboolean\ CallStaticBooleanMethod(jclass\ clazz,}
+\DoxyCodeLine{01380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01381\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01382\ \ \ \ \ \ \ \ \ jboolean\ result;}
+\DoxyCodeLine{01383\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01384\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticBooleanMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01385\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01387\ \ \ \ \ \}}
+\DoxyCodeLine{01388\ \ \ \ \ jboolean\ CallStaticBooleanMethodV(jclass\ clazz,}
+\DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticBooleanMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01391\ \ \ \ \ \}}
+\DoxyCodeLine{01392\ \ \ \ \ jboolean\ CallStaticBooleanMethodA(jclass\ clazz,}
+\DoxyCodeLine{01393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticBooleanMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01395\ \ \ \ \ \}}
+\DoxyCodeLine{01396\ }
+\DoxyCodeLine{01397\ \ \ \ \ jbyte\ CallStaticByteMethod(jclass\ clazz,}
+\DoxyCodeLine{01398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01399\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01400\ \ \ \ \ \ \ \ \ jbyte\ result;}
+\DoxyCodeLine{01401\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01402\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticByteMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01403\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01405\ \ \ \ \ \}}
+\DoxyCodeLine{01406\ \ \ \ \ jbyte\ CallStaticByteMethodV(jclass\ clazz,}
+\DoxyCodeLine{01407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticByteMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01409\ \ \ \ \ \}}
+\DoxyCodeLine{01410\ \ \ \ \ jbyte\ CallStaticByteMethodA(jclass\ clazz,}
+\DoxyCodeLine{01411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticByteMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01413\ \ \ \ \ \}}
+\DoxyCodeLine{01414\ }
+\DoxyCodeLine{01415\ \ \ \ \ jchar\ CallStaticCharMethod(jclass\ clazz,}
+\DoxyCodeLine{01416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01417\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01418\ \ \ \ \ \ \ \ \ jchar\ result;}
+\DoxyCodeLine{01419\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01420\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticCharMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01421\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01422\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01423\ \ \ \ \ \}}
+\DoxyCodeLine{01424\ \ \ \ \ jchar\ CallStaticCharMethodV(jclass\ clazz,}
+\DoxyCodeLine{01425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticCharMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01427\ \ \ \ \ \}}
+\DoxyCodeLine{01428\ \ \ \ \ jchar\ CallStaticCharMethodA(jclass\ clazz,}
+\DoxyCodeLine{01429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticCharMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01431\ \ \ \ \ \}}
+\DoxyCodeLine{01432\ }
+\DoxyCodeLine{01433\ \ \ \ \ jshort\ CallStaticShortMethod(jclass\ clazz,}
+\DoxyCodeLine{01434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01435\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01436\ \ \ \ \ \ \ \ \ jshort\ result;}
+\DoxyCodeLine{01437\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01438\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticShortMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01439\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01441\ \ \ \ \ \}}
+\DoxyCodeLine{01442\ \ \ \ \ jshort\ CallStaticShortMethodV(jclass\ clazz,}
+\DoxyCodeLine{01443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01444\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticShortMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01445\ \ \ \ \ \}}
+\DoxyCodeLine{01446\ \ \ \ \ jshort\ CallStaticShortMethodA(jclass\ clazz,}
+\DoxyCodeLine{01447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticShortMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01449\ \ \ \ \ \}}
+\DoxyCodeLine{01450\ }
+\DoxyCodeLine{01451\ \ \ \ \ jint\ CallStaticIntMethod(jclass\ clazz,}
+\DoxyCodeLine{01452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01453\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01454\ \ \ \ \ \ \ \ \ jint\ result;}
+\DoxyCodeLine{01455\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01456\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticIntMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01457\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01458\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01459\ \ \ \ \ \}}
+\DoxyCodeLine{01460\ \ \ \ \ jint\ CallStaticIntMethodV(jclass\ clazz,}
+\DoxyCodeLine{01461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticIntMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01463\ \ \ \ \ \}}
+\DoxyCodeLine{01464\ \ \ \ \ jint\ CallStaticIntMethodA(jclass\ clazz,}
+\DoxyCodeLine{01465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticIntMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01467\ \ \ \ \ \}}
+\DoxyCodeLine{01468\ }
+\DoxyCodeLine{01469\ \ \ \ \ jlong\ CallStaticLongMethod(jclass\ clazz,}
+\DoxyCodeLine{01470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01471\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01472\ \ \ \ \ \ \ \ \ jlong\ result;}
+\DoxyCodeLine{01473\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01474\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticLongMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01475\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01476\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01477\ \ \ \ \ \}}
+\DoxyCodeLine{01478\ \ \ \ \ jlong\ CallStaticLongMethodV(jclass\ clazz,}
+\DoxyCodeLine{01479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticLongMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01481\ \ \ \ \ \}}
+\DoxyCodeLine{01482\ \ \ \ \ jlong\ CallStaticLongMethodA(jclass\ clazz,}
+\DoxyCodeLine{01483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01484\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticLongMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01485\ \ \ \ \ \}}
+\DoxyCodeLine{01486\ }
+\DoxyCodeLine{01487\ \ \ \ \ jfloat\ CallStaticFloatMethod(jclass\ clazz,}
+\DoxyCodeLine{01488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01489\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01490\ \ \ \ \ \ \ \ \ jfloat\ result;}
+\DoxyCodeLine{01491\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01492\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticFloatMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01493\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01494\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01495\ \ \ \ \ \}}
+\DoxyCodeLine{01496\ \ \ \ \ jfloat\ CallStaticFloatMethodV(jclass\ clazz,}
+\DoxyCodeLine{01497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01498\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticFloatMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01499\ \ \ \ \ \}}
+\DoxyCodeLine{01500\ \ \ \ \ jfloat\ CallStaticFloatMethodA(jclass\ clazz,}
+\DoxyCodeLine{01501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticFloatMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01503\ \ \ \ \ \}}
+\DoxyCodeLine{01504\ }
+\DoxyCodeLine{01505\ \ \ \ \ jdouble\ CallStaticDoubleMethod(jclass\ clazz,}
+\DoxyCodeLine{01506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01507\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01508\ \ \ \ \ \ \ \ \ jdouble\ result;}
+\DoxyCodeLine{01509\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01510\ \ \ \ \ \ \ \ \ result\ =\ functions-\/>CallStaticDoubleMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01511\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01513\ \ \ \ \ \}}
+\DoxyCodeLine{01514\ \ \ \ \ jdouble\ CallStaticDoubleMethodV(jclass\ clazz,}
+\DoxyCodeLine{01515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ va\_list\ args)\ \{}
+\DoxyCodeLine{01516\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticDoubleMethodV(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01517\ \ \ \ \ \}}
+\DoxyCodeLine{01518\ \ \ \ \ jdouble\ CallStaticDoubleMethodA(jclass\ clazz,}
+\DoxyCodeLine{01519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jmethodID\ methodID,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *args)\ \{}
+\DoxyCodeLine{01520\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>CallStaticDoubleMethodA(\textcolor{keyword}{this},clazz,methodID,args);}
+\DoxyCodeLine{01521\ \ \ \ \ \}}
+\DoxyCodeLine{01522\ }
+\DoxyCodeLine{01523\ \ \ \ \ \textcolor{keywordtype}{void}\ CallStaticVoidMethod(jclass\ cls,\ jmethodID\ methodID,\ ...)\ \{}
+\DoxyCodeLine{01524\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{01525\ \ \ \ \ \ \ \ \ va\_start(args,methodID);}
+\DoxyCodeLine{01526\ \ \ \ \ \ \ \ \ functions-\/>CallStaticVoidMethodV(\textcolor{keyword}{this},cls,methodID,args);}
+\DoxyCodeLine{01527\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{01528\ \ \ \ \ \}}
+\DoxyCodeLine{01529\ \ \ \ \ \textcolor{keywordtype}{void}\ CallStaticVoidMethodV(jclass\ cls,\ jmethodID\ methodID,}
+\DoxyCodeLine{01530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ va\_list\ args)\ \{}
+\DoxyCodeLine{01531\ \ \ \ \ \ \ \ \ functions-\/>CallStaticVoidMethodV(\textcolor{keyword}{this},cls,methodID,args);}
+\DoxyCodeLine{01532\ \ \ \ \ \}}
+\DoxyCodeLine{01533\ \ \ \ \ \textcolor{keywordtype}{void}\ CallStaticVoidMethodA(jclass\ cls,\ jmethodID\ methodID,}
+\DoxyCodeLine{01534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{unionjvalue}{jvalue}}\ *\ args)\ \{}
+\DoxyCodeLine{01535\ \ \ \ \ \ \ \ \ functions-\/>CallStaticVoidMethodA(\textcolor{keyword}{this},cls,methodID,args);}
+\DoxyCodeLine{01536\ \ \ \ \ \}}
+\DoxyCodeLine{01537\ }
+\DoxyCodeLine{01538\ \ \ \ \ jfieldID\ GetStaticFieldID(jclass\ clazz,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,}
+\DoxyCodeLine{01539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sig)\ \{}
+\DoxyCodeLine{01540\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticFieldID(\textcolor{keyword}{this},clazz,name,sig);}
+\DoxyCodeLine{01541\ \ \ \ \ \}}
+\DoxyCodeLine{01542\ \ \ \ \ jobject\ GetStaticObjectField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01543\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticObjectField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01544\ \ \ \ \ \}}
+\DoxyCodeLine{01545\ \ \ \ \ jboolean\ GetStaticBooleanField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticBooleanField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01547\ \ \ \ \ \}}
+\DoxyCodeLine{01548\ \ \ \ \ jbyte\ GetStaticByteField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01549\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticByteField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01550\ \ \ \ \ \}}
+\DoxyCodeLine{01551\ \ \ \ \ jchar\ GetStaticCharField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticCharField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01553\ \ \ \ \ \}}
+\DoxyCodeLine{01554\ \ \ \ \ jshort\ GetStaticShortField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01555\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticShortField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01556\ \ \ \ \ \}}
+\DoxyCodeLine{01557\ \ \ \ \ jint\ GetStaticIntField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01558\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticIntField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01559\ \ \ \ \ \}}
+\DoxyCodeLine{01560\ \ \ \ \ jlong\ GetStaticLongField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticLongField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01562\ \ \ \ \ \}}
+\DoxyCodeLine{01563\ \ \ \ \ jfloat\ GetStaticFloatField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01564\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticFloatField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01565\ \ \ \ \ \}}
+\DoxyCodeLine{01566\ \ \ \ \ jdouble\ GetStaticDoubleField(jclass\ clazz,\ jfieldID\ fieldID)\ \{}
+\DoxyCodeLine{01567\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStaticDoubleField(\textcolor{keyword}{this},clazz,fieldID);}
+\DoxyCodeLine{01568\ \ \ \ \ \}}
+\DoxyCodeLine{01569\ }
+\DoxyCodeLine{01570\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticObjectField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01571\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jobject\ value)\ \{}
+\DoxyCodeLine{01572\ \ \ \ \ \ \ functions-\/>SetStaticObjectField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01573\ \ \ \ \ \}}
+\DoxyCodeLine{01574\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticBooleanField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01575\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jboolean\ value)\ \{}
+\DoxyCodeLine{01576\ \ \ \ \ \ \ functions-\/>SetStaticBooleanField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01577\ \ \ \ \ \}}
+\DoxyCodeLine{01578\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticByteField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01579\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jbyte\ value)\ \{}
+\DoxyCodeLine{01580\ \ \ \ \ \ \ functions-\/>SetStaticByteField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01581\ \ \ \ \ \}}
+\DoxyCodeLine{01582\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticCharField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jchar\ value)\ \{}
+\DoxyCodeLine{01584\ \ \ \ \ \ \ functions-\/>SetStaticCharField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01585\ \ \ \ \ \}}
+\DoxyCodeLine{01586\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticShortField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01587\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jshort\ value)\ \{}
+\DoxyCodeLine{01588\ \ \ \ \ \ \ functions-\/>SetStaticShortField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01589\ \ \ \ \ \}}
+\DoxyCodeLine{01590\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticIntField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ value)\ \{}
+\DoxyCodeLine{01592\ \ \ \ \ \ \ functions-\/>SetStaticIntField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01593\ \ \ \ \ \}}
+\DoxyCodeLine{01594\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticLongField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jlong\ value)\ \{}
+\DoxyCodeLine{01596\ \ \ \ \ \ \ functions-\/>SetStaticLongField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01597\ \ \ \ \ \}}
+\DoxyCodeLine{01598\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticFloatField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01599\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jfloat\ value)\ \{}
+\DoxyCodeLine{01600\ \ \ \ \ \ \ functions-\/>SetStaticFloatField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01601\ \ \ \ \ \}}
+\DoxyCodeLine{01602\ \ \ \ \ \textcolor{keywordtype}{void}\ SetStaticDoubleField(jclass\ clazz,\ jfieldID\ fieldID,}
+\DoxyCodeLine{01603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jdouble\ value)\ \{}
+\DoxyCodeLine{01604\ \ \ \ \ \ \ functions-\/>SetStaticDoubleField(\textcolor{keyword}{this},clazz,fieldID,value);}
+\DoxyCodeLine{01605\ \ \ \ \ \}}
+\DoxyCodeLine{01606\ }
+\DoxyCodeLine{01607\ \ \ \ \ jstring\ NewString(\textcolor{keyword}{const}\ jchar\ *unicode,\ jsize\ len)\ \{}
+\DoxyCodeLine{01608\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewString(\textcolor{keyword}{this},unicode,len);}
+\DoxyCodeLine{01609\ \ \ \ \ \}}
+\DoxyCodeLine{01610\ \ \ \ \ jsize\ GetStringLength(jstring\ str)\ \{}
+\DoxyCodeLine{01611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStringLength(\textcolor{keyword}{this},str);}
+\DoxyCodeLine{01612\ \ \ \ \ \}}
+\DoxyCodeLine{01613\ \ \ \ \ \textcolor{keyword}{const}\ jchar\ *GetStringChars(jstring\ str,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01614\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStringChars(\textcolor{keyword}{this},str,isCopy);}
+\DoxyCodeLine{01615\ \ \ \ \ \}}
+\DoxyCodeLine{01616\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseStringChars(jstring\ str,\ \textcolor{keyword}{const}\ jchar\ *chars)\ \{}
+\DoxyCodeLine{01617\ \ \ \ \ \ \ \ \ functions-\/>ReleaseStringChars(\textcolor{keyword}{this},str,chars);}
+\DoxyCodeLine{01618\ \ \ \ \ \}}
+\DoxyCodeLine{01619\ }
+\DoxyCodeLine{01620\ \ \ \ \ jstring\ NewStringUTF(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *utf)\ \{}
+\DoxyCodeLine{01621\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewStringUTF(\textcolor{keyword}{this},utf);}
+\DoxyCodeLine{01622\ \ \ \ \ \}}
+\DoxyCodeLine{01623\ \ \ \ \ jsize\ GetStringUTFLength(jstring\ str)\ \{}
+\DoxyCodeLine{01624\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStringUTFLength(\textcolor{keyword}{this},str);}
+\DoxyCodeLine{01625\ \ \ \ \ \}}
+\DoxyCodeLine{01626\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetStringUTFChars(jstring\ str,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01627\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStringUTFChars(\textcolor{keyword}{this},str,isCopy);}
+\DoxyCodeLine{01628\ \ \ \ \ \}}
+\DoxyCodeLine{01629\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseStringUTFChars(jstring\ str,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ chars)\ \{}
+\DoxyCodeLine{01630\ \ \ \ \ \ \ \ \ functions-\/>ReleaseStringUTFChars(\textcolor{keyword}{this},str,chars);}
+\DoxyCodeLine{01631\ \ \ \ \ \}}
+\DoxyCodeLine{01632\ }
+\DoxyCodeLine{01633\ \ \ \ \ jsize\ GetArrayLength(jarray\ array)\ \{}
+\DoxyCodeLine{01634\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetArrayLength(\textcolor{keyword}{this},array);}
+\DoxyCodeLine{01635\ \ \ \ \ \}}
+\DoxyCodeLine{01636\ }
+\DoxyCodeLine{01637\ \ \ \ \ jobjectArray\ NewObjectArray(jsize\ len,\ jclass\ clazz,}
+\DoxyCodeLine{01638\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jobject\ init)\ \{}
+\DoxyCodeLine{01639\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewObjectArray(\textcolor{keyword}{this},len,clazz,init);}
+\DoxyCodeLine{01640\ \ \ \ \ \}}
+\DoxyCodeLine{01641\ \ \ \ \ jobject\ GetObjectArrayElement(jobjectArray\ array,\ jsize\ index)\ \{}
+\DoxyCodeLine{01642\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetObjectArrayElement(\textcolor{keyword}{this},array,index);}
+\DoxyCodeLine{01643\ \ \ \ \ \}}
+\DoxyCodeLine{01644\ \ \ \ \ \textcolor{keywordtype}{void}\ SetObjectArrayElement(jobjectArray\ array,\ jsize\ index,}
+\DoxyCodeLine{01645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jobject\ val)\ \{}
+\DoxyCodeLine{01646\ \ \ \ \ \ \ \ \ functions-\/>SetObjectArrayElement(\textcolor{keyword}{this},array,index,val);}
+\DoxyCodeLine{01647\ \ \ \ \ \}}
+\DoxyCodeLine{01648\ }
+\DoxyCodeLine{01649\ \ \ \ \ jbooleanArray\ NewBooleanArray(jsize\ len)\ \{}
+\DoxyCodeLine{01650\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewBooleanArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01651\ \ \ \ \ \}}
+\DoxyCodeLine{01652\ \ \ \ \ jbyteArray\ NewByteArray(jsize\ len)\ \{}
+\DoxyCodeLine{01653\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewByteArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01654\ \ \ \ \ \}}
+\DoxyCodeLine{01655\ \ \ \ \ jcharArray\ NewCharArray(jsize\ len)\ \{}
+\DoxyCodeLine{01656\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewCharArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01657\ \ \ \ \ \}}
+\DoxyCodeLine{01658\ \ \ \ \ jshortArray\ NewShortArray(jsize\ len)\ \{}
+\DoxyCodeLine{01659\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewShortArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01660\ \ \ \ \ \}}
+\DoxyCodeLine{01661\ \ \ \ \ jintArray\ NewIntArray(jsize\ len)\ \{}
+\DoxyCodeLine{01662\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewIntArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01663\ \ \ \ \ \}}
+\DoxyCodeLine{01664\ \ \ \ \ jlongArray\ NewLongArray(jsize\ len)\ \{}
+\DoxyCodeLine{01665\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewLongArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01666\ \ \ \ \ \}}
+\DoxyCodeLine{01667\ \ \ \ \ jfloatArray\ NewFloatArray(jsize\ len)\ \{}
+\DoxyCodeLine{01668\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewFloatArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01669\ \ \ \ \ \}}
+\DoxyCodeLine{01670\ \ \ \ \ jdoubleArray\ NewDoubleArray(jsize\ len)\ \{}
+\DoxyCodeLine{01671\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewDoubleArray(\textcolor{keyword}{this},len);}
+\DoxyCodeLine{01672\ \ \ \ \ \}}
+\DoxyCodeLine{01673\ }
+\DoxyCodeLine{01674\ \ \ \ \ jboolean\ *\ GetBooleanArrayElements(jbooleanArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01675\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetBooleanArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01676\ \ \ \ \ \}}
+\DoxyCodeLine{01677\ \ \ \ \ jbyte\ *\ GetByteArrayElements(jbyteArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01678\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetByteArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01679\ \ \ \ \ \}}
+\DoxyCodeLine{01680\ \ \ \ \ jchar\ *\ GetCharArrayElements(jcharArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01681\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetCharArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01682\ \ \ \ \ \}}
+\DoxyCodeLine{01683\ \ \ \ \ jshort\ *\ GetShortArrayElements(jshortArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01684\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetShortArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01685\ \ \ \ \ \}}
+\DoxyCodeLine{01686\ \ \ \ \ jint\ *\ GetIntArrayElements(jintArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01687\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetIntArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01688\ \ \ \ \ \}}
+\DoxyCodeLine{01689\ \ \ \ \ jlong\ *\ GetLongArrayElements(jlongArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01690\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetLongArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01691\ \ \ \ \ \}}
+\DoxyCodeLine{01692\ \ \ \ \ jfloat\ *\ GetFloatArrayElements(jfloatArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01693\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetFloatArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01694\ \ \ \ \ \}}
+\DoxyCodeLine{01695\ \ \ \ \ jdouble\ *\ GetDoubleArrayElements(jdoubleArray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01696\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetDoubleArrayElements(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01697\ \ \ \ \ \}}
+\DoxyCodeLine{01698\ }
+\DoxyCodeLine{01699\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseBooleanArrayElements(jbooleanArray\ array,}
+\DoxyCodeLine{01700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jboolean\ *elems,}
+\DoxyCodeLine{01701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01702\ \ \ \ \ \ \ \ \ functions-\/>ReleaseBooleanArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01703\ \ \ \ \ \}}
+\DoxyCodeLine{01704\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseByteArrayElements(jbyteArray\ array,}
+\DoxyCodeLine{01705\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jbyte\ *elems,}
+\DoxyCodeLine{01706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01707\ \ \ \ \ \ \ \ \ functions-\/>ReleaseByteArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01708\ \ \ \ \ \}}
+\DoxyCodeLine{01709\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseCharArrayElements(jcharArray\ array,}
+\DoxyCodeLine{01710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jchar\ *elems,}
+\DoxyCodeLine{01711\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01712\ \ \ \ \ \ \ \ \ functions-\/>ReleaseCharArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01713\ \ \ \ \ \}}
+\DoxyCodeLine{01714\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseShortArrayElements(jshortArray\ array,}
+\DoxyCodeLine{01715\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jshort\ *elems,}
+\DoxyCodeLine{01716\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01717\ \ \ \ \ \ \ \ \ functions-\/>ReleaseShortArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01718\ \ \ \ \ \}}
+\DoxyCodeLine{01719\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseIntArrayElements(jintArray\ array,}
+\DoxyCodeLine{01720\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ *elems,}
+\DoxyCodeLine{01721\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01722\ \ \ \ \ \ \ \ \ functions-\/>ReleaseIntArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01723\ \ \ \ \ \}}
+\DoxyCodeLine{01724\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseLongArrayElements(jlongArray\ array,}
+\DoxyCodeLine{01725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jlong\ *elems,}
+\DoxyCodeLine{01726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01727\ \ \ \ \ \ \ \ \ functions-\/>ReleaseLongArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01728\ \ \ \ \ \}}
+\DoxyCodeLine{01729\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseFloatArrayElements(jfloatArray\ array,}
+\DoxyCodeLine{01730\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jfloat\ *elems,}
+\DoxyCodeLine{01731\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01732\ \ \ \ \ \ \ \ \ functions-\/>ReleaseFloatArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01733\ \ \ \ \ \}}
+\DoxyCodeLine{01734\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseDoubleArrayElements(jdoubleArray\ array,}
+\DoxyCodeLine{01735\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jdouble\ *elems,}
+\DoxyCodeLine{01736\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ mode)\ \{}
+\DoxyCodeLine{01737\ \ \ \ \ \ \ \ \ functions-\/>ReleaseDoubleArrayElements(\textcolor{keyword}{this},array,elems,mode);}
+\DoxyCodeLine{01738\ \ \ \ \ \}}
+\DoxyCodeLine{01739\ }
+\DoxyCodeLine{01740\ \ \ \ \ \textcolor{keywordtype}{void}\ GetBooleanArrayRegion(jbooleanArray\ array,}
+\DoxyCodeLine{01741\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jboolean\ *buf)\ \{}
+\DoxyCodeLine{01742\ \ \ \ \ \ \ \ \ functions-\/>GetBooleanArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01743\ \ \ \ \ \}}
+\DoxyCodeLine{01744\ \ \ \ \ \textcolor{keywordtype}{void}\ GetByteArrayRegion(jbyteArray\ array,}
+\DoxyCodeLine{01745\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jbyte\ *buf)\ \{}
+\DoxyCodeLine{01746\ \ \ \ \ \ \ \ \ functions-\/>GetByteArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01747\ \ \ \ \ \}}
+\DoxyCodeLine{01748\ \ \ \ \ \textcolor{keywordtype}{void}\ GetCharArrayRegion(jcharArray\ array,}
+\DoxyCodeLine{01749\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jchar\ *buf)\ \{}
+\DoxyCodeLine{01750\ \ \ \ \ \ \ \ \ functions-\/>GetCharArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01751\ \ \ \ \ \}}
+\DoxyCodeLine{01752\ \ \ \ \ \textcolor{keywordtype}{void}\ GetShortArrayRegion(jshortArray\ array,}
+\DoxyCodeLine{01753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jshort\ *buf)\ \{}
+\DoxyCodeLine{01754\ \ \ \ \ \ \ \ \ functions-\/>GetShortArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01755\ \ \ \ \ \}}
+\DoxyCodeLine{01756\ \ \ \ \ \textcolor{keywordtype}{void}\ GetIntArrayRegion(jintArray\ array,}
+\DoxyCodeLine{01757\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jint\ *buf)\ \{}
+\DoxyCodeLine{01758\ \ \ \ \ \ \ \ \ functions-\/>GetIntArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01759\ \ \ \ \ \}}
+\DoxyCodeLine{01760\ \ \ \ \ \textcolor{keywordtype}{void}\ GetLongArrayRegion(jlongArray\ array,}
+\DoxyCodeLine{01761\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jlong\ *buf)\ \{}
+\DoxyCodeLine{01762\ \ \ \ \ \ \ \ \ functions-\/>GetLongArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01763\ \ \ \ \ \}}
+\DoxyCodeLine{01764\ \ \ \ \ \textcolor{keywordtype}{void}\ GetFloatArrayRegion(jfloatArray\ array,}
+\DoxyCodeLine{01765\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jfloat\ *buf)\ \{}
+\DoxyCodeLine{01766\ \ \ \ \ \ \ \ \ functions-\/>GetFloatArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01767\ \ \ \ \ \}}
+\DoxyCodeLine{01768\ \ \ \ \ \textcolor{keywordtype}{void}\ GetDoubleArrayRegion(jdoubleArray\ array,}
+\DoxyCodeLine{01769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jsize\ start,\ jsize\ len,\ jdouble\ *buf)\ \{}
+\DoxyCodeLine{01770\ \ \ \ \ \ \ \ \ functions-\/>GetDoubleArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01771\ \ \ \ \ \}}
+\DoxyCodeLine{01772\ }
+\DoxyCodeLine{01773\ \ \ \ \ \textcolor{keywordtype}{void}\ SetBooleanArrayRegion(jbooleanArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01774\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jboolean\ *buf)\ \{}
+\DoxyCodeLine{01775\ \ \ \ \ \ \ \ \ functions-\/>SetBooleanArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01776\ \ \ \ \ \}}
+\DoxyCodeLine{01777\ \ \ \ \ \textcolor{keywordtype}{void}\ SetByteArrayRegion(jbyteArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01778\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jbyte\ *buf)\ \{}
+\DoxyCodeLine{01779\ \ \ \ \ \ \ \ \ functions-\/>SetByteArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01780\ \ \ \ \ \}}
+\DoxyCodeLine{01781\ \ \ \ \ \textcolor{keywordtype}{void}\ SetCharArrayRegion(jcharArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01782\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jchar\ *buf)\ \{}
+\DoxyCodeLine{01783\ \ \ \ \ \ \ \ \ functions-\/>SetCharArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01784\ \ \ \ \ \}}
+\DoxyCodeLine{01785\ \ \ \ \ \textcolor{keywordtype}{void}\ SetShortArrayRegion(jshortArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01786\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jshort\ *buf)\ \{}
+\DoxyCodeLine{01787\ \ \ \ \ \ \ \ \ functions-\/>SetShortArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01788\ \ \ \ \ \}}
+\DoxyCodeLine{01789\ \ \ \ \ \textcolor{keywordtype}{void}\ SetIntArrayRegion(jintArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01790\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jint\ *buf)\ \{}
+\DoxyCodeLine{01791\ \ \ \ \ \ \ \ \ functions-\/>SetIntArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01792\ \ \ \ \ \}}
+\DoxyCodeLine{01793\ \ \ \ \ \textcolor{keywordtype}{void}\ SetLongArrayRegion(jlongArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01794\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jlong\ *buf)\ \{}
+\DoxyCodeLine{01795\ \ \ \ \ \ \ \ \ functions-\/>SetLongArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01796\ \ \ \ \ \}}
+\DoxyCodeLine{01797\ \ \ \ \ \textcolor{keywordtype}{void}\ SetFloatArrayRegion(jfloatArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01798\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jfloat\ *buf)\ \{}
+\DoxyCodeLine{01799\ \ \ \ \ \ \ \ \ functions-\/>SetFloatArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01800\ \ \ \ \ \}}
+\DoxyCodeLine{01801\ \ \ \ \ \textcolor{keywordtype}{void}\ SetDoubleArrayRegion(jdoubleArray\ array,\ jsize\ start,\ jsize\ len,}
+\DoxyCodeLine{01802\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ jdouble\ *buf)\ \{}
+\DoxyCodeLine{01803\ \ \ \ \ \ \ \ \ functions-\/>SetDoubleArrayRegion(\textcolor{keyword}{this},array,start,len,buf);}
+\DoxyCodeLine{01804\ \ \ \ \ \}}
+\DoxyCodeLine{01805\ }
+\DoxyCodeLine{01806\ \ \ \ \ jint\ RegisterNatives(jclass\ clazz,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_j_n_i_native_method}{JNINativeMethod}}\ *methods,}
+\DoxyCodeLine{01807\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jint\ nMethods)\ \{}
+\DoxyCodeLine{01808\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>RegisterNatives(\textcolor{keyword}{this},clazz,methods,nMethods);}
+\DoxyCodeLine{01809\ \ \ \ \ \}}
+\DoxyCodeLine{01810\ \ \ \ \ jint\ UnregisterNatives(jclass\ clazz)\ \{}
+\DoxyCodeLine{01811\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>UnregisterNatives(\textcolor{keyword}{this},clazz);}
+\DoxyCodeLine{01812\ \ \ \ \ \}}
+\DoxyCodeLine{01813\ }
+\DoxyCodeLine{01814\ \ \ \ \ jint\ MonitorEnter(jobject\ obj)\ \{}
+\DoxyCodeLine{01815\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>MonitorEnter(\textcolor{keyword}{this},obj);}
+\DoxyCodeLine{01816\ \ \ \ \ \}}
+\DoxyCodeLine{01817\ \ \ \ \ jint\ MonitorExit(jobject\ obj)\ \{}
+\DoxyCodeLine{01818\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>MonitorExit(\textcolor{keyword}{this},obj);}
+\DoxyCodeLine{01819\ \ \ \ \ \}}
+\DoxyCodeLine{01820\ }
+\DoxyCodeLine{01821\ \ \ \ \ jint\ GetJavaVM(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ **vm)\ \{}
+\DoxyCodeLine{01822\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetJavaVM(\textcolor{keyword}{this},vm);}
+\DoxyCodeLine{01823\ \ \ \ \ \}}
+\DoxyCodeLine{01824\ }
+\DoxyCodeLine{01825\ \ \ \ \ \textcolor{keywordtype}{void}\ GetStringRegion(jstring\ str,\ jsize\ start,\ jsize\ len,\ jchar\ *buf)\ \{}
+\DoxyCodeLine{01826\ \ \ \ \ \ \ \ \ functions-\/>GetStringRegion(\textcolor{keyword}{this},str,start,len,buf);}
+\DoxyCodeLine{01827\ \ \ \ \ \}}
+\DoxyCodeLine{01828\ \ \ \ \ \textcolor{keywordtype}{void}\ GetStringUTFRegion(jstring\ str,\ jsize\ start,\ jsize\ len,\ \textcolor{keywordtype}{char}\ *buf)\ \{}
+\DoxyCodeLine{01829\ \ \ \ \ \ \ \ \ functions-\/>GetStringUTFRegion(\textcolor{keyword}{this},str,start,len,buf);}
+\DoxyCodeLine{01830\ \ \ \ \ \}}
+\DoxyCodeLine{01831\ }
+\DoxyCodeLine{01832\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ GetPrimitiveArrayCritical(jarray\ array,\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01833\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetPrimitiveArrayCritical(\textcolor{keyword}{this},array,isCopy);}
+\DoxyCodeLine{01834\ \ \ \ \ \}}
+\DoxyCodeLine{01835\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleasePrimitiveArrayCritical(jarray\ array,\ \textcolor{keywordtype}{void}\ *carray,\ jint\ mode)\ \{}
+\DoxyCodeLine{01836\ \ \ \ \ \ \ \ \ functions-\/>ReleasePrimitiveArrayCritical(\textcolor{keyword}{this},array,carray,mode);}
+\DoxyCodeLine{01837\ \ \ \ \ \}}
+\DoxyCodeLine{01838\ }
+\DoxyCodeLine{01839\ \ \ \ \ \textcolor{keyword}{const}\ jchar\ *\ GetStringCritical(jstring\ \textcolor{keywordtype}{string},\ jboolean\ *isCopy)\ \{}
+\DoxyCodeLine{01840\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetStringCritical(\textcolor{keyword}{this},\textcolor{keywordtype}{string},isCopy);}
+\DoxyCodeLine{01841\ \ \ \ \ \}}
+\DoxyCodeLine{01842\ \ \ \ \ \textcolor{keywordtype}{void}\ ReleaseStringCritical(jstring\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ jchar\ *cstring)\ \{}
+\DoxyCodeLine{01843\ \ \ \ \ \ \ \ \ functions-\/>ReleaseStringCritical(\textcolor{keyword}{this},\textcolor{keywordtype}{string},cstring);}
+\DoxyCodeLine{01844\ \ \ \ \ \}}
+\DoxyCodeLine{01845\ }
+\DoxyCodeLine{01846\ \ \ \ \ jweak\ NewWeakGlobalRef(jobject\ obj)\ \{}
+\DoxyCodeLine{01847\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewWeakGlobalRef(\textcolor{keyword}{this},obj);}
+\DoxyCodeLine{01848\ \ \ \ \ \}}
+\DoxyCodeLine{01849\ \ \ \ \ \textcolor{keywordtype}{void}\ DeleteWeakGlobalRef(jweak\ ref)\ \{}
+\DoxyCodeLine{01850\ \ \ \ \ \ \ \ \ functions-\/>DeleteWeakGlobalRef(\textcolor{keyword}{this},ref);}
+\DoxyCodeLine{01851\ \ \ \ \ \}}
+\DoxyCodeLine{01852\ }
+\DoxyCodeLine{01853\ \ \ \ \ jboolean\ ExceptionCheck()\ \{}
+\DoxyCodeLine{01854\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>ExceptionCheck(\textcolor{keyword}{this});}
+\DoxyCodeLine{01855\ \ \ \ \ \}}
+\DoxyCodeLine{01856\ }
+\DoxyCodeLine{01857\ \ \ \ \ jobject\ NewDirectByteBuffer(\textcolor{keywordtype}{void}*\ address,\ jlong\ capacity)\ \{}
+\DoxyCodeLine{01858\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>NewDirectByteBuffer(\textcolor{keyword}{this},\ address,\ capacity);}
+\DoxyCodeLine{01859\ \ \ \ \ \}}
+\DoxyCodeLine{01860\ \ \ \ \ \textcolor{keywordtype}{void}*\ GetDirectBufferAddress(jobject\ buf)\ \{}
+\DoxyCodeLine{01861\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetDirectBufferAddress(\textcolor{keyword}{this},\ buf);}
+\DoxyCodeLine{01862\ \ \ \ \ \}}
+\DoxyCodeLine{01863\ \ \ \ \ jlong\ GetDirectBufferCapacity(jobject\ buf)\ \{}
+\DoxyCodeLine{01864\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetDirectBufferCapacity(\textcolor{keyword}{this},\ buf);}
+\DoxyCodeLine{01865\ \ \ \ \ \}}
+\DoxyCodeLine{01866\ \ \ \ \ jobjectRefType\ GetObjectRefType(jobject\ obj)\ \{}
+\DoxyCodeLine{01867\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetObjectRefType(\textcolor{keyword}{this},\ obj);}
+\DoxyCodeLine{01868\ \ \ \ \ \}}
+\DoxyCodeLine{01869\ }
+\DoxyCodeLine{01870\ \ \ \ \ \textcolor{comment}{/*\ Module\ Features\ */}}
+\DoxyCodeLine{01871\ }
+\DoxyCodeLine{01872\ \ \ \ \ jobject\ GetModule(jclass\ clazz)\ \{}
+\DoxyCodeLine{01873\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetModule(\textcolor{keyword}{this},\ clazz);}
+\DoxyCodeLine{01874\ \ \ \ \ \}}
+\DoxyCodeLine{01875\ }
+\DoxyCodeLine{01876\ \ \ \ \ \textcolor{comment}{/*\ Virtual\ threads\ */}}
+\DoxyCodeLine{01877\ }
+\DoxyCodeLine{01878\ \ \ \ \ jboolean\ IsVirtualThread(jobject\ obj)\ \{}
+\DoxyCodeLine{01879\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>IsVirtualThread(\textcolor{keyword}{this},\ obj);}
+\DoxyCodeLine{01880\ \ \ \ \ \}}
+\DoxyCodeLine{01881\ }
+\DoxyCodeLine{01882\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01883\ \};}
+\DoxyCodeLine{01884\ }
+\DoxyCodeLine{01885\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01886\ \textcolor{comment}{\ *\ optionString\ may\ be\ any\ option\ accepted\ by\ the\ JVM,\ or\ one\ of\ the}}
+\DoxyCodeLine{01887\ \textcolor{comment}{\ *\ following:}}
+\DoxyCodeLine{01888\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{01889\ \textcolor{comment}{\ *\ -\/D<name>=<value>\ \ \ \ \ \ \ \ \ \ Set\ a\ system\ property.}}
+\DoxyCodeLine{01890\ \textcolor{comment}{\ *\ -\/verbose[:class|gc|jni]\ \ \ Enable\ verbose\ output,\ comma-\/separated.\ E.g.}}
+\DoxyCodeLine{01891\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}-\/verbose:class"{}\ or\ "{}-\/verbose:gc,class"{}}}
+\DoxyCodeLine{01892\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Standard\ names\ include:\ gc,\ class,\ and\ jni.}}
+\DoxyCodeLine{01893\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ All\ nonstandard\ (VM-\/specific)\ names\ must\ begin}}
+\DoxyCodeLine{01894\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ with\ "{}X"{}.}}
+\DoxyCodeLine{01895\ \textcolor{comment}{\ *\ vfprintf\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extraInfo\ is\ a\ pointer\ to\ the\ vfprintf\ hook.}}
+\DoxyCodeLine{01896\ \textcolor{comment}{\ *\ exit\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extraInfo\ is\ a\ pointer\ to\ the\ exit\ hook.}}
+\DoxyCodeLine{01897\ \textcolor{comment}{\ *\ abort\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extraInfo\ is\ a\ pointer\ to\ the\ abort\ hook.}}
+\DoxyCodeLine{01898\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01899\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_java_v_m_option}{JavaVMOption}}\ \{}
+\DoxyCodeLine{01900\ \ \ \ \ \textcolor{keywordtype}{char}\ *optionString;}
+\DoxyCodeLine{01901\ \ \ \ \ \textcolor{keywordtype}{void}\ *extraInfo;}
+\DoxyCodeLine{01902\ \}\ \mbox{\hyperlink{struct_java_v_m_option}{JavaVMOption}};}
+\DoxyCodeLine{01903\ }
+\DoxyCodeLine{01904\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_java_v_m_init_args}{JavaVMInitArgs}}\ \{}
+\DoxyCodeLine{01905\ \ \ \ \ jint\ version;}
+\DoxyCodeLine{01906\ }
+\DoxyCodeLine{01907\ \ \ \ \ jint\ nOptions;}
+\DoxyCodeLine{01908\ \ \ \ \ \mbox{\hyperlink{struct_java_v_m_option}{JavaVMOption}}\ *options;}
+\DoxyCodeLine{01909\ \ \ \ \ jboolean\ ignoreUnrecognized;}
+\DoxyCodeLine{01910\ \}\ \mbox{\hyperlink{struct_java_v_m_init_args}{JavaVMInitArgs}};}
+\DoxyCodeLine{01911\ }
+\DoxyCodeLine{01912\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_java_v_m_attach_args}{JavaVMAttachArgs}}\ \{}
+\DoxyCodeLine{01913\ \ \ \ \ jint\ version;}
+\DoxyCodeLine{01914\ }
+\DoxyCodeLine{01915\ \ \ \ \ \textcolor{keywordtype}{char}\ *name;}
+\DoxyCodeLine{01916\ \ \ \ \ jobject\ group;}
+\DoxyCodeLine{01917\ \}\ \mbox{\hyperlink{struct_java_v_m_attach_args}{JavaVMAttachArgs}};}
+\DoxyCodeLine{01918\ }
+\DoxyCodeLine{01919\ \textcolor{comment}{/*\ These\ will\ be\ VM-\/specific.\ */}}
+\DoxyCodeLine{01920\ }
+\DoxyCodeLine{01921\ \textcolor{preprocessor}{\#define\ JDK1\_2}}
+\DoxyCodeLine{01922\ \textcolor{preprocessor}{\#define\ JDK1\_4}}
+\DoxyCodeLine{01923\ }
+\DoxyCodeLine{01924\ \textcolor{comment}{/*\ End\ VM-\/specific.\ */}}
+\DoxyCodeLine{01925\ }
+\DoxyCodeLine{01926\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JNIInvokeInterface\_}}\ \{}
+\DoxyCodeLine{01927\ \ \ \ \ \textcolor{keywordtype}{void}\ *reserved0;}
+\DoxyCodeLine{01928\ \ \ \ \ \textcolor{keywordtype}{void}\ *reserved1;}
+\DoxyCodeLine{01929\ \ \ \ \ \textcolor{keywordtype}{void}\ *reserved2;}
+\DoxyCodeLine{01930\ }
+\DoxyCodeLine{01931\ \ \ \ \ jint\ (JNICALL\ *DestroyJavaVM)(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ *vm);}
+\DoxyCodeLine{01932\ }
+\DoxyCodeLine{01933\ \ \ \ \ jint\ (JNICALL\ *AttachCurrentThread)(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ *vm,\ \textcolor{keywordtype}{void}\ **penv,\ \textcolor{keywordtype}{void}\ *args);}
+\DoxyCodeLine{01934\ }
+\DoxyCodeLine{01935\ \ \ \ \ jint\ (JNICALL\ *DetachCurrentThread)(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ *vm);}
+\DoxyCodeLine{01936\ }
+\DoxyCodeLine{01937\ \ \ \ \ jint\ (JNICALL\ *GetEnv)(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ *vm,\ \textcolor{keywordtype}{void}\ **penv,\ jint\ version);}
+\DoxyCodeLine{01938\ }
+\DoxyCodeLine{01939\ \ \ \ \ jint\ (JNICALL\ *AttachCurrentThreadAsDaemon)(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ *vm,\ \textcolor{keywordtype}{void}\ **penv,\ \textcolor{keywordtype}{void}\ *args);}
+\DoxyCodeLine{01940\ \};}
+\DoxyCodeLine{01941\ }
+\DoxyCodeLine{01942\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_java_v_m__}{JavaVM\_}}\ \{}
+\DoxyCodeLine{01943\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JNIInvokeInterface\_}}\ *functions;}
+\DoxyCodeLine{01944\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{01945\ }
+\DoxyCodeLine{01946\ \ \ \ \ jint\ DestroyJavaVM()\ \{}
+\DoxyCodeLine{01947\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>DestroyJavaVM(\textcolor{keyword}{this});}
+\DoxyCodeLine{01948\ \ \ \ \ \}}
+\DoxyCodeLine{01949\ \ \ \ \ jint\ AttachCurrentThread(\textcolor{keywordtype}{void}\ **penv,\ \textcolor{keywordtype}{void}\ *args)\ \{}
+\DoxyCodeLine{01950\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>AttachCurrentThread(\textcolor{keyword}{this},\ penv,\ args);}
+\DoxyCodeLine{01951\ \ \ \ \ \}}
+\DoxyCodeLine{01952\ \ \ \ \ jint\ DetachCurrentThread()\ \{}
+\DoxyCodeLine{01953\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>DetachCurrentThread(\textcolor{keyword}{this});}
+\DoxyCodeLine{01954\ \ \ \ \ \}}
+\DoxyCodeLine{01955\ }
+\DoxyCodeLine{01956\ \ \ \ \ jint\ GetEnv(\textcolor{keywordtype}{void}\ **penv,\ jint\ version)\ \{}
+\DoxyCodeLine{01957\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>GetEnv(\textcolor{keyword}{this},\ penv,\ version);}
+\DoxyCodeLine{01958\ \ \ \ \ \}}
+\DoxyCodeLine{01959\ \ \ \ \ jint\ AttachCurrentThreadAsDaemon(\textcolor{keywordtype}{void}\ **penv,\ \textcolor{keywordtype}{void}\ *args)\ \{}
+\DoxyCodeLine{01960\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ functions-\/>AttachCurrentThreadAsDaemon(\textcolor{keyword}{this},\ penv,\ args);}
+\DoxyCodeLine{01961\ \ \ \ \ \}}
+\DoxyCodeLine{01962\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01963\ \};}
+\DoxyCodeLine{01964\ }
+\DoxyCodeLine{01965\ \textcolor{preprocessor}{\#ifdef\ \_JNI\_IMPLEMENTATION\_}}
+\DoxyCodeLine{01966\ \textcolor{preprocessor}{\#define\ \_JNI\_IMPORT\_OR\_EXPORT\_\ JNIEXPORT}}
+\DoxyCodeLine{01967\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01968\ \textcolor{preprocessor}{\#define\ \_JNI\_IMPORT\_OR\_EXPORT\_\ JNIIMPORT}}
+\DoxyCodeLine{01969\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01970\ \_JNI\_IMPORT\_OR\_EXPORT\_\ jint\ JNICALL}
+\DoxyCodeLine{01971\ JNI\_GetDefaultJavaVMInitArgs(\textcolor{keywordtype}{void}\ *args);}
+\DoxyCodeLine{01972\ }
+\DoxyCodeLine{01973\ \_JNI\_IMPORT\_OR\_EXPORT\_\ jint\ JNICALL}
+\DoxyCodeLine{01974\ JNI\_CreateJavaVM(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ **pvm,\ \textcolor{keywordtype}{void}\ **penv,\ \textcolor{keywordtype}{void}\ *args);}
+\DoxyCodeLine{01975\ }
+\DoxyCodeLine{01976\ \_JNI\_IMPORT\_OR\_EXPORT\_\ jint\ JNICALL}
+\DoxyCodeLine{01977\ JNI\_GetCreatedJavaVMs(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ **,\ jsize,\ jsize\ *);}
+\DoxyCodeLine{01978\ }
+\DoxyCodeLine{01979\ \textcolor{comment}{/*\ Defined\ by\ native\ libraries.\ */}}
+\DoxyCodeLine{01980\ JNIEXPORT\ jint\ JNICALL}
+\DoxyCodeLine{01981\ JNI\_OnLoad(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ *vm,\ \textcolor{keywordtype}{void}\ *reserved);}
+\DoxyCodeLine{01982\ }
+\DoxyCodeLine{01983\ JNIEXPORT\ \textcolor{keywordtype}{void}\ JNICALL}
+\DoxyCodeLine{01984\ JNI\_OnUnload(\mbox{\hyperlink{struct_j_n_i_invoke_interface__}{JavaVM}}\ *vm,\ \textcolor{keywordtype}{void}\ *reserved);}
+\DoxyCodeLine{01985\ }
+\DoxyCodeLine{01986\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_1\_1\ 0x00010001}}
+\DoxyCodeLine{01987\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_1\_2\ 0x00010002}}
+\DoxyCodeLine{01988\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_1\_4\ 0x00010004}}
+\DoxyCodeLine{01989\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_1\_6\ 0x00010006}}
+\DoxyCodeLine{01990\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_1\_8\ 0x00010008}}
+\DoxyCodeLine{01991\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_9\ \ \ 0x00090000}}
+\DoxyCodeLine{01992\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_10\ \ 0x000a0000}}
+\DoxyCodeLine{01993\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_19\ \ 0x00130000}}
+\DoxyCodeLine{01994\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_20\ \ 0x00140000}}
+\DoxyCodeLine{01995\ \textcolor{preprocessor}{\#define\ JNI\_VERSION\_21\ \ 0x00150000}}
+\DoxyCodeLine{01996\ }
+\DoxyCodeLine{01997\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{01998\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
+\DoxyCodeLine{01999\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{02000\ }
+\DoxyCodeLine{02001\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !\_JAVASOFT\_JNI\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

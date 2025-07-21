@@ -1,0 +1,5 @@
+<map id="Road::CalculateCarsAfter" name="Road::CalculateCarsAfter">
+<area shape="rect" id="Node000001" title="Method that counts the number of cars after they are alredy placed on the road and after every iterat..." alt="" coords="206,5,373,32"/>
+<area shape="rect" id="Node000002" href="$class_road.html#a58c1510d87a853400901912593aa1ed8" title="Main method that carries out the simulation." alt="" coords="5,5,158,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,21,158,21,158,16,190,16"/>
+</map>

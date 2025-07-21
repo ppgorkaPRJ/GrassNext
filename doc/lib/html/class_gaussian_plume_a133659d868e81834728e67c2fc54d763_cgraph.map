@@ -1,0 +1,20 @@
+<map id="GaussianPlume::gaussianPlumeModel" name="GaussianPlume::gaussianPlumeModel">
+<area shape="rect" id="Node000001" title="Main function responsible for calculating air pollution dispersion based on arguments from PlumeParam..." alt="" coords="5,101,216,144"/>
+<area shape="rect" id="Node000002" href="$class_gaussian_plume.html#a5e05d4a460fc4e231cb0b3781a590dc6" title="Function that determines the azimuth between two points." alt="" coords="268,29,435,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,98,293,59,295,64,178,103"/>
+<area shape="rect" id="Node000004" href="$class_gaussian_plume.html#a729c6ab29f5aad2c119a7a8eca6864b3" title="Function converting degrees to radians." alt="" coords="509,80,688,107"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="216,114,493,97,494,102,216,119"/>
+<area shape="rect" id="Node000005" href="$class_gaussian_plume.html#a5b4016002934ee6085b22883bfc61f43" title="Function that calculates emitters for a set section of the matrix." alt="" coords="265,197,438,240"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="165,142,265,183,280,189,278,194,263,188,163,147"/>
+<area shape="rect" id="Node000008" href="$class_gaussian_plume.html#a840a026c589a5e2764a284e5e42e298a" title="Function that determines the angular distance between two points on a sphere using Haversine formula." alt="" coords="264,131,439,173"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="217,133,248,137,248,142,216,138"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="311,31,304,21,309,11,325,5,351,3,380,5,395,12,393,17,379,10,351,8,326,10,312,15,309,20,315,27"/>
+<area shape="rect" id="Node000003" href="$class_gaussian_plume.html#a56776051ccbe0c235cf3f633224487b9" title="Function converting radians to degrees." alt="" coords="509,29,689,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="435,40,493,40,493,45,435,45"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="421,54,516,74,515,79,420,59"/>
+<area shape="rect" id="Node000006" href="$class_gaussian_plume.html#aec6af109d74f06b49e82c024088752e4" title="Function that calculates Gaussian function for a part of the matrix." alt="" coords="487,205,710,232"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="439,216,472,216,472,221,439,221"/>
+<area shape="rect" id="Node000007" href="$class_gaussian_plume.html#a1483f355ad48fc6a97fddcaa1f5e3bd9" title="Function that calculates y and z values of sigma as part of the Gaussian plume equation." alt="" coords="758,197,932,240"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="711,216,743,216,743,221,711,221"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="439,129,524,108,525,113,440,134"/>
+</map>

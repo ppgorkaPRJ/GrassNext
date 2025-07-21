@@ -1,0 +1,93 @@
+\doxysection{Gaussian\+Plume\+::Contour Class Reference}
+\hypertarget{class_gaussian_plume_1_1_contour}{}\label{class_gaussian_plume_1_1_contour}\index{GaussianPlume::Contour@{GaussianPlume::Contour}}
+
+
+A class describing the contour data for a single treshold.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+json \mbox{\hyperlink{class_gaussian_plume_1_1_contour_a26ab9899249a58e1362f854ac17f24de}{contour\+Points\+To\+Json}} () const
+\begin{DoxyCompactList}\small\item\em A method for converting contour point data into a JSON format. \end{DoxyCompactList}\item 
+json \mbox{\hyperlink{class_gaussian_plume_1_1_contour_a03716a9a74a3b077d6a493b9c92436b1}{to\+Json}} () const
+\begin{DoxyCompactList}\small\item\em A method for converting threshold, color and contour points into a JSON format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_gaussian_plume_1_1_contour_a51fe88b004de3713b522c357b15458ba}\label{class_gaussian_plume_1_1_contour_a51fe88b004de3713b522c357b15458ba} 
+double {\bfseries threshold}
+\item 
+\Hypertarget{class_gaussian_plume_1_1_contour_a91df3d08abf972e9eec03aeeb55c338e}\label{class_gaussian_plume_1_1_contour_a91df3d08abf972e9eec03aeeb55c338e} 
+string {\bfseries threshold\+Str}
+\item 
+\Hypertarget{class_gaussian_plume_1_1_contour_a17951d513acd6e476a8e15fd8dffcc98}\label{class_gaussian_plume_1_1_contour_a17951d513acd6e476a8e15fd8dffcc98} 
+string {\bfseries color}
+\item 
+\Hypertarget{class_gaussian_plume_1_1_contour_a4b98932ca570348b842b05b0a13d543e}\label{class_gaussian_plume_1_1_contour_a4b98932ca570348b842b05b0a13d543e} 
+vector$<$ \mbox{\hyperlink{class_gaussian_plume_1_1_gps_point}{Gps\+Point}} $>$ {\bfseries contour\+Points}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class describing the contour data for a single treshold. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & -\/ the treshold value \\
+\hline
+{\em threshold\+Str} & -\/ a string describing the treshold value \\
+\hline
+{\em color} & -\/ color of a treshold \\
+\hline
+{\em contour\+Points} & -\/ list of countour points of the treshold \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gaussian_plume_1_1_contour_a26ab9899249a58e1362f854ac17f24de}\label{class_gaussian_plume_1_1_contour_a26ab9899249a58e1362f854ac17f24de} 
+\index{GaussianPlume::Contour@{GaussianPlume::Contour}!contourPointsToJson@{contourPointsToJson}}
+\index{contourPointsToJson@{contourPointsToJson}!GaussianPlume::Contour@{GaussianPlume::Contour}}
+\doxysubsubsection{\texorpdfstring{contourPointsToJson()}{contourPointsToJson()}}
+{\footnotesize\ttfamily json Gaussian\+Plume\+::\+Contour\+::contour\+Points\+To\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A method for converting contour point data into a JSON format. 
+
+\begin{DoxyReturn}{Returns}
+A JSON containing contour point data 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_1_1_contour_a26ab9899249a58e1362f854ac17f24de_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gaussian_plume_1_1_contour_a03716a9a74a3b077d6a493b9c92436b1}\label{class_gaussian_plume_1_1_contour_a03716a9a74a3b077d6a493b9c92436b1} 
+\index{GaussianPlume::Contour@{GaussianPlume::Contour}!toJson@{toJson}}
+\index{toJson@{toJson}!GaussianPlume::Contour@{GaussianPlume::Contour}}
+\doxysubsubsection{\texorpdfstring{toJson()}{toJson()}}
+{\footnotesize\ttfamily json Gaussian\+Plume\+::\+Contour\+::to\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A method for converting threshold, color and contour points into a JSON format. 
+
+\begin{DoxyReturn}{Returns}
+A JSON containing threshold, color and contour points 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_gaussian_plume_1_1_contour_a03716a9a74a3b077d6a493b9c92436b1_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Math\+Test/Gaussian\+Plume.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,77 @@
+<h2 mat-dialog-title>Measurement settings description</h2>
+<mat-dialog-content>    
+    <h3>Menu icon</h3>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- Ikona menu pozwala użytkownikowi na wysunięcie lub ukrycie panelu konfiguracyjnego
+        zawierającego formularz z parametrami pomiaru rozprzestrzeniania się zanieczyszczeń. -->
+        The menu icon allows users to show or hide the left configuration panel, which contains
+        a form with the air pollution dispersion parameters.
+    </p>
+    <h3>Detector</h3>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- Lista detektorów zawiera wszystkie dostępne dla danej lokalizacji (kraj, województwo, miejscowość) urządzenia. Każdy czujnik
+        przekazuje informacje o swoim identyfikatorze (#00000) oraz podanych w nawiasach współrzędnych geograficznych w postaci ułamka dziesiętnego (standard WGS 84). -->
+        The list of detectors contains all available devices for the chosen location (country, state, city). Every detector conveys information about its ID number (#00000)
+        and geographical coordinates in decimals (WGS 84 standard).
+    </p>
+    <h3>Date and Time</h3>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- W polach kalendarza i czasu możliwe jest podanie dnia oraz wskazanie przedziału godzinowego, dla którego ma zostać przeprowadzone badanie. -->
+        The day and time period for measurement can be set by users using the calendar and time fields.
+    </p>
+    <h3>Pollution Type</h3>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- System umożliwia badanie zanieczyszczeń dla trzech rodzajów związków chemicznych: tlenku węgla, tlenków azotu oraz węglowodorów. -->
+        The system allows for the measurement of air pollution for three types of chemical compounds: carbon monoxide (CO),
+        nitrogen oxides (NOx), and hydrocarbons (CH).
+    </p>
+    <h3>Weather stability</h3>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- Stan równowagi atmosfery opisuje pionowe ruchy powietrza. Parametr stanu równowagi jest kombinacją czynników:
+        termicznego i dynamicznego, tzn. gradientu temperatury i prędkości wiatru. Wyróżnia się 6 stanów równowagi atmosfery:
+        silnie chwiejna, chwiejna, lekko chwiejna, obojętna, lekko stała, stała. -->
+        Weather stability refers to the vertical movement of air. Its parameter is a combination of thermal and dynamic factors, i.e.
+        temperature gradient and wind speed. Six weather stability states can be distinguished:
+        extremely unstable, moderately unstable, slightly unstable, neutral, slightly stable and moderately stable.
+    </p>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'"> 
+        <!-- Stan stały równowagi atmosfery charakteryzuje się znaczną ilością cisz (około 50%). Stwarza to niekorzystne warunki rozprzestrzeniania się zanieczyszczeń, co prowadzi do
+        występowania dużych stężeń zanieczyszczeń w tych stanach równowagi atmosfery.  -->
+        Weather stability that is stable is characterized by a significant number of calm periods (about 50%). This creates a
+        disadvantageous condition for air pollution dispersion, which leads to the appearance of large pollution concentration
+        in these stability states.
+    </p>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- Niekorzystne warunki rozprzestrzeniania się zanieczyszczeń
+        stwierdza się również w stanach 1. i 2. (równowaga silnie chwiejna i chwiejna), kiedy występują znaczne
+        nieuporządkowane ruchy pionowe powietrza. -->
+        Disadvantageous air pollution dispersion conditions are also met in the 1st and 2nd states (extremely unstable and moderately unstable) when significant
+        disordered vertical air movements occur. 
+    </p>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- Najkorzystniejszy rozkład zanieczyszczeń występuje w 4. stanie równowagi
+        atmosfery (równowaga obojętna). Znaczny udział wiatrów o dużych prędkościach i stosunkowo niewielkie ruchy pionowe
+        powietrza powodują rozproszenie zanieczyszczeń w dużych odległościach od emitorów, a tym samym zmniejszenie stężeń. -->
+        The most advantageous air pollution distribution occurs for the 4th weather stability (neutral). The significant share
+        of high-speed winds and relatively small vertical air movements cause dispersion of air pollution at great distances
+        from the emitters, which leads to reduction of air pollution concentration.
+    </p>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- Stany równowagi atmosfery dla przedmiotowej lokalizacji przeanalizowano w oparciu o dane stacji IMGW w
+        Aleksandrowicach. Najczęściej występującym stanem równowagi atmosfery jest równowaga obojętna. -->
+        Weather stabilities for the specified location were analyzed based on data from the IMGW station in Aleksandrowice. The most often occurring weather stability has been neutral state.
+    </p>
+    <h3>Vehicle types</h3>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- To pole formularza pozwala na wybranie jednego lub większej liczby typów pojazdów, dla których przeprowadzony zostanie pomiar rozprzestrzeniania się zanieczyszczeń powietrza. -->
+        This form field allows for the selection of one or multiple vehicle types, for which air pollution dispersion will be measured.
+    </p>
+    <h3>Area slider</h3>
+    <p [ngClass]="'pDesktop'" [ngClass.sm]="'pPhone'" [ngClass.xs]="'pPhone'">
+        <!-- Suwak pola powierzchni umożliwia dostosowanie wielkości obszaru, dla którego przeprowadzone zostaną obliczenia. -->
+        The area slider allows the adjustment of the size of the field, for which the calculations will be performed.
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button mat-dialog-close class="closeButton" color="success">Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,25 @@
+<map id="basic_json::patch_inplace" name="basic_json::patch_inplace">
+<area shape="rect" id="Node000001" title="applies a JSON patch in&#45;place without copying the object" alt="" coords="5,259,177,285"/>
+<area shape="rect" id="Node000002" href="$classbasic__json.html#a899e4623fe377af5c9ad14c40c64280c" title="access specified array element with bounds checking" alt="" coords="251,5,353,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,258,109,216,135,158,173,96,196,67,223,42,235,34,238,38,226,46,200,71,177,99,140,161,114,218,99,259"/>
+<area shape="rect" id="Node000003" href="$classbasic__json.html#a0d93dc1dbdf67a6ee3a5cf1d2439ca77" title="access the last element" alt="" coords="242,56,362,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="97,257,114,224,142,180,179,133,223,93,231,88,234,92,226,97,183,137,146,183,119,226,101,259"/>
+<area shape="rect" id="Node000004" href="$classbasic__json.html#a5251a08382864af52c854fca1bdba61c" title="returns an iterator to the first element" alt="" coords="241,107,363,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,256,150,202,185,171,223,143,234,138,236,142,226,148,188,175,154,206,105,260"/>
+<area shape="rect" id="Node000005" href="$classbasic__json.html#a4dbc83213b31a171aa8ba65ff00fa954" title="returns an iterator to one past the last element" alt="" coords="246,157,358,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="112,256,162,226,224,194,238,187,241,192,226,198,164,230,115,261"/>
+<area shape="rect" id="Node000006" href="$classbasic__json.html#a7d0fef086b1b72372113db6ce7446189" title="remove element given an iterator" alt="" coords="240,208,364,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="149,255,228,236,229,241,150,261"/>
+<area shape="rect" id="Node000007" href="$classbasic__json.html#a727e3cfb5a874314d8deb12cb53a8105" title="find an element in a JSON object" alt="" coords="246,259,358,285"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="177,269,230,269,230,275,177,275"/>
+<area shape="rect" id="Node000008" href="$classbasic__json.html#a7f3817060c2bec896a99cb2c236b9c27" title="inserts element into array" alt="" coords="240,309,364,336"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="150,283,229,303,228,308,149,289"/>
+<area shape="rect" id="Node000009" href="$classbasic__json.html#a184ba4a6b47e6da3703af19349bd776f" title="return whether value is an array" alt="" coords="233,360,371,387"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="115,283,164,314,226,346,241,352,238,357,224,350,162,318,112,288"/>
+<area shape="rect" id="Node000010" href="$classbasic__json.html#af355a2b131068acf3d623eb6d80a711c" title="return whether value is an object" alt="" coords="230,411,374,437"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="105,284,154,338,188,369,226,396,236,402,234,406,223,401,185,373,150,342,101,288"/>
+<area shape="rect" id="Node000011" href="$classbasic__json.html#a3d13acce4e49e0d5ee768643a7b89010" title="add an object to an array" alt="" coords="225,461,379,488"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="101,285,119,318,146,361,183,407,226,447,234,452,231,456,223,451,179,411,142,364,114,320,97,287"/>
+<area shape="rect" id="Node000012" href="$classbasic__json.html#a086cbfd1ad4ba83a8127c87467a92f47" title="returns the number of elements" alt="" coords="244,512,360,539"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="99,285,114,326,140,383,177,445,200,473,226,498,232,502,229,507,223,502,196,477,173,448,135,386,109,328,94,286"/>
+</map>

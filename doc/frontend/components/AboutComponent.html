@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>grass-next documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">grass-next documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AboutComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/about/about.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Represents the AboutComponent in the application.
+This component is responsible for displaying information
+related to the &quot;About&quot; section of the application.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-about</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./about.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./about.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+/**
+ * Represents the AboutComponent in the application.
+ * This component is responsible for displaying information
+ * related to the &quot;About&quot; section of the application.
+ *
+ */
+@Component({
+  selector: &#x27;app-about&#x27;,
+  templateUrl: &#x27;./about.component.html&#x27;,
+  styleUrl: &#x27;./about.component.css&#x27;
+})
+export class AboutComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;about&quot;&gt;
+    &lt;div class&#x3D;&quot;logo&quot;&gt;
+        &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;http://grass-next.am.szczecin.pl&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img src&#x3D;&quot;../assets/grass-next-logo.jpg&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;h1&gt;&lt;span class&#x3D;&quot;greenLetters&quot;&gt;GR&lt;/span&gt;een &lt;span class&#x3D;&quot;greenLetters&quot;&gt;A&lt;/span&gt;nd &lt;span class&#x3D;&quot;greenLetters&quot;&gt;S&lt;/span&gt;u&lt;span class&#x3D;&quot;greenLetters&quot;&gt;S&lt;/span&gt;tainable
+        – k&lt;span class&#x3D;&quot;greenLetters&quot;&gt;N&lt;/span&gt;owledge &lt;span class&#x3D;&quot;greenLetters&quot;&gt;EX&lt;/span&gt;panded freight &lt;span class&#x3D;&quot;greenLetters&quot;&gt;T&lt;/span&gt;ransport in cities&lt;/h1&gt;
+
+    &lt;div class&#x3D;&quot;spacer&quot;&gt;&lt;/div&gt;
+
+    &lt;p&gt;
+    Nowadays, urban areas face the challenge of making transport sustainable in environmental and competitiveness terms
+    while at the same time addressing social concerns. Due to that the municipalities, stakeholders and users of urban
+    freight transport are still looking for measures, which could reduce the negative impact of freight transport on city
+    environment. In recent years many activities have been realized in this area. However, to meet the high level of
+    efficiency and usefulness of sustainable, environmental friendly transport systems in cities, the appropriate, relevant
+    to the expectations of different stakeholders groups, implementation processes are needed. Due to that it is necessary
+    to test new independent methods and technology for data collection and data collection processes.
+    &lt;/p&gt;
+    &lt;p&gt;
+    By doing this, the project GRASS-NEXT (GReen And SuStainable – kNowledge EXpanded freight Transport in cities) will
+    increase the effectiveness of planning processes on different management levels, based on SMART objectives and plans.
+    The project will fulfil this gap by utilizing telematics solutions as well as utilization of web-based tools, which are
+    helpful for both businesses and authorities in the planning processes. The demonstration of data collection and data
+    collection systems will help to significantly increase the efficiency, sustainability and environmental impacts from
+    urban transport systems. Missing data on urban traffic flows is one of the barriers for planning and implementing
+    Sustainable Urban Logistics Plans (SULP’s). Better available data of traffic flows will help in the process to involve
+    the communities and different city users in the planning, implementation and development processes of preparing
+    Sustainable Urban Logistics Plans
+    &lt;/p&gt;
+
+    &lt;div class&#x3D;&quot;spacer&quot;&gt;&lt;/div&gt;
+    &lt;hr&gt;
+
+    &lt;div class&#x3D;&quot;sponsors&quot;&gt;
+        &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;https://www.gov.pl/web/ncbr-en&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img class&#x3D;&quot;ncbr&quot; src&#x3D;&quot;../assets/ncbr_alpha.svg&quot;&gt;&lt;/a&gt;
+        &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;https://eeagrants.org&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img class&#x3D;&quot;norwayGrants&quot; src&#x3D;&quot;../assets/norway_grants.png&quot;&gt;&lt;/a&gt;
+        &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;https://wiet.am.szczecin.pl/pl/&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img class&#x3D;&quot;politechnika&quot; src&#x3D;&quot;../assets/politechnika_morska.png&quot;&gt;&lt;/a&gt;
+        &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;https://www.toi.no/english/?lang&#x3D;en_GB&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img class&#x3D;&quot;toi&quot; src&#x3D;&quot;../assets/toi.png&quot;&gt;&lt;/a&gt;
+        &lt;a class&#x3D;&quot;imageLink&quot; href&#x3D;&quot;https://www.vitronic.com/en-us/corporate-home&quot; target&#x3D;&quot;_blank&quot;&gt;&lt;img class&#x3D;&quot;vitronic&quot; src&#x3D;&quot;../assets/vitronic.png&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="about">    <div class="logo">        <a class="imageLink" href="http://grass-next.am.szczecin.pl" target="_blank"><img src="../assets/grass-next-logo.jpg"></a>    </div>    <h1><span class="greenLetters">GR</span>een <span class="greenLetters">A</span>nd <span class="greenLetters">S</span>u<span class="greenLetters">S</span>tainable        – k<span class="greenLetters">N</span>owledge <span class="greenLetters">EX</span>panded freight <span class="greenLetters">T</span>ransport in cities</h1>    <div class="spacer"></div>    <p>    Nowadays, urban areas face the challenge of making transport sustainable in environmental and competitiveness terms    while at the same time addressing social concerns. Due to that the municipalities, stakeholders and users of urban    freight transport are still looking for measures, which could reduce the negative impact of freight transport on city    environment. In recent years many activities have been realized in this area. However, to meet the high level of    efficiency and usefulness of sustainable, environmental friendly transport systems in cities, the appropriate, relevant    to the expectations of different stakeholders groups, implementation processes are needed. Due to that it is necessary    to test new independent methods and technology for data collection and data collection processes.    </p>    <p>    By doing this, the project GRASS-NEXT (GReen And SuStainable – kNowledge EXpanded freight Transport in cities) will    increase the effectiveness of planning processes on different management levels, based on SMART objectives and plans.    The project will fulfil this gap by utilizing telematics solutions as well as utilization of web-based tools, which are    helpful for both businesses and authorities in the planning processes. The demonstration of data collection and data    collection systems will help to significantly increase the efficiency, sustainability and environmental impacts from    urban transport systems. Missing data on urban traffic flows is one of the barriers for planning and implementing    Sustainable Urban Logistics Plans (SULP’s). Better available data of traffic flows will help in the process to involve    the communities and different city users in the planning, implementation and development processes of preparing    Sustainable Urban Logistics Plans    </p>    <div class="spacer"></div>    <hr>    <div class="sponsors">        <a class="imageLink" href="https://www.gov.pl/web/ncbr-en" target="_blank"><img class="ncbr" src="../assets/ncbr_alpha.svg"></a>        <a class="imageLink" href="https://eeagrants.org" target="_blank"><img class="norwayGrants" src="../assets/norway_grants.png"></a>        <a class="imageLink" href="https://wiet.am.szczecin.pl/pl/" target="_blank"><img class="politechnika" src="../assets/politechnika_morska.png"></a>        <a class="imageLink" href="https://www.toi.no/english/?lang=en_GB" target="_blank"><img class="toi" src="../assets/toi.png"></a>        <a class="imageLink" href="https://www.vitronic.com/en-us/corporate-home" target="_blank"><img class="vitronic" src="../assets/vitronic.png"></a>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DialogLegendComponent', 'selector': 'app-dialog-legend'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PanelComponent', 'selector': 'app-panel'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AboutComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AboutComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

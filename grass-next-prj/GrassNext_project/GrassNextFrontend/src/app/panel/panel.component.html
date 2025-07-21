@@ -1,0 +1,9 @@
+<mat-sidenav-container> <!-- mode = "side", "push", "over" -->
+    <mat-sidenav [ngClass]="'sidenavFullScreen'" [ngClass.lt-md]="'sidenavMobile'" [(opened)]="this.toggleService.opened" mode="over">
+        <app-form></app-form>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <app-map></app-map>
+    </mat-sidenav-content>
+</mat-sidenav-container>

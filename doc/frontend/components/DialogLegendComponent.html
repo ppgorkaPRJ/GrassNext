@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>grass-next documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">grass-next documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DialogLegendComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/dialog-legend/dialog-legend.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>DialogLegendComponent is an Angular component that provides a dialog window containing a legend interface for
+the main window of the application.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dialog-legend</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dialog-legend.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./dialog-legend.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+/**
+ * DialogLegendComponent is an Angular component that provides a dialog window containing a legend interface for
+ * the main window of the application.
+ *
+ */
+@Component({
+  selector: &#x27;app-dialog-legend&#x27;,
+  templateUrl: &#x27;./dialog-legend.component.html&#x27;,
+  styleUrl: &#x27;./dialog-legend.component.css&#x27;
+})
+export class DialogLegendComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h2 mat-dialog-title&gt;Measurement settings description&lt;/h2&gt;
+&lt;mat-dialog-content&gt;    
+    &lt;h3&gt;Menu icon&lt;/h3&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- Ikona menu pozwala użytkownikowi na wysunięcie lub ukrycie panelu konfiguracyjnego
+        zawierającego formularz z parametrami pomiaru rozprzestrzeniania się zanieczyszczeń. --&gt;
+        The menu icon allows users to show or hide the left configuration panel, which contains
+        a form with the air pollution dispersion parameters.
+    &lt;/p&gt;
+    &lt;h3&gt;Detector&lt;/h3&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- Lista detektorów zawiera wszystkie dostępne dla danej lokalizacji (kraj, województwo, miejscowość) urządzenia. Każdy czujnik
+        przekazuje informacje o swoim identyfikatorze (#00000) oraz podanych w nawiasach współrzędnych geograficznych w postaci ułamka dziesiętnego (standard WGS 84). --&gt;
+        The list of detectors contains all available devices for the chosen location (country, state, city). Every detector conveys information about its ID number (#00000)
+        and geographical coordinates in decimals (WGS 84 standard).
+    &lt;/p&gt;
+    &lt;h3&gt;Date and Time&lt;/h3&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- W polach kalendarza i czasu możliwe jest podanie dnia oraz wskazanie przedziału godzinowego, dla którego ma zostać przeprowadzone badanie. --&gt;
+        The day and time period for measurement can be set by users using the calendar and time fields.
+    &lt;/p&gt;
+    &lt;h3&gt;Pollution Type&lt;/h3&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- System umożliwia badanie zanieczyszczeń dla trzech rodzajów związków chemicznych: tlenku węgla, tlenków azotu oraz węglowodorów. --&gt;
+        The system allows for the measurement of air pollution for three types of chemical compounds: carbon monoxide (CO),
+        nitrogen oxides (NOx), and hydrocarbons (CH).
+    &lt;/p&gt;
+    &lt;h3&gt;Weather stability&lt;/h3&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- Stan równowagi atmosfery opisuje pionowe ruchy powietrza. Parametr stanu równowagi jest kombinacją czynników:
+        termicznego i dynamicznego, tzn. gradientu temperatury i prędkości wiatru. Wyróżnia się 6 stanów równowagi atmosfery:
+        silnie chwiejna, chwiejna, lekko chwiejna, obojętna, lekko stała, stała. --&gt;
+        Weather stability refers to the vertical movement of air. Its parameter is a combination of thermal and dynamic factors, i.e.
+        temperature gradient and wind speed. Six weather stability states can be distinguished:
+        extremely unstable, moderately unstable, slightly unstable, neutral, slightly stable and moderately stable.
+    &lt;/p&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt; 
+        &lt;!-- Stan stały równowagi atmosfery charakteryzuje się znaczną ilością cisz (około 50%). Stwarza to niekorzystne warunki rozprzestrzeniania się zanieczyszczeń, co prowadzi do
+        występowania dużych stężeń zanieczyszczeń w tych stanach równowagi atmosfery.  --&gt;
+        Weather stability that is stable is characterized by a significant number of calm periods (about 50%). This creates a
+        disadvantageous condition for air pollution dispersion, which leads to the appearance of large pollution concentration
+        in these stability states.
+    &lt;/p&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- Niekorzystne warunki rozprzestrzeniania się zanieczyszczeń
+        stwierdza się również w stanach 1. i 2. (równowaga silnie chwiejna i chwiejna), kiedy występują znaczne
+        nieuporządkowane ruchy pionowe powietrza. --&gt;
+        Disadvantageous air pollution dispersion conditions are also met in the 1st and 2nd states (extremely unstable and moderately unstable) when significant
+        disordered vertical air movements occur. 
+    &lt;/p&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- Najkorzystniejszy rozkład zanieczyszczeń występuje w 4. stanie równowagi
+        atmosfery (równowaga obojętna). Znaczny udział wiatrów o dużych prędkościach i stosunkowo niewielkie ruchy pionowe
+        powietrza powodują rozproszenie zanieczyszczeń w dużych odległościach od emitorów, a tym samym zmniejszenie stężeń. --&gt;
+        The most advantageous air pollution distribution occurs for the 4th weather stability (neutral). The significant share
+        of high-speed winds and relatively small vertical air movements cause dispersion of air pollution at great distances
+        from the emitters, which leads to reduction of air pollution concentration.
+    &lt;/p&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- Stany równowagi atmosfery dla przedmiotowej lokalizacji przeanalizowano w oparciu o dane stacji IMGW w
+        Aleksandrowicach. Najczęściej występującym stanem równowagi atmosfery jest równowaga obojętna. --&gt;
+        Weather stabilities for the specified location were analyzed based on data from the IMGW station in Aleksandrowice. The most often occurring weather stability has been neutral state.
+    &lt;/p&gt;
+    &lt;h3&gt;Vehicle types&lt;/h3&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- To pole formularza pozwala na wybranie jednego lub większej liczby typów pojazdów, dla których przeprowadzony zostanie pomiar rozprzestrzeniania się zanieczyszczeń powietrza. --&gt;
+        This form field allows for the selection of one or multiple vehicle types, for which air pollution dispersion will be measured.
+    &lt;/p&gt;
+    &lt;h3&gt;Area slider&lt;/h3&gt;
+    &lt;p [ngClass]&#x3D;&quot;&#x27;pDesktop&#x27;&quot; [ngClass.sm]&#x3D;&quot;&#x27;pPhone&#x27;&quot; [ngClass.xs]&#x3D;&quot;&#x27;pPhone&#x27;&quot;&gt;
+        &lt;!-- Suwak pola powierzchni umożliwia dostosowanie wielkości obszaru, dla którego przeprowadzone zostaną obliczenia. --&gt;
+        The area slider allows the adjustment of the size of the field, for which the calculations will be performed.
+    &lt;/p&gt;
+&lt;/mat-dialog-content&gt;
+&lt;mat-dialog-actions align&#x3D;&quot;center&quot;&gt;
+    &lt;button mat-raised-button mat-dialog-close class&#x3D;&quot;closeButton&quot; color&#x3D;&quot;success&quot;&gt;Close&lt;/button&gt;
+&lt;/mat-dialog-actions&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h2 mat-dialog-title>Measurement settings description</h2><mat-dialog-content>        <h3>Menu icon</h3>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- Ikona menu pozwala użytkownikowi na wysunięcie lub ukrycie panelu konfiguracyjnego        zawierającego formularz z parametrami pomiaru rozprzestrzeniania się zanieczyszczeń. -->        The menu icon allows users to show or hide the left configuration panel, which contains        a form with the air pollution dispersion parameters.    </p>    <h3>Detector</h3>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- Lista detektorów zawiera wszystkie dostępne dla danej lokalizacji (kraj, województwo, miejscowość) urządzenia. Każdy czujnik        przekazuje informacje o swoim identyfikatorze (#00000) oraz podanych w nawiasach współrzędnych geograficznych w postaci ułamka dziesiętnego (standard WGS 84). -->        The list of detectors contains all available devices for the chosen location (country, state, city). Every detector conveys information about its ID number (#00000)        and geographical coordinates in decimals (WGS 84 standard).    </p>    <h3>Date and Time</h3>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- W polach kalendarza i czasu możliwe jest podanie dnia oraz wskazanie przedziału godzinowego, dla którego ma zostać przeprowadzone badanie. -->        The day and time period for measurement can be set by users using the calendar and time fields.    </p>    <h3>Pollution Type</h3>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- System umożliwia badanie zanieczyszczeń dla trzech rodzajów związków chemicznych: tlenku węgla, tlenków azotu oraz węglowodorów. -->        The system allows for the measurement of air pollution for three types of chemical compounds: carbon monoxide (CO),        nitrogen oxides (NOx), and hydrocarbons (CH).    </p>    <h3>Weather stability</h3>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- Stan równowagi atmosfery opisuje pionowe ruchy powietrza. Parametr stanu równowagi jest kombinacją czynników:        termicznego i dynamicznego, tzn. gradientu temperatury i prędkości wiatru. Wyróżnia się 6 stanów równowagi atmosfery:        silnie chwiejna, chwiejna, lekko chwiejna, obojętna, lekko stała, stała. -->        Weather stability refers to the vertical movement of air. Its parameter is a combination of thermal and dynamic factors, i.e.        temperature gradient and wind speed. Six weather stability states can be distinguished:        extremely unstable, moderately unstable, slightly unstable, neutral, slightly stable and moderately stable.    </p>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">         <!-- Stan stały równowagi atmosfery charakteryzuje się znaczną ilością cisz (około 50%). Stwarza to niekorzystne warunki rozprzestrzeniania się zanieczyszczeń, co prowadzi do        występowania dużych stężeń zanieczyszczeń w tych stanach równowagi atmosfery.  -->        Weather stability that is stable is characterized by a significant number of calm periods (about 50%). This creates a        disadvantageous condition for air pollution dispersion, which leads to the appearance of large pollution concentration        in these stability states.    </p>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- Niekorzystne warunki rozprzestrzeniania się zanieczyszczeń        stwierdza się również w stanach 1. i 2. (równowaga silnie chwiejna i chwiejna), kiedy występują znaczne        nieuporządkowane ruchy pionowe powietrza. -->        Disadvantageous air pollution dispersion conditions are also met in the 1st and 2nd states (extremely unstable and moderately unstable) when significant        disordered vertical air movements occur.     </p>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- Najkorzystniejszy rozkład zanieczyszczeń występuje w 4. stanie równowagi        atmosfery (równowaga obojętna). Znaczny udział wiatrów o dużych prędkościach i stosunkowo niewielkie ruchy pionowe        powietrza powodują rozproszenie zanieczyszczeń w dużych odległościach od emitorów, a tym samym zmniejszenie stężeń. -->        The most advantageous air pollution distribution occurs for the 4th weather stability (neutral). The significant share        of high-speed winds and relatively small vertical air movements cause dispersion of air pollution at great distances        from the emitters, which leads to reduction of air pollution concentration.    </p>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- Stany równowagi atmosfery dla przedmiotowej lokalizacji przeanalizowano w oparciu o dane stacji IMGW w        Aleksandrowicach. Najczęściej występującym stanem równowagi atmosfery jest równowaga obojętna. -->        Weather stabilities for the specified location were analyzed based on data from the IMGW station in Aleksandrowice. The most often occurring weather stability has been neutral state.    </p>    <h3>Vehicle types</h3>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- To pole formularza pozwala na wybranie jednego lub większej liczby typów pojazdów, dla których przeprowadzony zostanie pomiar rozprzestrzeniania się zanieczyszczeń powietrza. -->        This form field allows for the selection of one or multiple vehicle types, for which air pollution dispersion will be measured.    </p>    <h3>Area slider</h3>    <p [ngClass]="\'pDesktop\'" [ngClass.sm]="\'pPhone\'" [ngClass.xs]="\'pPhone\'">        <!-- Suwak pola powierzchni umożliwia dostosowanie wielkości obszaru, dla którego przeprowadzone zostaną obliczenia. -->        The area slider allows the adjustment of the size of the field, for which the calculations will be performed.    </p></mat-dialog-content><mat-dialog-actions align="center">    <button mat-raised-button mat-dialog-close class="closeButton" color="success">Close</button></mat-dialog-actions></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DialogLegendComponent', 'selector': 'app-dialog-legend'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PanelComponent', 'selector': 'app-panel'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DialogLegendComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DialogLegendComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

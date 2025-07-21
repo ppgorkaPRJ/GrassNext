@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* .mat-mdc-snack-bar-container {
+    --mat-mdc-snack-bar-button-color: cornflowerblue !important;
+    --mdc-snackbar-container-color: cornflowerblue !important;
+    --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+    color: white;
+    background: white;
+    color: black;
+} */
+
+.mat-success:not([disabled]) {
+    background-color: #008956 !important;
+    color: #fff !important;
+}
+
+.mat-mdc-slider {
+    --mdc-slider-handle-color: #008956;
+    --mdc-slider-focus-handle-color: ##008956;
+    --mdc-slider-hover-handle-color: #008956;
+    --mdc-slider-active-track-color: #008956;
+    --mdc-slider-inactive-track-color: #008956;
+    --mdc-slider-with-tick-marks-active-container-color: #008956;
+    --mdc-slider-with-tick-marks-inactive-container-color: #008956;
+    --mat-mdc-slider-ripple-color: #008956;
+    --mat-mdc-slider-hover-ripple-color: #0089574d;
+    --mat-mdc-slider-focus-ripple-color: #0089578d;
+
+    --mdc-slider-label-container-color: #c7cedc;
+    --mdc-slider-label-label-text-color: black;
+    --mdc-slider-disabled-handle-color: #008956;
+    --mdc-slider-disabled-active-track-color: #008956;
+    --mdc-slider-disabled-inactive-track-color: #008956;
+    --mdc-slider-with-tick-marks-disabled-container-color: #008956;
+    --mat-mdc-slider-value-indicator-opacity: 0.9;
+}

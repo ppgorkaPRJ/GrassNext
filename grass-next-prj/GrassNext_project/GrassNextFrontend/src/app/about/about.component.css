@@ -1,0 +1,67 @@
+.about {
+    padding: 50px 10% 0% 10%;
+    text-align: justify;
+}
+
+.spacer {
+    padding-bottom: 50px;
+}
+
+.logo {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+img {
+    width: 250px;
+    padding-bottom: 50px;
+}
+
+.sponsors {
+    text-align: center;
+    position: relative;
+}
+
+.ncbr {
+    height: 150px;
+    object-fit: scale-down;
+    margin: 20px;
+}
+
+.norwayGrants {
+    height: 150px;
+    object-fit: scale-down;
+    margin: 20px;
+}
+
+.politechnika {
+    height: 150px;
+    object-fit: scale-down;
+    margin: 20px;
+}
+
+.toi {
+    height: 150px;
+    object-fit: scale-down;
+    margin: 20px;
+}
+
+.vitronic {
+    height: 150px;
+    object-fit: scale-down;
+    margin: 20px;
+}
+
+.greenLetters {
+    font-weight: bolder;
+    color: rgba(148, 155, 47, 255);
+}
+
+p {
+    font-size: 16px;
+    text-indent: 2em;
+}

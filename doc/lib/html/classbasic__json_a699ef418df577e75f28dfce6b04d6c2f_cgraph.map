@@ -1,0 +1,17 @@
+<map id="basic_json::diff" name="basic_json::diff">
+<area shape="rect" id="Node000001" title="creates a diff as a JSON patch" alt="" coords="5,132,113,159"/>
+<area shape="rect" id="Node000002" href="$classbasic__json.html#a5251a08382864af52c854fca1bdba61c" title="returns an iterator to the first element" alt="" coords="177,5,299,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,130,105,87,131,63,159,42,169,36,171,41,162,46,134,67,109,91,73,133"/>
+<area shape="rect" id="Node000003" href="$classbasic__json.html#a4dbc83213b31a171aa8ba65ff00fa954" title="returns an iterator to one past the last element" alt="" coords="182,56,294,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,129,160,92,176,86,178,91,162,97,87,134"/>
+<area shape="rect" id="Node000004" href="$namespacedetail.html#af2a9ce4740e0b45d33129e2c8e53a0a8" title="string escaping as described in RFC 6901 (Sect. 4)" alt="" coords="187,107,289,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="113,135,171,127,172,132,114,140"/>
+<area shape="rect" id="Node000006" href="$classbasic__json.html#a7f3817060c2bec896a99cb2c236b9c27" title="inserts element into array" alt="" coords="176,157,300,184"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="114,150,161,157,160,162,113,156"/>
+<area shape="rect" id="Node000007" href="$classbasic__json.html#a3d13acce4e49e0d5ee768643a7b89010" title="add an object to an array" alt="" coords="161,208,315,235"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="87,157,162,194,178,200,176,205,160,198,84,162"/>
+<area shape="rect" id="Node000008" href="$classbasic__json.html#a086cbfd1ad4ba83a8127c87467a92f47" title="returns the number of elements" alt="" coords="180,259,296,285"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="73,157,109,200,134,224,162,244,171,250,169,254,159,249,131,228,105,204,68,161"/>
+<area shape="rect" id="Node000005" href="$namespacedetail.html#a6fd295e53b1dd4f46e235e6afee26d5e" title="replace all occurrences of a substring by another string" alt="" coords="363,107,525,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="290,117,347,117,347,123,290,123"/>
+</map>

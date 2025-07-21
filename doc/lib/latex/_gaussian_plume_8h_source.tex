@@ -1,0 +1,193 @@
+\doxysection{Gaussian\+Plume.\+h}
+\hypertarget{_gaussian_plume_8h_source}{}\label{_gaussian_plume_8h_source}\index{MathTest/GaussianPlume.h@{MathTest/GaussianPlume.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ Java\_JAVA\_JNI\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ Java\_JAVA\_JNI\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}jni.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}json.hpp"{}}\ \ \ \ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ namespace\ }cv;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }nlohmann::json;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ JNIEXPORT\ jstring\ JNICALL\ Java\_com\_grassnext\_grassnextserver\_jni\_GrassNextJni\_Echo(JNIEnv\ *\ env,\ jclass\ \textcolor{comment}{/*\ this\ */});}
+\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ JNIEXPORT\ jstring\ JNICALL\ Java\_com\_grassnext\_grassnextserver\_jni\_GrassNextJni\_Count(JNIEnv\ *\ env,\ jclass\ \textcolor{comment}{/*\ this\ */},\ jstring\ jStr);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vehicle}{Vehicle}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gaussian_plume}{GaussianPlume}}\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_gaussian_plume_a24a3c0f90897fd725243faeb604f36e1}{GaussianPlume}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *jsonIn);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_gaussian_plume_a7280eb224c2b377cdd983cef46029beb}{gaussianPlume}}();}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_gaussian_plume_a26bbbea7e2ffe376b8fa798714221280}{\string~GaussianPlume}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z;}
+\DoxyCodeLine{00084\ \ \ \ \ \}\ \mbox{\hyperlink{struct_gaussian_plume_1_1_sigmas}{Sigmas}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Q;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ windSpeed;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ windDir;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ xs;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ys;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ H;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ weatherStab;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isLast;}
+\DoxyCodeLine{00114\ \ \ \ \ \}\ \mbox{\hyperlink{struct_gaussian_plume_1_1_gaussian_params}{GaussianParams}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ roadStartLat;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ roadStartLon;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ roadEndLat;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ roadEndLon;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ windSpeed;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ windDirection;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pollution;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ emittersHeight;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ weatherStability;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ resolution;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ matrixSize;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ matrixSizeStart;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ matrixSizeEnd;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ concentrationHeight;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ thresholds;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ vector<double>\ thresholdList;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ divMatrixSide;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mean;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ stdDev;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ vector<nlohmann::json>\ vehicles;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ vector<GaussianParams>\ gpv;}
+\DoxyCodeLine{00165\ \ \ \ \ \}\ \mbox{\hyperlink{struct_gaussian_plume_1_1_plume_params}{PlumeParams}};}
+\DoxyCodeLine{00166\ \ \ \ \ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ min;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sum;}
+\DoxyCodeLine{00178\ \ \ \ \ \}\ \mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{MinMax}};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gaussian_plume_1_1_gps_point}{GpsPoint}}\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ json\ \mbox{\hyperlink{class_gaussian_plume_1_1_gps_point_a2a788260760dbd9bf137df76e196af89}{toJson}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}lat"{}},\ latitude\},}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}lon"{}},\ longitude\}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gaussian_plume_1_1_contour}{Contour}}\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ threshold;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ thresholdStr;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ color;}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ vector<GpsPoint>\ contourPoints;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ json\ \mbox{\hyperlink{class_gaussian_plume_1_1_contour_a26ab9899249a58e1362f854ac17f24de}{contourPointsToJson}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ json\ arrayJson\ =\ json::array();}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ p\ :\ contourPoints)\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayJson.push\_back(p.toJson());}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ arrayJson;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ json\ \mbox{\hyperlink{class_gaussian_plume_1_1_contour_a03716a9a74a3b077d6a493b9c92436b1}{toJson}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}threshold"{}},\ thresholdStr\},}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}color"{}},\ color\},}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}points"{}},\ \mbox{\hyperlink{class_gaussian_plume_1_1_contour_a26ab9899249a58e1362f854ac17f24de}{contourPointsToJson}}()\}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gaussian_plume_1_1_contours}{Contours}}\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ error;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ msg;}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ duration;}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ vector<Contour>\ contourList;}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ json\ \mbox{\hyperlink{class_gaussian_plume_1_1_contours_a53a291991078b05a52dd2f080b8ca558}{contourListToJson}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ json\ arrayJson\ =\ json::array();}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ c\ :\ contourList)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayJson.push\_back(c.toJson());}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ arrayJson;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ json\ \mbox{\hyperlink{class_gaussian_plume_1_1_contours_af26e4952a59cbae89c326cde2a811f15}{toJson}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_gaussian_plume_1_1_contours_a53a291991078b05a52dd2f080b8ca558}{contourListToJson}}();}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00292\ \ \ \ \ json\ \mbox{\hyperlink{class_gaussian_plume_afafcfe182b3d2682570536d810b71718}{prepareJson}}(\textcolor{keywordtype}{double}\ secDuration);}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_gaussian_plume_a7f1fcca17cea571f8e12dedabc82558a}{EARTH\_RADIUS}}\ =\ 6378.0;}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00305\ \ \ \ \ \mbox{\hyperlink{struct_gaussian_plume_1_1_plume_params}{PlumeParams}}\ \mbox{\hyperlink{class_gaussian_plume_a4ff02161c43e4e22a3cff6dc7a8f7031}{pp}}\ =\ \{\ 0\ \};}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordtype}{double}\ **\mbox{\hyperlink{class_gaussian_plume_a74cb68e5f1bf7ed6c3e544397027b46c}{C1}};}
+\DoxyCodeLine{00316\ \ \ \ \ \mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{MinMax}}\ **\mbox{\hyperlink{class_gaussian_plume_a816f949872a16e03389c636b3a965471}{minMax}};}
+\DoxyCodeLine{00322\ \ \ \ \ \mbox{\hyperlink{struct_gaussian_plume_1_1_min_max}{MinMax}}\ \mbox{\hyperlink{class_gaussian_plume_aec4fffe9197f8146a420a9f3f0184547}{minMaxMatrix}};}
+\DoxyCodeLine{00328\ \ \ \ \ \mbox{\hyperlink{class_gaussian_plume_1_1_contours}{Contours}}\ \mbox{\hyperlink{class_gaussian_plume_a71993d35ff27ebe7d324007d67ac8fd3}{contours}};}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gaussian_plume_a133659d868e81834728e67c2fc54d763}{gaussianPlumeModel}}();}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gaussian_plume_a5b4016002934ee6085b22883bfc61f43}{calculateEmitters}}(\textcolor{keywordtype}{int}\ fragmentX,\ \textcolor{keywordtype}{int}\ fragmentY,\ \textcolor{keywordtype}{int}\ xStart,\ \textcolor{keywordtype}{int}\ yStart,\ \textcolor{keywordtype}{int}\ xEnd,\ \textcolor{keywordtype}{int}\ yEnd);}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_gaussian_plume_aec6af109d74f06b49e82c024088752e4}{gaussianFunction}}(\mbox{\hyperlink{struct_gaussian_plume_1_1_gaussian_params}{GaussianParams}}\&\ gp);}
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gaussian_plume_a1483f355ad48fc6a97fddcaa1f5e3bd9}{calculateSigmas}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{int}\ weatherStab,\ \mbox{\hyperlink{struct_gaussian_plume_1_1_sigmas}{Sigmas}}\&\ sigmas);}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_gaussian_plume_a840a026c589a5e2764a284e5e42e298a}{haversineDistance}}(\textcolor{keywordtype}{double}\ lat1,\ \textcolor{keywordtype}{double}\ lon1,\ \textcolor{keywordtype}{double}\ lat2,\ \textcolor{keywordtype}{double}\ lon2);}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_gaussian_plume_a5e05d4a460fc4e231cb0b3781a590dc6}{azimuth}}(\textcolor{keywordtype}{double}\ lat1,\ \textcolor{keywordtype}{double}\ lon1,\ \textcolor{keywordtype}{double}\ lat2,\ \textcolor{keywordtype}{double}\ lon2);}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_gaussian_plume_a729c6ab29f5aad2c119a7a8eca6864b3}{toRadians}}(\textcolor{keywordtype}{double}\ degrees);}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_gaussian_plume_a56776051ccbe0c235cf3f633224487b9}{toDegrees}}(\textcolor{keywordtype}{double}\ radians);}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gaussian_plume_a1f98dc5214b3e1da84f5a183f37b950e}{calculateStdDev}}();}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gaussian_plume_a691fd68b4e9a594abab771730cd4670b}{findOptimalThresholds}}();}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gaussian_plume_acb92934a2571d6f921b70507af07a9eb}{findIsolines}}(\textcolor{keywordtype}{int}\ contourIdx);}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gaussian_plume_a7102f04110c0ecf93bac244d36057fed}{createContours}}();}
+\DoxyCodeLine{00418\ \};}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00427\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vehicle}{Vehicle}}\ \{}
+\DoxyCodeLine{00428\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ chosen;}
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ count;}
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordtype}{double}\ \ avgVelocity;}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00437\ \ \ \ \ \mbox{\hyperlink{class_vehicle_a14cfca951d152a2315fb2ec6750db478}{Vehicle}}(\textcolor{keyword}{const}\ nlohmann::json\&\ json)\ \{}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (json.contains(\textcolor{stringliteral}{"{}chosen"{}})\ \&\&\ json.contains(\textcolor{stringliteral}{"{}count"{}})\ \&\&\ json.contains(\textcolor{stringliteral}{"{}avgVelocity"{}}))\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ chosen\ =\ json[\textcolor{stringliteral}{"{}chosen"{}}];}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ count\ =\ json[\textcolor{stringliteral}{"{}count"{}}];}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ avgVelocity\ =\ json[\textcolor{stringliteral}{"{}avgVelocity"{}}];}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ invalid\_argument(\textcolor{stringliteral}{"{}Lack\ of\ necessary\ data\ in\ JSON\ object."{}});}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00446\ \ \ \ \ \}}
+\DoxyCodeLine{00447\ \};}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//Java\_JAVA\_JNI\_H}}
+
+\end{DoxyCode}
