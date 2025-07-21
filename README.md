@@ -76,7 +76,7 @@ s.iwan@pm.szczecin.pl
 Kinga Kijewska  
 k.kijewska@pm.szczecin.pl
 
-Michał Żuchora
+Michał Żuchora  
 Michal.Zuchora@vitronic.com
 
 # Licenses
