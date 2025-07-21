@@ -53,7 +53,7 @@ The application server is run through the .jar file in the <a href="./grass-next
 
 # Projects
 
-The source code of all parts of the application can be found in the <a href="./grass-next-app" target="_blank">folder</a>. It consists of 3 parts:
+The source code of all parts of the application can be found in the <a href="./grass-next-prj" target="_blank">folder</a>. It consists of 3 parts:
 - <a href="./grass-next-prj/GrassNext_project/GrassNextFrontend" target="_blank">frontend application project</a>
 - <a href="./grass-next-prj/GrassNext_project/GrassNextServer" target="_blank">backend server project</a>
 - <a href="./grass-next-prj/MathTest" target="_blank">external library project</a>
