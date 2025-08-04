@@ -53,7 +53,7 @@ The application server is run through the .jar file in the <a href="./grass-next
 
 ## Database
 
-A database needs to be created using PostgreSQL. The password and login are set by default to "postgres". This can be configured based on database requirements through the <a href="./grass-next-app/backend/application.properties" target="_blank">application.properties</a> file.
+A database named "grass-next" needs to be created using PostgreSQL. The password and login are set by default to "postgres". This can be configured based on database requirements through the <a href="./grass-next-app/backend/application.properties" target="_blank">application.properties</a> file.
 
 # Projects
 
