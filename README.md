@@ -98,7 +98,7 @@ The application by default runs the server on port 8787, which can be seen in th
 The application requires a PostgreSQL database with a database named "grass-next". The default connection settings are as follows:
 - URL: `jdbc:postgresql://localhost:5432/grass-next`
 - Username: `postgres`
-- Password: `admin`
+- Password: `postgres`
 
 These parameters can be adjusted in the <a href="./grass-next-app/backend/application.properties" target="_blank">application.properties</a> file, which is located in the `src/main/resources/` directory. The database structure will be automatically updated based on the JPA entities defined in the application, eliminating the need for manual creation of tables and relationships. It stores information about locations, topographic data, pollution types, weather data, weather stability calssed and vehicle groups necessary for the proper functioning of the air pollution dispersion simulation according to the Gaussian Plume model. The database schema is managed by JPA and Hibernate, allowing for easy expansion of the system with new functionalities.
 
