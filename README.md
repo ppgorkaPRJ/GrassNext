@@ -20,6 +20,8 @@ The online version of the application is available through the [green-tronic.org
 # Requirements
 
 ## Minimal version requirements to run the application:
+- Operating system
+  - Windows 11
 - Frontend
   - **Nginx**: 1.25.2
 - Backend
