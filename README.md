@@ -21,7 +21,7 @@ The online version of the application is available through the [green-tronic.org
 
 ## Minimal version requirements to run the application:
 - Frontend
-  - **nginx**: 1.25.2
+  - **Nginx**: 1.25.2
 - Backend
   - **Java**: 17
 
@@ -39,21 +39,68 @@ The online version of the application is available through the [green-tronic.org
 
 # How to run the application
 
-All files necessary to launch the application are in the <a href="./grass-next-app" target="_blank">grass-next-app</a> folder.
-
 ## Frontend
 
-Launching the website requires the installation of an HTTP server of the user's choice. For the purpose of this project, nginx (version 1.25.2 or higher) was used. To run the frontend application, <a href="./grass-next-app/frontend" target="_blank">the frontend distribution files</a> need to be placed in the appropriate web server folder.
+All files necessary to launch the application are in the <a href="./grass-next-app" target="_blank">grass-next-app</a> folder.
+
+There are two main ways to run the frontend application:
+
+### 1. Development Mode
+To run the application in development mode (for development and testing purposes):
+
+1. Open a terminal and navigate to the main directory of the frontend project.
+2. Install all dependencies:
+``` bash
+   npm install
+```
+3. Run the development server:
+``` bash
+   ng serve
+```
+or
+``` bash
+   npm start
+```
+4. Open a browser and go to `http://localhost:4200/`.
+
+### Production Deployment (using Nginx)
+To run the production version of the application you need an HTTP server, with Nginx version 1.25.2 or higher recommended:
+1. Build the application in production mode:
+``` bash
+   ng build --configuration production
+```
+2. Production files will be generated in the `dist/grass-next` directory inside the project. Alternativeely, you can also use <a href="./grass-next-app/frontend" target="_blank">the attached frontend distribution files</a>.
+3. Copy the contents of the `dist/grass-next` directory or <a href="./grass-next-app/frontend" target="_blank">attached dist files</a> to the main directory of your Nginx server.
+4. Configure Nginx to handle the SPA (Single Page Application) by adding appropriate Nginx configuration. For more information follow official Nginx docummentation.
+5. Run the Nginx server inside the installation folder:
+``` bash
+   nginx.exe
+```
+6. If the files were changed, you can restart the Nginx server with the following command:
+``` bash
+   nginx.exe -s reload
+```
 
 ## Backend
 
-The application server is run through the .jar file in the <a href="./grass-next-app/backend" target="_blank">backend data folder</a>. It contains all the necessary files, including the compiled C++ library performing matrix calculations. To run the application, the user needs to install Java (version 17 or higher) and use the following command:
+The application server is run through the .jar file in the <a href="./grass-next-app/backend" target="_blank">backend data folder</a>. It contains all the necessary files, including the compiled C++ library performing matrix calculations. 
 
-`java -jar GrassNextServer-0.0.1-SNAPSHOT.jar`
+The application is distributed as a standalone JAR file (`GrassNextServer-0.0.1-SNAPSHOT.jar`), which contains all necessary components, including an integrated native C++ library written according to the C++20 standard. This library is dynamically loaded during server startup through the JNI (Java Native Interface), ensuring high performance for matrix calculations used in pollution dispersion simulations.
+The backend architecture follows the MVC (Model-View-Controller) pattern thanks to Spring MVC, and uses Spring Data JPA for persistent data storage. The application handles REST communication for data exchange with the Angular frontend. A key component is the `gaussianplume` module, which implements advanced calculations modeling air pollution dispersion.
 
-## Database
+To run the server, simply execute the command:
+``` bash
+java -jar GrassNextServer-0.0.1-SNAPSHOT.jar
+```
+The application by default runs the server on port 8787, which can be seen in the configuration in the file. Additionally, the server offers API documentation available through Swagger at . `application.properties``/swagger`
 
-A database named "grass-next" needs to be created using PostgreSQL. The password and login are set by default to "postgres". This can be configured based on database requirements through the <a href="./grass-next-app/backend/application.properties" target="_blank">application.properties</a> file.
+### Database
+The application requires a PostgreSQL database with a database named "grass-next". The default connection settings are as follows:
+- URL: `jdbc:postgresql://localhost:5432/grass-next`
+- Username: `postgres`
+- Password: `admin`
+
+These parameters can be adjusted in the <a href="./grass-next-app/backend/application.properties" target="_blank">application.properties</a> file, which is located in the `src/main/resources/` directory. The database structure will be automatically updated based on the JPA entities defined in the application, eliminating the need for manual creation of tables and relationships. It stores information about locations, topographic data, pollution types, weather data, weather stability calssed and vehicle groups necessary for the proper functioning of the air pollution dispersion simulation according to the Gaussian Plume model. The database schema is managed by JPA and Hibernate, allowing for easy expansion of the system with new functionalities.
 
 # Projects
 
