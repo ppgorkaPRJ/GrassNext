@@ -92,7 +92,7 @@ To run the server, simply execute the command:
 ``` bash
 java -jar GrassNextServer-0.0.1-SNAPSHOT.jar
 ```
-The application by default runs the server on port 8787, which can be seen in the configuration in the file. Additionally, the server offers API documentation available through Swagger at . `application.properties``/swagger`
+The application by default runs the server on port 8787, which can be seen in the configuration in the file. Additionally, the server offers API documentation available through Swagger at `/swagger` endpoint.
 
 ### Database
 The application requires a PostgreSQL database with a database named "grass-next". The default connection settings are as follows:
