@@ -51,16 +51,22 @@ The application server is run through the .jar file in the <a href="./grass-next
 
 `java -jar GrassNextServer-0.0.1-SNAPSHOT.jar`
 
+## Database
+
+A database named "grass-next" needs to be created using PostgreSQL. The password and login are set by default to "postgres". This can be configured based on database requirements through the <a href="./grass-next-app/backend/application.properties" target="_blank">application.properties</a> file.
+
 # Projects
 
-The source code of all parts of the application can be found in the <a href="./grass-next-app/backend" target="_blank">folder</a>. It consists of 3 parts:
+The source code of all parts of the application can be found in the <a href="./grass-next-prj" target="_blank">folder</a>. It consists of 3 parts:
 - <a href="./grass-next-prj/GrassNext_project/GrassNextFrontend" target="_blank">frontend application project</a>
-- <a href="./grass-next-prj/GrassNext_project/GrassNextBackend" target="_blank">backend server project</a>
+- <a href="./grass-next-prj/GrassNext_project/GrassNextServer" target="_blank">backend server project</a>
 - <a href="./grass-next-prj/MathTest" target="_blank">external library project</a>
 
 # Topographical data file
 
-An example of the topographical data file can be found <a href="./topo/topo-example.txt" target="_blank">here</a>. All files added through the local version of the application need to follow the same format. The website provided at [green-tronic.org](http://www.green-tronic.eu) doesn't allow users to upload custom files; all further actions must be consulted with VITRONIC.
+An example of the topographical data file can be found <a href="./grass-next-app/backend/topo_archive/topo-test.txt" target="_blank">here</a>. All files added through the local version of the application need to follow the same format. The website provided at [green-tronic.org](http://www.green-tronic.eu) doesn't allow users to upload custom files; all further actions must be consulted with VITRONIC.
+
+While running, the application monitors changes in the <a href="./grass-next-app/backend/topo" target="_blank">topo</a> folder. Adding a file (e.g. the test topo file mentioned before) will result in creating a new database entry.
 
 # Authors
 
@@ -76,7 +82,7 @@ s.iwan@pm.szczecin.pl
 Kinga Kijewska  
 k.kijewska@pm.szczecin.pl
 
-Michał Żuchora
+Michał Żuchora  
 Michal.Zuchora@vitronic.com
 
 # Licenses
