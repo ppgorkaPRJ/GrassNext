@@ -115,6 +115,13 @@ An example of the topographical data file can be found <a href="./grass-next-app
 
 While running, the application monitors changes in the <a href="./grass-next-app/backend/topo" target="_blank">topo</a> folder. Adding a file (e.g. the test topo file mentioned before) will result in creating a new database entry.
 
+# Documentation
+-  <a href="./doc/user-doc" target="_blank">user documentation</a>
+-  <a href="./doc/frontend" target="_blank">frontend documentation</a>
+-  <a href="./doc/backend" target="_blank">backend documentation</a>
+-  <a href="./doc/lib" target="_blank">computational library documentation</a>
+
+
 # Authors
 
 Patryk Górka  
